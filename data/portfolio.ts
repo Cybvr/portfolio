@@ -2,48 +2,64 @@ import type { PortfolioProject } from '@/types/portfolio'
 
 export const projects: PortfolioProject[] = [
   {
-    id: "skeletonkey",
-    title: "Skeleton Key",
-    description: "Revolutionizes home buying and selling by removing traditional banks, allowing sellers to earn more and buyers to pay less monthly.",
-    content: "Skeleton Key transforms real estate transactions by eliminating traditional banking intermediaries, creating a more efficient marketplace for both buyers and sellers.",
-    featuredImage: "/images/portfolio/skeletonkey.jpg",
-    gallery: [],
-    industry: "Real Estate",
-    tags: ["Web Development", "WordPress", "Elementor"],
-    client: "Skeleton Key",
-    technologies: ["WordPress", "Elementor", "PHP"],
-    features: [
+    "id": "skeletonkey",
+    "title": "Skeleton Key",
+    "description": "Revolutionizes home buying and selling by removing traditional banks, allowing sellers to earn more and buyers to pay less monthly.",
+    "content": "Skeleton Key transforms real estate transactions by eliminating traditional banking intermediaries, creating a more efficient marketplace for both buyers and sellers.",
+    "featuredImage": "/images/portfolio/skeletonkey.jpg",
+    "gallery": [],
+    "industry": "Real Estate",
+    "tags": [
+      "Web Development",
+      "WordPress",
+      "Elementor"
+    ],
+    "client": "Skeleton Key",
+    "technologies": [
+      "WordPress",
+      "Elementor",
+      "PHP"
+    ],
+    "features": [
       "Bank-free transactions",
       "Lower monthly payments",
       "Higher seller earnings",
       "Streamlined process"
     ],
-    url: "https://withskeletonkey.com",
-    status: "published",
-    dateCreated: "2024-04-01",
-    dateUpdated: "2024-04-01"
+    "url": "https://withskeletonkey.com",
+    "status": "published",
+    "dateCreated": "2024-04-01",
+    "dateUpdated": "2024-04-01"
   },
   {
-    id: "bowmanwilliams",
-    title: "Bowman Williams",
-    description: "We Staff MSPs. Bowman Williams provides candidates possessing IT Managed Service Provider experience available for permanent hire.",
-    content: "Specialized staffing platform focused on connecting IT Managed Service Providers with experienced candidates for permanent positions.",
-    featuredImage: "/images/portfolio/bowmanwilliams.jpg",
-    gallery: [],
-    industry: "IT Staffing",
-    tags: ["Web Development", "WordPress", "Elementor"],
-    client: "Bowman Williams",
-    technologies: ["WordPress", "Elementor", "PHP"],
-    features: [
+    "id": "bowmanwilliams",
+    "title": "Bowman Williams",
+    "description": "We Staff MSPs. Bowman Williams provides candidates possessing IT Managed Service Provider experience available for permanent hire.",
+    "content": "Specialized staffing platform focused on connecting IT Managed Service Providers with experienced candidates for permanent positions.",
+    "featuredImage": "/images/portfolio/Screenshot 2024-12-24 at 04.30.51.png",
+    "gallery": [],
+    "industry": "IT Staffing",
+    "tags": [
+      "Web Development",
+      "WordPress",
+      "Elementor"
+    ],
+    "client": "Bowman Williams",
+    "technologies": [
+      "WordPress",
+      "Elementor",
+      "PHP"
+    ],
+    "features": [
       "MSP staffing focus",
       "Permanent placement",
       "Candidate screening",
       "Industry expertise"
     ],
-    url: "https://bowmanwilliams.com",
-    status: "published",
-    dateCreated: "2024-04-01",
-    dateUpdated: "2024-04-01"
+    "url": "https://bowmanwilliams.com",
+    "status": "published",
+    "dateCreated": "2024-04-01",
+    "dateUpdated": "2024-12-24"
   },
   {
     "id": "prune",
