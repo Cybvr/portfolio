@@ -9,9 +9,9 @@ import { projects } from '@/data/portfolio';
 export default function Page() {
   return (
     <div className="w-full bg-background text-foreground">
-      <div className="max-w-5xl mx-auto px-4 py-12">
-        <section className="mb-16">
-          <div className="flex flex-col md:flex-row items-center gap-8">
+      <div className="p-12">
+        <section className="mb-16  rounded-3xl p-8">
+          <div className="flex flex-col md:flex-row items-center gap-8 bg-card">
             <div className="w-full md:w-2/3">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
                 Digital Craftsman
@@ -49,7 +49,7 @@ export default function Page() {
         </section>
 
         <section className="mb-16">
-          <h2 className="text-2xl font-bold mb-8">Selected Work</h2>
+          <h2 className="bg-card text-2xl font-bold mb-8">Selected Work</h2>
           <div className="grid md:grid-cols-4 gap-8">
             {projects.slice(0, 4).map((project) => (
               <div key={project.id} className="group">
