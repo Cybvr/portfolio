@@ -55,9 +55,23 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
     });
   };
 
-  const handleSave = () => {
-    onSave(editedProject);
-    setOpen(false);
+  const handleSave = async () => {
+    try {
+      const response = await fetch('/api/portfolio/update', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(projects.map(p => p.id === editedProject.id ? editedProject : p))
+      });
+      
+      if (response.ok) {
+        onSave(editedProject);
+        setOpen(false);
+      }
+    } catch (error) {
+      console.error('Save failed:', error);
+    }
   };
 
   return (
