@@ -5,8 +5,8 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from 'react'
-import { Plus_Jakarta_Sans } from 'next/font/google';
 import './styles/globals.css'
+import { Plus_Jakarta_Sans } from 'next/font/google';
 
 const plusJakartaSans = Plus_Jakarta_Sans({ 
   subsets: ['latin'],
