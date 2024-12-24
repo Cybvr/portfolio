@@ -124,6 +124,15 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
                 className="bg-input text-foreground"
               />
             </div>
+            <div className="grid gap-2">
+              <label className="text-foreground">URL</label>
+              <Input
+                value={editedProject.url || ''}
+                onChange={(e) => setEditedProject({ ...editedProject, url: e.target.value })}
+                placeholder="https://"
+                className="bg-input text-foreground"
+              />
+            </div>
           </div>
           
           <div className="space-y-4">
