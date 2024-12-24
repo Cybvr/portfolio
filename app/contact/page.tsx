@@ -16,8 +16,8 @@ export default function ContactPage() {
     <div className="w-full bg-background text-foreground">
       <div className="flex flex-col p-12 gap-8">
         <div className="bg-card p-12 rounded-3xl">
-          <h2 className="text-2xl font-bold mb-8">Contact</h2>
-          <p className="mb-8">Phone: +234 703 XXX XXXX</p>
+          <h2 className="text-2xl font-bold mb-2">Contact</h2>
+          <p className="mb-8">jide@visual.ng</p>
           <div className="h-[600px] w-full">
             <Cal namespace="15min"
               calLink="jide-pinheiro-kx3rcr/15min"
