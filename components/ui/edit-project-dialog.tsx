@@ -145,10 +145,12 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
                         
                         if (response.ok) {
                           const { filePath } = await response.json();
-                          setEditedProject({
-                            ...editedProject,
-                            featuredImage: filePath
-                          });
+                          // Update both the UI state and the data source
+                          setEditedProject(prev => ({
+                            ...prev,
+                            featuredImage: filePath,
+                            dateUpdated: new Date().toISOString().split('T')[0]
+                          }));
                         }
                       } catch (error) {
                         console.error('Upload failed:', error);
