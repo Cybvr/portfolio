@@ -94,15 +94,22 @@ export default function RootLayout({
                         <Link href="/" className="text-6xl font-bold hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                           Home
                         </Link>
-                        <Link href="http://visual.ng" className="text-6xl font-bold  hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                          VisualHQ
+                        <Link href="/portfolio" className="text-6xl font-bold over:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                          Portfolio
                         </Link>
-                        <Link href="http://jujuagi.com" className="text-6xl font-bold over:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                          Juju
+                        <Link href="/contact" className="text-6xl font-bold hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                          Contact
                         </Link>
                         <Link href="/portfolio" className="text-6xl font-bold over:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                           Portfolio
                         </Link>
+                        <Link href="http://prune.cc" className="text-6xl font-bold  hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                          Prune
+                        </Link>
+                        <Link href="http://jujuagi.com" className="text-6xl font-bold over:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                          Juju
+                        </Link>
+                        
                       </nav>
                     </div>
                   )}

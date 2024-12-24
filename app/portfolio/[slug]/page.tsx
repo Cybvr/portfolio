@@ -1,4 +1,3 @@
-
 'use client'
 
 import { Button } from "@/components/ui/button"
@@ -6,7 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { useToast } from "@/hooks/use-toast"
-import { ArrowLeft, ExternalLink, Edit2 } from "lucide-react"
+import { ArrowLeft, ExternalLink, Edit2 } from 'lucide-react'
 import { EditProjectDialog } from "@/components/ui/edit-project-dialog"
 import Image from "next/image"
 import Link from "next/link"
@@ -16,23 +15,23 @@ import { notFound } from 'next/navigation'
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const { toast } = useToast()
   const project = projects.find(p => p.id === params.slug)
-  
+
   if (!project) return notFound()
 
   return (
     <div className="w-full bg-background text-foreground">
-      <div className="flex flex-col p-12 gap-8">
-        <div className="bg-card p-12 rounded-3xl">
+      <div className="flex flex-col p-4 sm:p-8 md:p-12 gap-4 sm:gap-6 md:gap-8">
+        <div className="bg-card p-4 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl md:rounded-3xl">
           <Link href="/portfolio">
-            <Button variant="ghost" size="sm" className="mb-8">
+            <Button variant="ghost" size="sm" className="mb-4 sm:mb-6 md:mb-8">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Portfolio
             </Button>
           </Link>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
             <div>
-              <div className="relative aspect-video mb-6 rounded-lg overflow-hidden">
+              <div className="relative aspect-video mb-4 sm:mb-6 rounded-lg overflow-hidden">
                 <Image
                   src={project.featuredImage}
                   alt={project.title}
@@ -40,9 +39,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   className="object-cover"
                 />
               </div>
-              
+
               {project.gallery.length > 0 && (
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4">
                   {project.gallery.map((img, i) => (
                     <div key={i} className="relative aspect-square rounded-lg overflow-hidden">
                       <Image src={img} alt={`Gallery ${i + 1}`} fill className="object-cover" />
@@ -52,32 +51,32 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               )}
             </div>
 
-            <div className="bg-muted p-8 rounded-lg">
-              <div className="space-y-6">
+            <div className="bg-muted p-4 sm:p-6 md:p-8 rounded-lg">
+              <div className="space-y-4 sm:space-y-6">
                 <div>
-                  <h1 className="text-2xl font-bold mb-2">{project.title}</h1>
-                  <Badge className="bg-zinc-700 text-zinc-300 mb-4">{project.industry}</Badge>
-                  <div className="flex gap-2 mb-4">
+                  <h1 className="text-xl sm:text-2xl font-bold mb-2">{project.title}</h1>
+                  <Badge className="bg-zinc-700 text-zinc-300 mb-2 sm:mb-4">{project.industry}</Badge>
+                  <div className="flex flex-wrap gap-2 mb-2 sm:mb-4">
                     {project.tags.slice(0, 3).map(tag => (
                       <Badge key={tag}>{tag}</Badge>
                     ))}
                   </div>
-                  <p className="text-muted-foreground mb-4">{project.description}</p>
-                  <p className="text-muted-foreground">{project.content}</p>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-2 sm:mb-4">{project.description}</p>
+                  <p className="text-sm sm:text-base text-muted-foreground">{project.content}</p>
                 </div>
 
                 <div>
-                  <h2 className="text-lg font-semibold mb-3">Technologies</h2>
+                  <h2 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3">Technologies</h2>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map(tech => (
-                      <Badge key={tech} variant="secondary">{tech}</Badge>
+                      <Badge key={tech} variant="secondary" className="text-xs sm:text-sm">{tech}</Badge>
                     ))}
                   </div>
                 </div>
 
                 <div>
-                  <h2 className="text-lg font-semibold mb-3">Key Features</h2>
-                  <ul className="space-y-2 text-sm">
+                  <h2 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3">Key Features</h2>
+                  <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
                     {project.features.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className="text-muted-foreground">•</span>
@@ -88,12 +87,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 </div>
 
                 <div>
-                  <h2 className="text-lg font-semibold mb-1">Client</h2>
-                  <p className="text-muted-foreground mb-1">{project.client}</p>
+                  <h2 className="text-base sm:text-lg font-semibold mb-1">Client</h2>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-1">{project.client}</p>
                   {(project.url || project.liveUrl) && (
-                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                    <div className="flex items-center gap-1 text-xs sm:text-sm text-muted-foreground">
                       <ExternalLink className="w-3 h-3" />
-                      <a href={project.url || project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      <a href={project.url || project.liveUrl} target="_blank" rel="noopener noreferrer" className="hover:underline">
                         {project.url || project.liveUrl}
                       </a>
                     </div>
@@ -108,7 +107,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     if (projectIndex !== -1) {
                       projects[projectIndex] = updatedProject;
                     }
-                    
+
                     toast({
                       title: "Success",
                       description: "Project updated successfully"
@@ -123,3 +122,4 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     </div>
   )
 }
+
