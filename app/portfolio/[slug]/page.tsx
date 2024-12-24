@@ -97,11 +97,16 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 <EditProjectDialog 
                   project={project} 
                   onSave={(updatedProject) => {
+                    // Update the projects data
+                    const projectIndex = projects.findIndex(p => p.id === updatedProject.id);
+                    if (projectIndex !== -1) {
+                      projects[projectIndex] = updatedProject;
+                    }
+                    
                     toast({
                       title: "Success",
                       description: "Project updated successfully"
                     });
-                    console.log('Updated project:', updatedProject);
                   }} 
                 />
               </div>
