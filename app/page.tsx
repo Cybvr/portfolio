@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -24,13 +23,13 @@ export default function Page() {
                   <span className="block bg-clip-text text-foreground bg-gradient-to-r from-foreground via-foreground to-muted-foreground">Digital</span>
                   <span className="block bg-clip-text text-foreground bg-gradient-to-r from-muted-foreground via-foreground to-foreground">Craftsman</span>
                 </h1>
-                <div className="relative ml-8 mb-8">
+                <div className="relative ml-4 mb-4">
                   <div className="absolute left-0 top-0 w-0.5 h-full bg-gradient-to-b from-primary to-accent" />
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed pl-6">
+                  <p className="text-sm text-muted-foreground leading-relaxed pl-4">
                     Crafting intuitive digital experiences with a focus on accessibility and innovation.
                   </p>
                 </div>
-                <button className="group flex items-center gap-2 text-sm hover:gap-3 transition-all ml-8 text-foreground">
+                <button className="group flex items-center gap-2 text-sm hover:gap-3 transition-all ml-4 text-foreground">
                   <span className="relative">
                     <span className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded blur opacity-30 group-hover:opacity-100 transition-opacity" />
                     <span className="relative">View Projects</span>
@@ -38,8 +37,8 @@ export default function Page() {
                   <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
-              <div className="w-full md:w-1/3 pl-0 md:pl-8 border-l border-border">
-                <div className="space-y-8">
+              <div className="w-full md:w-1/3 pl-0 md:pl-4 border-l border-border">
+                <div className="space-y-4">
                   <div className="transform hover:-translate-y-1 transition-transform">
                     <h3 className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Location</h3>
                     <p className="text-sm text-foreground">Lagos, Nigeria</p>
@@ -56,7 +55,7 @@ export default function Page() {
       </section>
 
       {/* Projects Section */}
-      <section className="py-8">
+      <section className="py-4">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-3">
             <div className="w-full md:w-1/3 sticky top-20">
@@ -65,7 +64,7 @@ export default function Page() {
               </h2>
               <p className="text-sm text-muted-foreground">Showcasing innovation through design and technology.</p>
             </div>
-            <div className="w-full md:w-2/3 space-y-8">
+            <div className="w-full md:w-2/3 space-y-4">
               {projects.slice(0, 3).map((project, index) => (
                 <div key={project.id} className="group">
                   <div className="relative aspect-video mb-4 overflow-hidden rounded">
@@ -95,15 +94,15 @@ export default function Page() {
       </section>
 
       {/* Skills Section */}
-      <section className="py-12 relative">
+      <section className="py-8 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent" />
         <div className="container mx-auto px-4 relative">
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col md:flex-row gap-4">
             <div className="w-full md:w-1/2">
-              <h2 className="text-2xl md:text-3xl font-bold mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
                 Technical Skills
               </h2>
-              <div className="space-y-8">
+              <div className="space-y-4">
                 {[
                   { icon: <Code2 className="h-4 w-4" />, title: "Development", desc: "Building accessible applications" },
                   { icon: <User className="h-4 w-4" />, title: "UX Design", desc: "Creating intuitive experiences" },
@@ -111,8 +110,8 @@ export default function Page() {
                 ].map((item, i) => (
                   <div key={i} className="group relative">
                     <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-accent/20 rounded blur opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="relative flex gap-4 items-start p-4">
-                      <div className="p-2 border border-border rounded group-hover:border-foreground/30 transition-colors">
+                    <div className="relative flex gap-4 items-start p-2">
+                      <div className="p-1 border border-border rounded group-hover:border-foreground/30 transition-colors">
                         {item.icon}
                       </div>
                       <div>
@@ -124,8 +123,8 @@ export default function Page() {
                 ))}
               </div>
             </div>
-            <div className="w-full md:w-1/2 pl-0 md:pl-8 border-l border-border">
-              <div className="grid grid-cols-2 gap-3">
+            <div className="w-full md:w-1/2 pl-0 md:pl-4 border-l border-border">
+              <div className="grid grid-cols-2 gap-2">
                 {[
                   'UX Design', 'Research', 'Strategy',
                   'Next.js', 'React', 'TypeScript',
@@ -134,8 +133,8 @@ export default function Page() {
                 ].map((skill, index) => (
                   <div 
                     key={skill}
-                    className={`group relative px-4 py-2 border border-border rounded hover:border-foreground/30 transition-colors ${
-                      index % 3 === 0 ? 'transform translate-y-2' : ''
+                    className={`group relative px-2 py-1 border border-border rounded hover:border-foreground/30 transition-colors ${
+                      index % 3 === 0 ? 'transform translate-y-1' : ''
                     }`}
                   >
                     <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-accent/20 rounded blur opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -149,11 +148,11 @@ export default function Page() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-border">
+      <footer className="py-4 border-t border-border">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-2">
             <p className="text-xs text-muted-foreground">© 2024 Jide. All rights reserved.</p>
-            <div className="flex gap-4">
+            <div className="flex gap-2">
               {[
                 { icon: <Github className="h-4 w-4" />, label: "GitHub" },
                 { icon: <Linkedin className="h-4 w-4" />, label: "LinkedIn" },
