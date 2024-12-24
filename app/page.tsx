@@ -47,44 +47,42 @@ export default function Page() {
             </div>
           </div>
         
-          <div className="flex flex-col md:flex-row items-center gap-8 bg-card p-12 rounded-3xl">
-          <h2 className="bg-card text-2xl font-bold mb-8">Selected Work</h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            {projects.slice(0, 4).map((project) => (
-              <div key={project.id} className="group">
-                <div className="relative aspect-[16/9] mb-4 overflow-hidden rounded-lg">
-                  <Image 
-                    src={project.featuredImage}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform group-hover:scale-105"
-                  />
+          <div className="bg-card p-12 rounded-3xl">
+            <h2 className="text-2xl font-bold mb-8">Selected Work</h2>
+            <div className="grid md:grid-cols-4 gap-6">
+              {projects.slice(0, 4).map((project) => (
+                <div key={project.id} className="bg-muted p-4 rounded-lg group">
+                  <div className="relative aspect-[16/9] mb-4 overflow-hidden rounded-lg">
+                    <Image 
+                      src={project.featuredImage}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform group-hover:scale-105"
+                    />
+                  </div>
+                  <h3 className="text-lg font-medium mb-3">{project.title}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge>{project.category}</Badge>
+                    {project.tags.slice(0, 2).map(tag => (
+                      <Badge key={tag}>{tag}</Badge>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="text-lg font-medium mb-2">{project.title}</h3>
-                <p className="text-sm text-muted-foreground mb-3">{project.description}</p>
-                <div className="flex gap-2">
-                  <Badge variant="secondary">{project.category}</Badge>
-                  {project.tags.slice(0, 2).map(tag => (
-                    <Badge key={tag} variant="outline">{tag}</Badge>
-                  ))}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
 
-          <div className="flex flex-col md:flex-row items-center gap-8 bg-card p-12 rounded-3xl">
-          <h2 className="text-2xl font-bold mb-8">Technical Skills</h2>
-          <div className="flex flex-col md:flex-row gap-8">
-            <div className="w-full md:w-1/2">
+          <div className="bg-card p-12 rounded-3xl">
+            <h2 className="text-2xl font-bold mb-8">Technical Skills</h2>
+            <div className="grid md:grid-cols-3 gap-8">
               <div className="space-y-6">
                 {[
                   { icon: <Code2 className="h-5 w-5" />, title: "Development", desc: "Building accessible applications" },
                   { icon: <User className="h-5 w-5" />, title: "UX Design", desc: "Creating intuitive experiences" },
                   { icon: <Briefcase className="h-5 w-5" />, title: "Strategy", desc: "Developing design systems" }
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-4 items-start">
-                    <div className="p-2 bg-muted rounded-full">
+                  <div key={i} className="flex gap-4 items-start bg-muted p-4 rounded-lg">
+                    <div className="p-2 bg-background rounded-full">
                       {item.icon}
                     </div>
                     <div>
@@ -94,23 +92,23 @@ export default function Page() {
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="w-full md:w-1/2">
-              <div className="grid grid-cols-3 gap-2">
-                {[
-                  'UX Design', 'Research', 'Strategy',
-                  'Next.js', 'React', 'TypeScript',
-                  'Node.js', 'PHP', 'Python',
-                  'HTML/CSS', 'UI/UX', 'API'
-                ].map((skill) => (
-                  <div key={skill} className="p-2 bg-muted rounded-md text-center">
-                    <p className="text-sm">{skill}</p>
-                  </div>
-                ))}
+              
+              <div className="col-span-2">
+                <div className="grid grid-cols-4 gap-3">
+                  {[
+                    'UX Design', 'Research', 'Strategy',
+                    'Next.js', 'React', 'TypeScript',
+                    'Node.js', 'PHP', 'Python',
+                    'HTML/CSS', 'UI/UX', 'API'
+                  ].map((skill) => (
+                    <div key={skill} className="p-3 bg-muted rounded-lg text-center">
+                      <p className="text-sm font-medium">{skill}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   );
