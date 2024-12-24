@@ -87,10 +87,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   </ul>
                 </div>
 
-                {project.liveUrl && (
-                  <Button className="gap-2">
-                    View Live Project
-                    <ExternalLink className="w-4 h-4" />
+                {(project.url || project.liveUrl) && (
+                  <Button className="gap-2" asChild>
+                    <a href={project.url || project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      View Live Project
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
                   </Button>
                 )}
 

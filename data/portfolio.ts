@@ -14,6 +14,7 @@ export const projects: PortfolioProject[] = [
     client: 'Fennel Inc',
     technologies: ['React Native', 'TypeScript', 'Node.js'],
     features: ['ESG data analysis', 'Shareholder voting info', 'Investment tracking'],
+    url: 'https://fennel.app',
     status: 'published',
     dateCreated: '2024-04-01',
     dateUpdated: '2024-04-01'
