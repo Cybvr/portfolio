@@ -87,14 +87,18 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   </ul>
                 </div>
 
-                {(project.url || project.liveUrl) && (
-                  <Button className="gap-2" asChild>
-                    <a href={project.url || project.liveUrl} target="_blank" rel="noopener noreferrer">
-                      View Live Project
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-                  </Button>
-                )}
+                <div>
+                  <h2 className="text-lg font-semibold mb-1">Client</h2>
+                  <p className="text-muted-foreground mb-1">{project.client}</p>
+                  {(project.url || project.liveUrl) && (
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                      <ExternalLink className="w-3 h-3" />
+                      <a href={project.url || project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        {project.url || project.liveUrl}
+                      </a>
+                    </div>
+                  )}
+                </div>
 
                 <EditProjectDialog 
                   project={project} 
