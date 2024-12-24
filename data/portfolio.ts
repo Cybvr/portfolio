@@ -6,7 +6,7 @@ export const projects: PortfolioProject[] = [
     "title": "Skeleton Key",
     "description": "Revolutionizes home buying and selling by removing traditional banks, allowing sellers to earn more and buyers to pay less monthly.",
     "content": "Skeleton Key transforms real estate transactions by eliminating traditional banking intermediaries, creating a more efficient marketplace for both buyers and sellers.",
-    "featuredImage": "/images/portfolio/skeletonkey.jpg",
+    "featuredImage": "/images/portfolio/Screenshot 2024-12-24 at 04.31.41.png",
     "gallery": [],
     "industry": "Real Estate",
     "tags": [
@@ -29,7 +29,7 @@ export const projects: PortfolioProject[] = [
     "url": "https://withskeletonkey.com",
     "status": "published",
     "dateCreated": "2024-04-01",
-    "dateUpdated": "2024-04-01"
+    "dateUpdated": "2024-12-24"
   },
   {
     "id": "bowmanwilliams",
