@@ -60,7 +60,7 @@ export default function Page() {
                   </div>
                   <h3 className="text-lg font-medium mb-3">{project.title}</h3>
                   <div className="flex flex-wrap gap-2">
-                    <Badge>{project.category}</Badge>
+                    <Badge>{project.industry}</Badge>
                     {project.tags.slice(0, 2).map(tag => (
                       <Badge key={tag}>{tag}</Badge>
                     ))}

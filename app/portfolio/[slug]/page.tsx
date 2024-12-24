@@ -50,13 +50,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <div className="bg-muted p-8 rounded-lg">
               <div className="space-y-6">
                 <div>
+                  <h1 className="text-2xl font-bold mb-2">{project.title}</h1>
+                  <Badge className="bg-zinc-700 text-zinc-300 mb-4">{project.industry}</Badge>
                   <div className="flex gap-2 mb-4">
-                    <Badge>{project.category}</Badge>
                     {project.tags.slice(0, 3).map(tag => (
                       <Badge key={tag}>{tag}</Badge>
                     ))}
                   </div>
-                  <h1 className="text-2xl font-bold mb-2">{project.title}</h1>
                   <p className="text-muted-foreground mb-4">{project.description}</p>
                   <p className="text-muted-foreground">{project.content}</p>
                 </div>

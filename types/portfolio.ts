@@ -8,7 +8,7 @@ export interface PortfolioProject {
   content: string;
   featuredImage: string;
   gallery: string[];
-  category: string;
+  industry: string;
   tags: string[];
   client: string;
   technologies: string[];
