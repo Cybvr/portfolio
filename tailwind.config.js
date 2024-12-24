@@ -10,6 +10,7 @@ module.exports = {
                 sm: 'calc(var(--radius) - 4px)'
             },
             fontFamily: {
+                sora: ['var(--font-sora)'], // Add Sora here
                 fira: ['var(--font-fira-sans)'],
                 oswald: ['var(--font-oswald)'],
                 quicksand: ['var(--font-quicksand)'],

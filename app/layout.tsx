@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -16,6 +16,7 @@ export default function RootLayout({
   // Check if we're in a portfolio subpage (but not the main portfolio page)
   const isPortfolioSubPage = pathname?.startsWith('/portfolio/') && pathname !== '/portfolio'
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,24 +59,30 @@ export default function RootLayout({
                 </ul>
 
                 {/* Mobile Navigation */}
-                <Sheet>
-                  <SheetTrigger asChild className="md:hidden">
-                    <Button variant="ghost" size="icon">
-                      <Menu className="h-5 w-5" />
-                      <span className="sr-only">Open menu</span>
-                    </Button>
-                  </SheetTrigger>
-                  <SheetContent>
-                    <nav className="flex flex-col space-y-4 mt-8">
-                      <Link href="/" className="text-lg hover:text-primary transition-colors">
-                        Home
-                      </Link>
-                      <Link href="/portfolio" className="text-lg hover:text-primary transition-colors">
-                        Portfolio
-                      </Link>
-                    </nav>
-                  </SheetContent>
-                </Sheet>
+                <div className="md:hidden">
+                  <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                    <Menu className="h-5 w-5" />
+                    <span className="sr-only">Open menu</span>
+                  </Button>
+                  {isMobileMenuOpen && (
+                    <div className="absolute top-16 left-0 h-screen w-full bg-white shadow-md">
+                      <nav className="flex flex-col items-start p-4 space-y-4">
+                        <Link href="/" className="text-6xl font-bold hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                          Home
+                        </Link>
+                        <Link href="http://visual.ng" className="text-6xl font-bold  hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                          VisualHQ
+                        </Link>
+                        <Link href="http://jujuagi.com" className="text-6xl font-bold over:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                          Juju
+                        </Link>
+                        <Link href="/portfolio" className="text-6xl font-bold over:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                          Portfolio
+                        </Link>
+                      </nav>
+                    </div>
+                  )}
+                </div>
               </nav>
             </header>
           )}
@@ -89,7 +96,6 @@ export default function RootLayout({
                   <div>
                     <h3 className="font-bold mb-4">Contact</h3>
                     <p className="text-gray-600">Lagos, Nigeria</p>
-                    <p className="text-gray-600">Member since January 21, 2022</p>
                   </div>
                   <div>
                     <h3 className="font-bold mb-4">Skills</h3>

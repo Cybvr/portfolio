@@ -1,151 +1,189 @@
-"use client";
-import React, { useState } from 'react';
-import { Button } from "@/components/ui/button";
-import { User, Briefcase, Code2, ChevronRight, Github, Linkedin, Twitter, Menu } from 'lucide-react';
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import Link from 'next/link';
+import React from 'react';
+import { User, Briefcase, Code2, ChevronRight, Github, Linkedin, Twitter } from 'lucide-react';
 
-export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+function App() {
   return (
-    <div className="w-full min-h-screen bg-background">
-      <main>
-        {/* Hero Section */}
-        <section className="relative min-h-[50vh] flex items-center justify-center bg-gradient-to-r from-primary to-primary-foreground text-primary-foreground">
-          <div className="container mx-auto px-4 text-left">
-            <h1 className="text-6xl md:text-6xl font-bold mb-4">
-              Hi, I'm Jide
-            </h1>
-            <h2 className="text-xl md:text-2xl mb-6">
-              Designer in Lagos, Nigeria. Crafting digital experiences through design storytelling.
-            </h2>
-
-            <Button asChild size="lg" variant="secondary">
-              <a href="#portfolio">
-                Explore My Work
-                <ChevronRight className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
-          </div>
-        </section>
-
-        {/* About Section */}
-        <section id="about" className="py-12">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8">About Me</h2>
-            <div className="grid md:grid-cols-2 gap-8 items-start">
-              <div className="space-y-4">
-                <p className="text-muted-foreground">
-                  With over 10 years of experience, I specialize in designing digital products 
-                  for B2B and B2C industries that are accessible, intuitive, and user-friendly.
-                </p>
-                <p className="text-muted-foreground">
-                  My approach centers on understanding user experiences to craft solutions 
-                  that align with business goals and user needs.
-                </p>
-              </div>
-              <div className="space-y-6">
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center mb-2">
-                    <User className="mr-2 h-5 w-5" />
-                    <h3 className="font-semibold">Experience</h3>
-                  </div>
-                  <p className="text-muted-foreground">10+ years in digital design and development</p>
+    <div className="w-full min-h-screen bg-[#0A0A0B] text-white">
+      {/* Hero Section - Asymmetric with diagonal elements */}
+      <section className="relative min-h-screen overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-3/4 h-screen bg-gradient-to-bl from-purple-900/20 via-blue-900/10 to-transparent transform rotate-12 translate-x-1/4 -translate-y-1/4" />
+          <div className="absolute bottom-0 left-0 w-1/2 h-screen bg-gradient-to-tr from-blue-900/20 via-purple-900/10 to-transparent transform -rotate-12 -translate-x-1/4 translate-y-1/4" />
+        </div>
+        <div className="container mx-auto px-4 pt-32 relative">
+          <div className="max-w-[90%]">
+            <div className="flex flex-col md:flex-row gap-12 items-start">
+              <div className="w-full md:w-2/3">
+                <h1 className="text-7xl md:text-8xl font-bold mb-8 leading-tight">
+                  <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-gray-400">Digital</span>
+                  <span className="block bg-clip-text text-transparent bg-gradient-to-r from-gray-400 via-white to-white">Craftsman</span>
+                </h1>
+                <div className="relative ml-12 mb-12">
+                  <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-purple-500 to-blue-500" />
+                  <p className="text-xl text-gray-400 leading-relaxed pl-8">
+                    With over 10 years of experience, I specialize in designing digital products 
+                    that are accessible, intuitive, and push creative boundaries.
+                  </p>
                 </div>
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center mb-2">
-                    <Briefcase className="mr-2 h-5 w-5" />
-                    <h3 className="font-semibold">Projects</h3>
+                <button className="group flex items-center gap-2 text-lg hover:gap-4 transition-all ml-12">
+                  <span className="relative">
+                    <span className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded blur opacity-30 group-hover:opacity-100 transition-opacity" />
+                    <span className="relative">Explore Work</span>
+                  </span>
+                  <ChevronRight className="group-hover:translate-x-2 transition-transform" />
+                </button>
+              </div>
+              <div className="w-full md:w-1/3 pl-0 md:pl-12 border-l border-white/10">
+                <div className="space-y-12">
+                  <div className="transform hover:-translate-y-1 transition-transform">
+                    <h3 className="text-sm text-gray-500 uppercase tracking-wider mb-2">Location</h3>
+                    <p className="text-xl">Lagos, Nigeria</p>
                   </div>
-                  <p className="text-muted-foreground">100+ successful projects delivered</p>
+                  <div className="transform hover:-translate-y-1 transition-transform">
+                    <h3 className="text-sm text-gray-500 uppercase tracking-wider mb-2">Expertise</h3>
+                    <p className="text-xl">Digital Design, Development, Strategy</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Expertise Section */}
-        <section id="expertise" className="py-12 bg-muted">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8">Areas of Expertise</h2>
-            <div className="grid md:grid-cols-3 gap-8">
+      {/* Projects Section - Asymmetric grid layout */}
+      <section className="py-32 relative">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row gap-12">
+            <div className="w-full md:w-1/3 sticky top-32">
+              <h2 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                Selected Projects
+              </h2>
+              <p className="text-gray-400">Crafting digital experiences through design storytelling and technical excellence.</p>
+            </div>
+            <div className="w-full md:w-2/3 space-y-32">
               {[
                 {
-                  icon: <Code2 className="h-8 w-8" />,
-                  title: "Frontend Development",
-                  description: "Building responsive and accessible web applications using modern frameworks."
+                  align: 'right',
+                  image: 'https://images.unsplash.com/photo-1673258761236-fc97c97a4e24',
+                  title: 'Digital Experience Platform'
                 },
                 {
-                  icon: <User className="h-8 w-8" />,
-                  title: "UX Design",
-                  description: "Creating intuitive user experiences through research and testing."
+                  align: 'left',
+                  image: 'https://images.unsplash.com/photo-1674282140231-c71a8d5b00e5',
+                  title: 'E-commerce Redesign'
                 },
                 {
-                  icon: <Briefcase className="h-8 w-8" />,
-                  title: "Design Strategy",
-                  description: "Developing comprehensive design systems and brand guidelines."
+                  align: 'right',
+                  image: 'https://images.unsplash.com/photo-1674421338672-3591ba6f776c',
+                  title: 'Brand Identity System'
                 }
-              ].map((item, index) => (
-                <div key={index} className="p-4 border-l-2 border-primary">
-                  <div className="text-primary mb-3">{item.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.description}</p>
+              ].map((project, index) => (
+                <div key={index} className={`group ${project.align === 'right' ? 'ml-0 md:ml-12' : 'mr-0 md:mr-12'}`}>
+                  <div className="relative aspect-[16/9] mb-8 overflow-hidden rounded-lg">
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 group-hover:scale-105 transition-transform duration-700" />
+                    <img 
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                  <div className={`flex items-end gap-4 ${project.align === 'right' ? 'justify-end' : 'justify-start'}`}>
+                    <div>
+                      <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
+                      <p className="text-gray-400 mb-4">Digital design • Development • 2024</p>
+                      <button className="group/btn flex items-center gap-2 text-sm hover:gap-4 transition-all">
+                        View Case Study <ChevronRight className="group-hover/btn:translate-x-2 transition-transform" />
+                      </button>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Skills Section */}
-        <section id="skills" className="py-12">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8">Core Skills</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {/* Skills Section - Asymmetric with overlapping elements */}
+      <section className="py-32 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/10 to-transparent" />
+        <div className="container mx-auto px-4 relative">
+          <div className="flex flex-col md:flex-row gap-24">
+            <div className="w-full md:w-1/2">
+              <h2 className="text-5xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                Technical Expertise
+              </h2>
+              <div className="space-y-12">
+                {[
+                  { icon: <Code2 className="h-6 w-6" />, title: "Development", desc: "Building responsive and accessible applications" },
+                  { icon: <User className="h-6 w-6" />, title: "UX Design", desc: "Creating intuitive user experiences" },
+                  { icon: <Briefcase className="h-6 w-6" />, title: "Strategy", desc: "Developing comprehensive design systems" }
+                ].map((item, i) => (
+                  <div key={i} className="group relative">
+                    <div className="absolute -inset-2 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="relative flex gap-6 items-start p-4">
+                      <div className="p-4 border border-white/10 rounded-lg group-hover:border-white/30 transition-colors">
+                        {item.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                        <p className="text-gray-400">{item.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 pl-0 md:pl-12 border-l border-white/10">
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  'UX Design', 'User Research', 'Design Strategy',
+                  'Next.js', 'TypeScript', 'JavaScript',
+                  'React', 'WordPress', 'PHP',
+                  'HTML', 'CSS', 'Accessibility'
+                ].map((skill, index) => (
+                  <div 
+                    key={skill}
+                    className={`group relative px-6 py-4 border border-white/10 rounded-lg hover:border-white/30 transition-colors ${
+                      index % 3 === 0 ? 'transform translate-y-4' : ''
+                    }`}
+                  >
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <p className="relative">{skill}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 border-t border-white/10">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-gray-400">© 2024 Jide. All rights reserved.</p>
+            <div className="flex gap-6">
               {[
-                'UX Design', 'User Research', 'Design Strategy',
-                'Next.js', 'TypeScript', 'JavaScript',
-                'React', 'WordPress', 'PHP',
-                'HTML', 'CSS', 'Accessibility'
-              ].map((skill) => (
-                <div 
-                  key={skill} 
-                  className="px-4 py-3 border border-border hover:border-primary transition-colors rounded"
+                { icon: <Github className="h-5 w-5" />, label: "GitHub" },
+                { icon: <Linkedin className="h-5 w-5" />, label: "LinkedIn" },
+                { icon: <Twitter className="h-5 w-5" />, label: "Twitter" }
+              ].map((item, i) => (
+                <button 
+                  key={i} 
+                  className="group relative text-gray-400 hover:text-white transition-colors"
                 >
-                  <p className="text-center">{skill}</p>
-                </div>
+                  <div className="absolute -inset-2 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative">
+                    {item.icon}
+                  </div>
+                </button>
               ))}
             </div>
           </div>
-        </section>
-
-        {/* Mobile Navigation */}
-        <Sheet>
-          <SheetTrigger asChild className="fixed top-4 right-4 md:hidden z-50">
-            <Button variant="ghost" size="icon">
-              <Menu className="h-5 w-5" />
-              <span className="sr-only">Open menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent>
-            <SheetTitle>Navigation Menu</SheetTitle>
-            <nav className="flex flex-col space-y-4 mt-8">
-              <Link href="/" className="text-lg hover:text-primary transition-colors">
-                Home
-              </Link>
-              <Link href="http://visual.ng" className="text-lg hover:text-primary transition-colors">
-                VisualHQ
-              </Link>
-              <Link href="http://jujuagi.com" className="text-lg hover:text-primary transition-colors">
-                Juju
-              </Link>
-              <Link href="/portfolio" className="text-lg hover:text-primary transition-colors">
-                Portfolio
-              </Link>
-            </nav>
-          </SheetContent>
-        </Sheet>
-      </main>
+        </div>
+      </footer>
     </div>
   );
 }
+
+export default App;
