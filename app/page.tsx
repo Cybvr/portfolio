@@ -8,7 +8,7 @@ import { projects } from '@/data/portfolio';
 
 export default function Page() {
   return (
-    <div className="w-full bg-background text-muted-foreground font-medium">
+    <div className="w-full bg-background text-foreground font-medium">
       <div className="flex flex-col p-12 gap-8">
         
         <div className="flex flex-col md:flex-row items-center gap-8 bg-card p-12 rounded-3xl">
