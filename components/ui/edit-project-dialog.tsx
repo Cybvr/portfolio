@@ -131,17 +131,28 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
                   type="file"
                   accept="image/*"
                   className="hidden"
-                  onChange={(e) => {
+                  onChange={async (e) => {
                     const file = e.target.files?.[0];
                     if (file) {
-                      const reader = new FileReader();
-                      reader.onload = (e) => {
-                        setEditedProject({ 
-                          ...editedProject, 
-                          featuredImage: e.target?.result as string 
+                      const formData = new FormData();
+                      formData.append('file', file);
+                      
+                      try {
+                        const response = await fetch('/api/upload', {
+                          method: 'POST',
+                          body: formData,
                         });
-                      };
-                      reader.readAsDataURL(file);
+                        
+                        if (response.ok) {
+                          const { filePath } = await response.json();
+                          setEditedProject({
+                            ...editedProject,
+                            featuredImage: filePath
+                          });
+                        }
+                      } catch (error) {
+                        console.error('Upload failed:', error);
+                      }
                     }
                   }}
                 />
