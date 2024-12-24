@@ -3,6 +3,23 @@ import type { PortfolioProject } from '@/types/portfolio'
 
 export const projects: PortfolioProject[] = [
   {
+    id: 'prune',
+    title: 'Prune',
+    description: 'A productivity tool with multimodal features to keep you on the go and zen. Notes, Sound, Image and Video.',
+    content: 'Prune.cc is a productivity tool that helps users stay organized and focused through multimodal features. It combines note-taking, sound management, image processing, and video capabilities in one seamless platform.',
+    featuredImage: '/images/portfolio/prune.jpg',
+    gallery: [],
+    industry: 'Productivity',
+    tags: ['UX Design', 'Product Design', 'Multimodal'],
+    client: 'Prune Inc',
+    technologies: ['React', 'Node.js', 'TypeScript', 'AWS'],
+    features: ['Note taking', 'Sound management', 'Image processing', 'Video handling', 'Zen mode'],
+    url: 'https://prune.cc',
+    status: 'published',
+    dateCreated: '2024-04-01',
+    dateUpdated: '2024-04-01'
+  },
+  {
     id: 'fennel',
     title: 'Fennel',
     description: 'A mobile investing app that empowers individuals to understand a company\'s impact through accessible ESG data and shareholder voting info.',
