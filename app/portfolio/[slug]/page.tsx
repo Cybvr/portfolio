@@ -103,19 +103,21 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   )}
                 </div>
 
-                <EditProjectDialog 
-                  project={project} 
-                  onSave={(updatedProject) => {
-                    const projectIndex = projects.findIndex(p => p.id === updatedProject.id);
-                    if (projectIndex !== -1) {
-                      projects[projectIndex] = updatedProject;
-                    }
-                    toast({
-                      title: "Success",
-                      description: "Project updated successfully"
-                    });
-                  }} 
-                />
+                {process.env.NEXT_PUBLIC_REPLIT_ENVIRONMENT && (
+                  <EditProjectDialog 
+                    project={project} 
+                    onSave={(updatedProject) => {
+                      const projectIndex = projects.findIndex(p => p.id === updatedProject.id);
+                      if (projectIndex !== -1) {
+                        projects[projectIndex] = updatedProject;
+                      }
+                      toast({
+                        title: "Success",
+                        description: "Project updated successfully"
+                      });
+                    }} 
+                  />
+                )}
               </div>
             </div>
           </div>
