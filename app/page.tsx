@@ -3,6 +3,9 @@
 
 import React from 'react';
 import { User, Briefcase, Code2, ChevronRight, Github, Linkedin, Twitter } from 'lucide-react';
+import Image from 'next/image';
+import { Badge } from "@/components/ui/badge";
+import { projects } from '@/data/portfolio';
 
 export default function Page() {
   return (
@@ -53,28 +56,35 @@ export default function Page() {
       </section>
 
       {/* Projects Section */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col md:flex-row gap-4">
             <div className="w-full md:w-1/3 sticky top-20">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              <h2 className="text-xl font-bold mb-2">
                 Selected Work
               </h2>
               <p className="text-sm text-muted-foreground">Showcasing innovation through design and technology.</p>
             </div>
-            <div className="w-full md:w-2/3 space-y-20">
-              {[1, 2, 3].map((_, index) => (
-                <div key={index} className={`group ${index % 2 === 0 ? 'ml-0 md:ml-8' : 'mr-0 md:mr-8'}`}>
-                  <div className="relative aspect-video mb-6 overflow-hidden rounded">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 group-hover:scale-105 transition-transform duration-500" />
+            <div className="w-full md:w-2/3 space-y-8">
+              {projects.slice(0, 3).map((project, index) => (
+                <div key={project.id} className="group">
+                  <div className="relative aspect-video mb-4 overflow-hidden rounded">
+                    <Image 
+                      src={project.featuredImage}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
-                  <div className={`flex items-end gap-4 ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
-                    <div>
-                      <h3 className="text-lg font-medium mb-2">Project {index + 1}</h3>
-                      <p className="text-xs text-muted-foreground mb-3">Design • Development • 2024</p>
-                      <button className="group/btn flex items-center gap-2 text-xs hover:gap-3 transition-all">
-                        View Case Study <ChevronRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
-                      </button>
+                  <div>
+                    <h3 className="text-base font-medium mb-1">{project.title}</h3>
+                    <p className="text-xs text-muted-foreground mb-2 line-clamp-1">{project.description}</p>
+                    <div className="flex gap-2">
+                      <Badge variant="secondary" className="text-xs">{project.category}</Badge>
+                      {project.tags.slice(0, 1).map(tag => (
+                        <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
+                      ))}
                     </div>
                   </div>
                 </div>
