@@ -57,7 +57,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     ))}
                   </div>
                   <h1 className="text-2xl font-bold mb-2">{project.title}</h1>
-                  <p className="text-muted-foreground">{project.description}</p>
+                  <p className="text-muted-foreground mb-4">{project.description}</p>
+                  <p className="text-muted-foreground">{project.content}</p>
                 </div>
 
                 <div>
