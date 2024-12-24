@@ -30,7 +30,7 @@ export default function Page() {
                     Crafting intuitive digital experiences with a focus on accessibility and innovation.
                   </p>
                 </div>
-                <button className="group flex items-center gap-2 text-sm hover:gap-3 transition-all ml-8">
+                <button className="group flex items-center gap-2 text-sm hover:gap-3 transition-all ml-8 text-foreground">
                   <span className="relative">
                     <span className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded blur opacity-30 group-hover:opacity-100 transition-opacity" />
                     <span className="relative">View Projects</span>
@@ -42,11 +42,11 @@ export default function Page() {
                 <div className="space-y-8">
                   <div className="transform hover:-translate-y-1 transition-transform">
                     <h3 className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Location</h3>
-                    <p className="text-sm">Lagos, Nigeria</p>
+                    <p className="text-sm text-foreground">Lagos, Nigeria</p>
                   </div>
                   <div className="transform hover:-translate-y-1 transition-transform">
                     <h3 className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Expertise</h3>
-                    <p className="text-sm">Design & Development</p>
+                    <p className="text-sm text-foreground">Design & Development</p>
                   </div>
                 </div>
               </div>
