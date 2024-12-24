@@ -3,6 +3,22 @@ import type { PortfolioProject } from '@/types/portfolio'
 
 export const projects: PortfolioProject[] = [
   {
+    id: 'hubbleiq',
+    title: 'HubbleIQ',
+    description: 'Effortlessly identify and conquer any hiccups that come your way, ensuring a smoother and more reliable experience for your valued users.',
+    content: 'Effortlessly identify and conquer any hiccups that come your way, ensuring a smoother and more reliable experience for your valued users.',
+    featuredImage: '/images/portfolio/hubbleiq.jpg',
+    gallery: [],
+    category: 'DevOps',
+    tags: ['Monitoring', 'Performance', 'User Experience'],
+    client: 'HubbleIQ Inc',
+    technologies: ['React', 'Node.js', 'AWS'],
+    features: ['System monitoring', 'Performance tracking', 'User experience analytics'],
+    status: 'published',
+    dateCreated: '2024-04-01',
+    dateUpdated: '2024-04-01'
+  },
+  {
     id: 'solveai',
     title: 'SolveAI',
     description: 'AI Research Assistant Platform',
