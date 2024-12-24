@@ -100,11 +100,27 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
           
           <div className="space-y-4">
             <div className="grid gap-2">
-              <label>Featured Image URL</label>
-              <Input
-                value={editedProject.featuredImage}
-                onChange={(e) => setEditedProject({ ...editedProject, featuredImage: e.target.value })}
-              />
+              <label>Featured Image</label>
+              <div className="flex gap-2">
+                <Input
+                  value={editedProject.featuredImage}
+                  onChange={(e) => setEditedProject({ ...editedProject, featuredImage: e.target.value })}
+                  placeholder="Enter image URL"
+                  className="flex-1"
+                />
+                <Input
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => {
+                    if (e.target.files?.[0]) {
+                      // Convert file to URL
+                      const fileUrl = URL.createObjectURL(e.target.files[0]);
+                      setEditedProject({ ...editedProject, featuredImage: fileUrl });
+                    }
+                  }}
+                  className="w-[200px]"
+                />
+              </div>
             </div>
             
             <div className="grid gap-2">
