@@ -7,10 +7,9 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import type { PortfolioProject } from "@/types/portfolio"
+import { projects } from '@/data/portfolio'
 
 export default function PortfolioPage() {
-  import { projects } from '@/data/portfolio'
-
   return (
     <div className="container py-12">
       <h1 className="text-4xl font-bold mb-8">Our Projects</h1>
