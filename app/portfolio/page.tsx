@@ -10,7 +10,7 @@ export default function PortfolioPage() {
   return (
     <div className="container max-w-6xl mx-auto px-4 py-12">
       <div className="grid lg:grid-cols-3 gap-6">
-        {projects.slice(0, 3).map((project) => (
+        {projects.map((project) => (
           <Link key={project.id} href={`/portfolio/${project.id}`} className="group">
             <div className="relative aspect-[4/3] mb-4 overflow-hidden rounded-lg">
               <Image 
