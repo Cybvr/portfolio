@@ -16,15 +16,10 @@ interface EditProjectDialogProps {
 }
 
 export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
-  const [open, setOpen] = useState(false);
   const [editedProject, setEditedProject] = useState(project);
   const [newTag, setNewTag] = useState('');
   const [newTech, setNewTech] = useState('');
-
-  const handleSave = () => {
-    onSave(editedProject);
-    setOpen(false);
-  };
+  const [open, setOpen] = useState(false);
 
   const addTag = () => {
     if (newTag.trim()) {
@@ -60,6 +55,11 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
     });
   };
 
+  const handleSave = () => {
+    onSave(editedProject);
+    setOpen(false);
+  };
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
@@ -68,64 +68,64 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
           <Edit2 className="w-4 h-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-4xl bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] p-6 rounded-lg">
+      <DialogContent className="max-w-4xl bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)]">
         <DialogHeader>
-          <DialogTitle className="text-xl font-semibold text-[var(--foreground)]">Edit Project</DialogTitle>
+          <DialogTitle className="text-[var(--foreground)]">Edit Project</DialogTitle>
         </DialogHeader>
         <div className="grid grid-cols-2 gap-6 py-4">
           <div className="space-y-4">
             <div className="grid gap-2">
-              <label className="text-sm font-medium">Title</label>
+              <label className="text-[var(--foreground)]">Title</label>
               <Input
                 value={editedProject.title}
                 onChange={(e) => setEditedProject({ ...editedProject, title: e.target.value })}
-                className="bg-input text-foreground"
+                className="bg-[var(--input)] text-[var(--foreground)]"
               />
             </div>
             <div className="grid gap-2">
-              <label className="text-sm font-medium">Description</label>
+              <label className="text-[var(--foreground)]">Description</label>
               <Textarea
                 value={editedProject.description}
                 onChange={(e) => setEditedProject({ ...editedProject, description: e.target.value })}
-                className="bg-input text-foreground"
+                className="bg-[var(--input)] text-[var(--foreground)]"
               />
             </div>
             <div className="grid gap-2">
-              <label className="text-sm font-medium">Content</label>
+              <label className="text-[var(--foreground)]">Content</label>
               <Textarea
                 value={editedProject.content}
                 onChange={(e) => setEditedProject({ ...editedProject, content: e.target.value })}
-                className="bg-input text-foreground"
+                className="bg-[var(--input)] text-[var(--foreground)]"
               />
             </div>
             <div className="grid gap-2">
-              <label className="text-sm font-medium">Industry</label>
+              <label className="text-[var(--foreground)]">Industry</label>
               <Input
                 value={editedProject.industry}
                 onChange={(e) => setEditedProject({ ...editedProject, industry: e.target.value })}
-                className="bg-input text-foreground"
+                className="bg-[var(--input)] text-[var(--foreground)]"
               />
             </div>
           </div>
           
           <div className="space-y-4">
             <div className="grid gap-2">
-              <label className="text-sm font-medium">Featured Image</label>
+              <label className="text-[var(--foreground)]">Featured Image</label>
               <div className="flex gap-2">
                 <Input
                   value={editedProject.featuredImage}
                   onChange={(e) => setEditedProject({ ...editedProject, featuredImage: e.target.value })}
                   placeholder="Enter image URL"
-                  className="flex-1 bg-input text-foreground"
+                  className="flex-1 bg-[var(--input)] text-[var(--foreground)]"
                 />
               </div>
             </div>
             
             <div className="grid gap-2">
-              <label className="text-sm font-medium">Tags</label>
+              <label className="text-[var(--foreground)]">Tags</label>
               <div className="flex gap-2 mb-2 flex-wrap">
                 {editedProject.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary" className="gap-1">
+                  <Badge key={tag} variant="secondary" className="gap-1 bg-[var(--secondary)]">
                     {tag}
                     <button onClick={() => removeTag(tag)} className="ml-1">
                       <X className="h-3 w-3" />
@@ -139,19 +139,19 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
                   onChange={(e) => setNewTag(e.target.value)}
                   placeholder="Add new tag"
                   onKeyPress={(e) => e.key === 'Enter' && addTag()}
-                  className="bg-input text-foreground"
+                  className="bg-[var(--input)] text-[var(--foreground)]"
                 />
-                <Button type="button" onClick={addTag} size="icon" className="bg-primary text-primary-foreground">
+                <Button type="button" onClick={addTag} size="icon" className="bg-[var(--primary)]">
                   <Plus className="h-4 w-4" />
                 </Button>
               </div>
             </div>
 
             <div className="grid gap-2">
-              <label className="text-sm font-medium">Technologies</label>
+              <label className="text-[var(--foreground)]">Technologies</label>
               <div className="flex gap-2 mb-2 flex-wrap">
                 {editedProject.technologies.map((tech) => (
-                  <Badge key={tech} variant="secondary" className="gap-1">
+                  <Badge key={tech} variant="secondary" className="gap-1 bg-[var(--secondary)]">
                     {tech}
                     <button onClick={() => removeTech(tech)} className="ml-1">
                       <X className="h-3 w-3" />
@@ -165,36 +165,17 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
                   onChange={(e) => setNewTech(e.target.value)}
                   placeholder="Add new technology"
                   onKeyPress={(e) => e.key === 'Enter' && addTech()}
-                  className="bg-input text-foreground"
+                  className="bg-[var(--input)] text-[var(--foreground)]"
                 />
-                <Button type="button" onClick={addTech} size="icon" className="bg-primary text-primary-foreground">
+                <Button type="button" onClick={addTech} size="icon" className="bg-[var(--primary)]">
                   <Plus className="h-4 w-4" />
                 </Button>
               </div>
             </div>
-
-            <div className="grid gap-2">
-              <label className="text-sm font-medium">Gallery Images (URLs, comma-separated)</label>
-              <Input
-                value={editedProject.gallery.join(', ')}
-                onChange={(e) => setEditedProject({
-                  ...editedProject,
-                  gallery: e.target.value.split(',').map(url => url.trim())
-                })}
-                placeholder="Image URLs separated by commas"
-                className="bg-input text-foreground"
-              />
-            </div>
           </div>
         </div>
         <div className="flex justify-end gap-2 mt-4">
-          <Button 
-            onClick={() => {
-              handleSave();
-              setOpen(false);
-            }} 
-            className="bg-[var(--primary)] text-[var(--primary-foreground)] hover:bg-[var(--primary)]/90"
-          >
+          <Button onClick={handleSave} className="bg-[var(--primary)] text-[var(--primary-foreground)] hover:bg-[var(--primary)]/90">
             Save Changes
           </Button>
         </div>
