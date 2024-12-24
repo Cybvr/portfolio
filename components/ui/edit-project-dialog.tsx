@@ -9,6 +9,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Edit2, Plus, X } from "lucide-react";
 import { Badge } from "./badge";
 import type { PortfolioProject } from '@/types/portfolio';
+import { projects } from '@/data/portfolio';
 
 interface EditProjectDialogProps {
   project: PortfolioProject;
@@ -57,17 +58,20 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
 
   const handleSave = async () => {
     try {
+      const updatedProjects = projects.map(p => p.id === editedProject.id ? editedProject : p);
       const response = await fetch('/api/portfolio/update', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(projects.map(p => p.id === editedProject.id ? editedProject : p))
+        body: JSON.stringify(updatedProjects)
       });
       
       if (response.ok) {
         onSave(editedProject);
         setOpen(false);
+      } else {
+        throw new Error('Failed to update project');
       }
     } catch (error) {
       console.error('Save failed:', error);
