@@ -12,11 +12,11 @@ export const projects: PortfolioProject[] = [
     industry: 'Productivity',
     tags: ['UX Design', 'Product Design', 'Multimodal'],
     client: 'Prune Inc',
-    technologies: ['React', 'Node.js', 'TypeScript', 'AWS'],
-    features: ['Note taking', 'Sound management', 'Image processing', 'Video handling', 'Zen mode'],
+    technologies: ['React', 'Node.js', 'TypeScript', 'Firebase'],
+    features: ['Note taking', 'Sound management', 'Image Gen', 'Video Gen', 'Zen mode'],
     url: 'https://prune.cc',
     status: 'published',
-    dateCreated: '2024-04-01',
+    dateCreated: '2024-24-01',
     dateUpdated: '2024-04-01'
   },
   {
