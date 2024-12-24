@@ -3,7 +3,10 @@
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, ExternalLink } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { useToast } from "@/hooks/use-toast"
+import { ArrowLeft, ExternalLink, Edit2 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { projects } from '@/data/portfolio'
@@ -88,6 +91,38 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     <ExternalLink className="w-4 h-4" />
                   </Button>
                 )}
+
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="outline" className="gap-2">
+                      Edit Project
+                      <Edit2 className="w-4 h-4" />
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>Edit Project</DialogTitle>
+                    </DialogHeader>
+                    <div className="space-y-4 py-4">
+                      <div className="space-y-2">
+                        <label>Title</label>
+                        <Input defaultValue={project.title} />
+                      </div>
+                      <div className="space-y-2">
+                        <label>Description</label>
+                        <Input defaultValue={project.description} />
+                      </div>
+                      <Button onClick={() => {
+                        toast({
+                          title: "Success",
+                          description: "Project updated successfully"
+                        })
+                      }}>
+                        Save Changes
+                      </Button>
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </div>
             </div>
           </div>
