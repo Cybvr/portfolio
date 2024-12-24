@@ -6,7 +6,7 @@ export function middleware(request: NextRequest) {
   const authUser = request.headers.get('X-Replit-User-Name')
   
   // Protect admin routes and edit functionality
-  if (request.nextUrl.pathname.startsWith('/admin') && !authUser) {
+  if ((request.nextUrl.pathname.startsWith('/admin') || request.nextUrl.pathname.includes('/edit')) && !authUser) {
     return NextResponse.redirect(new URL('/__repl_auth/login', request.url))
   }
 
@@ -14,5 +14,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/admin/:path*']
+  matcher: ['/admin/:path*', '/portfolio/:path*/edit']
 }
