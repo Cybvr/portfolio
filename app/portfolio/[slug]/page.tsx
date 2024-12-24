@@ -1,3 +1,4 @@
+
 'use client'
 
 import React from 'react'
@@ -41,7 +42,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 />
               </div>
 
-              {project.gallery.length > 0 && (
+              {project.gallery && project.gallery.length > 0 && (
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4">
                   {project.gallery.map((img, i) => (
                     <div key={i} className="relative aspect-square rounded-lg overflow-hidden">
@@ -58,7 +59,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   <h1 className="text-xl sm:text-2xl font-bold mb-2">{project.title}</h1>
                   <Badge className="bg-zinc-700 text-zinc-300 mb-2 sm:mb-4">{project.industry}</Badge>
                   <div className="flex flex-wrap gap-2 mb-2 sm:mb-4">
-                    {project.tags.slice(0, 3).map(tag => (
+                    {project.tags.map(tag => (
                       <Badge key={tag}>{tag}</Badge>
                     ))}
                   </div>
@@ -75,17 +76,19 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   </div>
                 </div>
 
-                <div>
-                  <h2 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3">Key Features</h2>
-                  <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
-                    {project.features.map((feature, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <span className="text-muted-foreground">•</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {project.features && project.features.length > 0 && (
+                  <div>
+                    <h2 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3">Key Features</h2>
+                    <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
+                      {project.features.map((feature, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <span className="text-muted-foreground">•</span>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 <div>
                   <h2 className="text-base sm:text-lg font-semibold mb-1">Client</h2>
@@ -100,19 +103,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   )}
                 </div>
 
-                {/* Only show edit button if user is authenticated */}
-                {typeof window !== 'undefined' && 
-                  fetch('/__replauthuser')
-                    .then(res => res.ok) && 
-                  <EditProjectDialog 
-                    project={project} 
-                    onSave={(updatedProject) => {
-                    // Update the projects data
+                <EditProjectDialog 
+                  project={project} 
+                  onSave={(updatedProject) => {
                     const projectIndex = projects.findIndex(p => p.id === updatedProject.id);
                     if (projectIndex !== -1) {
                       projects[projectIndex] = updatedProject;
                     }
-
                     toast({
                       title: "Success",
                       description: "Project updated successfully"
@@ -127,4 +124,3 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     </div>
   )
 }
-
