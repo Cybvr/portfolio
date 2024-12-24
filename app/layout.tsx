@@ -38,7 +38,18 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${plusJakartaSans.variable} font-plus-jakarta`}>
         <div className="min-h-screen flex flex-col bg-background">
-          {!isPortfolioSubPage && (
+          {isPortfolioSubPage ? (
+            <header className="bg-background border-b border-border">
+              <nav className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between text-foreground">
+                <Link href="/" className="text-xl font-bold transition-colors">
+                  Jide Pinheiro
+                </Link>
+                <Link href="/portfolio">
+                  <Button variant="ghost">Portfolio</Button>
+                </Link>
+              </nav>
+            </header>
+          ) : (
             <header className={`sticky top-0 z-50 transition-all duration-300 ${
               isScrolled ? 'bg-background/95 shadow-md backdrop-blur supports-[backdrop-filter]:bg-background/60' : 'bg-background border-b border-border'
             }`}>
