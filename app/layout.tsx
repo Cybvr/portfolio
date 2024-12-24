@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Menu } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from 'react'
@@ -48,14 +49,26 @@ export default function RootLayout({
                 {/* Desktop Navigation */}
                 <ul className="hidden md:flex items-center space-x-8">
                   <li>
-                    <Link href="http://visual.ng" className="hover:text-foreground transition-colors">
-                      VisualHQ
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="http://jujuagi.com" className="hover:text-foreground transition-colors">
-                      Juju
-                    </Link>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger className="hover:text-foreground transition-colors">Products</DropdownMenuTrigger>
+                      <DropdownMenuContent>
+                        <DropdownMenuItem>
+                          <Link href="http://visual.ng" className="flex items-center">
+                            VisualHQ
+                          </Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <Link href="http://jujuagi.com" className="flex items-center">
+                            Juju
+                          </Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <Link href="http://prune.cc" className="flex items-center">
+                            Prune
+                          </Link>
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                   </li>
                   <li>
                     <Link href="/portfolio" className="hover:text-foreground transition-colors">
