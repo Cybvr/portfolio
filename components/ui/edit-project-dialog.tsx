@@ -68,9 +68,9 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
           <Edit2 className="w-4 h-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-4xl bg-background text-foreground border border-border">
+      <DialogContent className="max-w-4xl bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)]">
         <DialogHeader>
-          <DialogTitle className="text-foreground">Edit Project</DialogTitle>
+          <DialogTitle className="text-[var(--foreground)]">Edit Project</DialogTitle>
         </DialogHeader>
         <div className="grid grid-cols-2 gap-6 py-4">
           <div className="space-y-4">
