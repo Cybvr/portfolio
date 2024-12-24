@@ -14,6 +14,7 @@ import { projects } from '@/data/portfolio'
 import { notFound } from 'next/navigation'
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
+  const { toast } = useToast()
   const project = projects.find(p => p.id === params.slug)
   
   if (!project) return notFound()
