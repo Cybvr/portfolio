@@ -26,7 +26,6 @@ export default function PortfolioPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
                   <h2 className="text-lg font-medium mb-3">{project.title}</h2>
-                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     <Badge>{project.category}</Badge>
                     {project.tags.slice(0, 2).map(tag => (
