@@ -118,6 +118,33 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
                   placeholder="Enter image URL"
                   className="flex-1 bg-input text-foreground"
                 />
+                <Button 
+                  type="button"
+                  variant="outline"
+                  className="bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                  onClick={() => document.getElementById('imageUpload')?.click()}
+                >
+                  Choose Image
+                </Button>
+                <Input
+                  id="imageUpload"
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      const reader = new FileReader();
+                      reader.onload = (e) => {
+                        setEditedProject({ 
+                          ...editedProject, 
+                          featuredImage: e.target?.result as string 
+                        });
+                      };
+                      reader.readAsDataURL(file);
+                    }
+                  }}
+                />
               </div>
             </div>
             
