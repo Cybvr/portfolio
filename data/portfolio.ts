@@ -37,6 +37,23 @@ export const projects: PortfolioProject[] = [
     dateUpdated: '2024-04-01'
   },
   {
+    id: 'qrtraffic',
+    title: 'QR Traffic',
+    description: 'Create, customise, and track QR codes effortlessly with our easy-to-use platform for smarter connections.',
+    content: 'QR Traffic helps users create, customize and track QR codes through an intuitive platform focused on making connections smarter.',
+    featuredImage: '/images/portfolio/qrtraffic.jpg', 
+    gallery: [],
+    industry: 'SaaS',
+    tags: ['UX Design', 'Product Design', 'Analytics'],
+    client: 'QR Traffic',
+    technologies: ['React', 'Node.js', 'TypeScript', 'AWS'],
+    features: ['QR code generation', 'Custom branding', 'Analytics tracking', 'Multiple formats'],
+    url: 'https://qrtraffic.com',
+    status: 'published',
+    dateCreated: '2024-04-01',
+    dateUpdated: '2024-04-01'
+  },
+  {
     id: 'umba',
     title: 'Umba',
     description: 'A digital bank that offers financial services and bank accounts in Africa.',
