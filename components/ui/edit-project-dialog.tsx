@@ -68,9 +68,9 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
           <Edit2 className="w-4 h-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-4xl bg-card border border-border p-6 rounded-lg">
+      <DialogContent className="max-w-4xl bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] p-6 rounded-lg">
         <DialogHeader>
-          <DialogTitle className="text-xl font-semibold">Edit Project</DialogTitle>
+          <DialogTitle className="text-xl font-semibold text-[var(--foreground)]">Edit Project</DialogTitle>
         </DialogHeader>
         <div className="grid grid-cols-2 gap-6 py-4">
           <div className="space-y-4">
@@ -188,7 +188,13 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
           </div>
         </div>
         <div className="flex justify-end gap-2 mt-4">
-          <Button onClick={handleSave} className="bg-primary text-primary-foreground">
+          <Button 
+            onClick={() => {
+              handleSave();
+              setOpen(false);
+            }} 
+            className="bg-[var(--primary)] text-[var(--primary-foreground)] hover:bg-[var(--primary)]/90"
+          >
             Save Changes
           </Button>
         </div>
