@@ -90,9 +90,9 @@ export default function RootLayout({
             {children}
           </main>
           {!isPortfolioSubPage && (
-            <footer className="border-t border-white/10 mt-20">
-              <div className="container mx-auto px-4 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <footer className="border-t mt-20">
+              <div className="max-w-6xl mx-auto px-4 py-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div>
                     <h3 className="font-bold mb-4">Contact</h3>
                     <p className="text-gray-600">Lagos, Nigeria</p>
