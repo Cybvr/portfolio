@@ -21,8 +21,8 @@ export default function Page() {
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="w-full md:w-2/3">
                 <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                  <span className="block bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground to-muted-foreground">Digital</span>
-                  <span className="block bg-clip-text text-transparent bg-gradient-to-r from-muted-foreground via-foreground to-foreground">Craftsman</span>
+                  <span className="block bg-clip-text text-foreground bg-gradient-to-r from-foreground via-foreground to-muted-foreground">Digital</span>
+                  <span className="block bg-clip-text text-foreground bg-gradient-to-r from-muted-foreground via-foreground to-foreground">Craftsman</span>
                 </h1>
                 <div className="relative ml-8 mb-8">
                   <div className="absolute left-0 top-0 w-0.5 h-full bg-gradient-to-b from-primary to-accent" />
