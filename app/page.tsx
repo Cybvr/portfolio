@@ -13,7 +13,7 @@ export default function Page() {
         <section className="mb-16  rounded-3xl p-8">
           <div className="flex flex-col md:flex-row items-center gap-8 bg-card">
             <div className="w-full md:w-2/3">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+              <h1 className="text-4xl md:text-5xl font-bold font-muted-foreground mb-4 leading-tight">
                 Digital Craftsman
               </h1>
               <p className="text-lg text-muted-foreground mb-6">
