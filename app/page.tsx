@@ -3,6 +3,7 @@
 import React from 'react';
 import { User, Briefcase, Code2, ChevronRight, Github, Linkedin, Twitter } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Badge } from "@/components/ui/badge";
 import { projects } from '@/data/portfolio';
 
