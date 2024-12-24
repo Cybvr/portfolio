@@ -8,10 +8,10 @@ import { projects } from '@/data/portfolio';
 
 export default function Page() {
   return (
-    <div className="w-full bg-background text-foreground">
-      <div className="p-12">
-        <section className="mb-16  rounded-3xl p-8">
-          <div className="flex flex-col md:flex-row items-center gap-8 bg-card">
+    <div className="w-full bg-background text-muted-foreground font-medium">
+      <div className="flex flex-col p-12 gap-8">
+        
+        <div className="flex flex-col md:flex-row items-center gap-8 bg-card p-12 rounded-3xl">
             <div className="w-full md:w-2/3">
               <h1 className="text-4xl md:text-5xl font-bold font-muted-foreground mb-4 leading-tight">
                 Digital Craftsman
@@ -34,21 +34,20 @@ export default function Page() {
                 <p className="text-sm">Design & Development</p>
               </div>
               <div className="flex gap-4 pt-4">
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                <a href="#" className="text-muted-foreground hover:text-muted-foreground transition-colors">
                   <Github className="w-5 h-5" />
                 </a>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                <a href="#" className="text-muted-foreground hover:text-muted-foreground transition-colors">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                <a href="#" className="text-muted-foreground hover:text-muted-foreground transition-colors">
                   <Twitter className="w-5 h-5" />
                 </a>
               </div>
             </div>
           </div>
-        </section>
-
-        <section className="mb-16">
+        
+          <div className="flex flex-col md:flex-row items-center gap-8 bg-card p-12 rounded-3xl">
           <h2 className="bg-card text-2xl font-bold mb-8">Selected Work</h2>
           <div className="grid md:grid-cols-4 gap-8">
             {projects.slice(0, 4).map((project) => (
@@ -72,9 +71,9 @@ export default function Page() {
               </div>
             ))}
           </div>
-        </section>
+        </div>
 
-        <section>
+          <div className="flex flex-col md:flex-row items-center gap-8 bg-card p-12 rounded-3xl">
           <h2 className="text-2xl font-bold mb-8">Technical Skills</h2>
           <div className="flex flex-col md:flex-row gap-8">
             <div className="w-full md:w-1/2">
@@ -111,7 +110,7 @@ export default function Page() {
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   );
