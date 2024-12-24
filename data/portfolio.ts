@@ -50,5 +50,21 @@ export const projects: PortfolioProject[] = [
     status: 'published',
     dateCreated: '2024-02-01',
     dateUpdated: '2024-03-20'
+  },
+  {
+    id: 'juju',
+    title: 'Juju',
+    description: 'All-in-one platform with smart tools for branding, content, and productivity.',
+    content: 'Detailed content about Juju project...',
+    featuredImage: '/images/portfolio/juju.jpg',
+    gallery: [],
+    category: 'Productivity',
+    tags: ['Smart Tools', 'Branding', 'Productivity'],
+    client: 'Juju Inc',
+    technologies: ['React', 'TypeScript', 'Node.js'],
+    features: ['Brand management', 'Content creation'],
+    status: 'published',
+    dateCreated: '2024-04-01',
+    dateUpdated: '2024-04-01'
   }
 ]
