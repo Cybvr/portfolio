@@ -1,47 +1,49 @@
+
+'use client';
+
 import React from 'react';
 import { User, Briefcase, Code2, ChevronRight, Github, Linkedin, Twitter } from 'lucide-react';
 
-function App() {
+export default function Page() {
   return (
-    <div className="w-full min-h-screen bg-[#0A0A0B] text-white">
-      {/* Hero Section - Asymmetric with diagonal elements */}
-      <section className="relative min-h-screen overflow-hidden">
+    <div className="w-full min-h-screen bg-background text-foreground">
+      {/* Hero Section */}
+      <section className="relative min-h-[80vh] overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-3/4 h-screen bg-gradient-to-bl from-purple-900/20 via-blue-900/10 to-transparent transform rotate-12 translate-x-1/4 -translate-y-1/4" />
-          <div className="absolute bottom-0 left-0 w-1/2 h-screen bg-gradient-to-tr from-blue-900/20 via-purple-900/10 to-transparent transform -rotate-12 -translate-x-1/4 translate-y-1/4" />
+          <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-accent/20 via-primary/10 to-transparent transform rotate-12 translate-x-1/4 -translate-y-1/4" />
+          <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-tr from-primary/20 via-accent/10 to-transparent transform -rotate-12 -translate-x-1/4 translate-y-1/4" />
         </div>
-        <div className="container mx-auto px-4 pt-32 relative">
-          <div className="max-w-[90%]">
-            <div className="flex flex-col md:flex-row gap-12 items-start">
+        <div className="container mx-auto px-4 pt-20">
+          <div className="max-w-4xl">
+            <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="w-full md:w-2/3">
-                <h1 className="text-7xl md:text-8xl font-bold mb-8 leading-tight">
-                  <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-gray-400">Digital</span>
-                  <span className="block bg-clip-text text-transparent bg-gradient-to-r from-gray-400 via-white to-white">Craftsman</span>
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                  <span className="block bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground to-muted-foreground">Digital</span>
+                  <span className="block bg-clip-text text-transparent bg-gradient-to-r from-muted-foreground via-foreground to-foreground">Craftsman</span>
                 </h1>
-                <div className="relative ml-12 mb-12">
-                  <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-purple-500 to-blue-500" />
-                  <p className="text-xl text-gray-400 leading-relaxed pl-8">
-                    With over 10 years of experience, I specialize in designing digital products 
-                    that are accessible, intuitive, and push creative boundaries.
+                <div className="relative ml-8 mb-8">
+                  <div className="absolute left-0 top-0 w-0.5 h-full bg-gradient-to-b from-primary to-accent" />
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed pl-6">
+                    Crafting intuitive digital experiences with a focus on accessibility and innovation.
                   </p>
                 </div>
-                <button className="group flex items-center gap-2 text-lg hover:gap-4 transition-all ml-12">
+                <button className="group flex items-center gap-2 text-sm hover:gap-3 transition-all ml-8">
                   <span className="relative">
-                    <span className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded blur opacity-30 group-hover:opacity-100 transition-opacity" />
-                    <span className="relative">Explore Work</span>
+                    <span className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded blur opacity-30 group-hover:opacity-100 transition-opacity" />
+                    <span className="relative">View Projects</span>
                   </span>
-                  <ChevronRight className="group-hover:translate-x-2 transition-transform" />
+                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
-              <div className="w-full md:w-1/3 pl-0 md:pl-12 border-l border-white/10">
-                <div className="space-y-12">
+              <div className="w-full md:w-1/3 pl-0 md:pl-8 border-l border-border">
+                <div className="space-y-8">
                   <div className="transform hover:-translate-y-1 transition-transform">
-                    <h3 className="text-sm text-gray-500 uppercase tracking-wider mb-2">Location</h3>
-                    <p className="text-xl">Lagos, Nigeria</p>
+                    <h3 className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Location</h3>
+                    <p className="text-sm">Lagos, Nigeria</p>
                   </div>
                   <div className="transform hover:-translate-y-1 transition-transform">
-                    <h3 className="text-sm text-gray-500 uppercase tracking-wider mb-2">Expertise</h3>
-                    <p className="text-xl">Digital Design, Development, Strategy</p>
+                    <h3 className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Expertise</h3>
+                    <p className="text-sm">Design & Development</p>
                   </div>
                 </div>
               </div>
@@ -50,49 +52,28 @@ function App() {
         </div>
       </section>
 
-      {/* Projects Section - Asymmetric grid layout */}
-      <section className="py-32 relative">
+      {/* Projects Section */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-12">
-            <div className="w-full md:w-1/3 sticky top-32">
-              <h2 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                Selected Projects
+          <div className="flex flex-col md:flex-row gap-8">
+            <div className="w-full md:w-1/3 sticky top-20">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                Selected Work
               </h2>
-              <p className="text-gray-400">Crafting digital experiences through design storytelling and technical excellence.</p>
+              <p className="text-sm text-muted-foreground">Showcasing innovation through design and technology.</p>
             </div>
-            <div className="w-full md:w-2/3 space-y-32">
-              {[
-                {
-                  align: 'right',
-                  image: 'https://images.unsplash.com/photo-1673258761236-fc97c97a4e24',
-                  title: 'Digital Experience Platform'
-                },
-                {
-                  align: 'left',
-                  image: 'https://images.unsplash.com/photo-1674282140231-c71a8d5b00e5',
-                  title: 'E-commerce Redesign'
-                },
-                {
-                  align: 'right',
-                  image: 'https://images.unsplash.com/photo-1674421338672-3591ba6f776c',
-                  title: 'Brand Identity System'
-                }
-              ].map((project, index) => (
-                <div key={index} className={`group ${project.align === 'right' ? 'ml-0 md:ml-12' : 'mr-0 md:mr-12'}`}>
-                  <div className="relative aspect-[16/9] mb-8 overflow-hidden rounded-lg">
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 group-hover:scale-105 transition-transform duration-700" />
-                    <img 
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
+            <div className="w-full md:w-2/3 space-y-20">
+              {[1, 2, 3].map((_, index) => (
+                <div key={index} className={`group ${index % 2 === 0 ? 'ml-0 md:ml-8' : 'mr-0 md:mr-8'}`}>
+                  <div className="relative aspect-video mb-6 overflow-hidden rounded">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 group-hover:scale-105 transition-transform duration-500" />
                   </div>
-                  <div className={`flex items-end gap-4 ${project.align === 'right' ? 'justify-end' : 'justify-start'}`}>
+                  <div className={`flex items-end gap-4 ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
                     <div>
-                      <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
-                      <p className="text-gray-400 mb-4">Digital design • Development • 2024</p>
-                      <button className="group/btn flex items-center gap-2 text-sm hover:gap-4 transition-all">
-                        View Case Study <ChevronRight className="group-hover/btn:translate-x-2 transition-transform" />
+                      <h3 className="text-lg font-medium mb-2">Project {index + 1}</h3>
+                      <p className="text-xs text-muted-foreground mb-3">Design • Development • 2024</p>
+                      <button className="group/btn flex items-center gap-2 text-xs hover:gap-3 transition-all">
+                        View Case Study <ChevronRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
                       </button>
                     </div>
                   </div>
@@ -103,52 +84,52 @@ function App() {
         </div>
       </section>
 
-      {/* Skills Section - Asymmetric with overlapping elements */}
-      <section className="py-32 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/10 to-transparent" />
+      {/* Skills Section */}
+      <section className="py-20 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent" />
         <div className="container mx-auto px-4 relative">
-          <div className="flex flex-col md:flex-row gap-24">
+          <div className="flex flex-col md:flex-row gap-16">
             <div className="w-full md:w-1/2">
-              <h2 className="text-5xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                Technical Expertise
+              <h2 className="text-2xl md:text-3xl font-bold mb-8">
+                Technical Skills
               </h2>
-              <div className="space-y-12">
+              <div className="space-y-8">
                 {[
-                  { icon: <Code2 className="h-6 w-6" />, title: "Development", desc: "Building responsive and accessible applications" },
-                  { icon: <User className="h-6 w-6" />, title: "UX Design", desc: "Creating intuitive user experiences" },
-                  { icon: <Briefcase className="h-6 w-6" />, title: "Strategy", desc: "Developing comprehensive design systems" }
+                  { icon: <Code2 className="h-4 w-4" />, title: "Development", desc: "Building accessible applications" },
+                  { icon: <User className="h-4 w-4" />, title: "UX Design", desc: "Creating intuitive experiences" },
+                  { icon: <Briefcase className="h-4 w-4" />, title: "Strategy", desc: "Developing design systems" }
                 ].map((item, i) => (
                   <div key={i} className="group relative">
-                    <div className="absolute -inset-2 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="relative flex gap-6 items-start p-4">
-                      <div className="p-4 border border-white/10 rounded-lg group-hover:border-white/30 transition-colors">
+                    <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-accent/20 rounded blur opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="relative flex gap-4 items-start p-4">
+                      <div className="p-2 border border-border rounded group-hover:border-foreground/30 transition-colors">
                         {item.icon}
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                        <p className="text-gray-400">{item.desc}</p>
+                        <h3 className="text-sm font-medium mb-1">{item.title}</h3>
+                        <p className="text-xs text-muted-foreground">{item.desc}</p>
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="w-full md:w-1/2 pl-0 md:pl-12 border-l border-white/10">
-              <div className="grid grid-cols-2 gap-4">
+            <div className="w-full md:w-1/2 pl-0 md:pl-8 border-l border-border">
+              <div className="grid grid-cols-2 gap-3">
                 {[
-                  'UX Design', 'User Research', 'Design Strategy',
-                  'Next.js', 'TypeScript', 'JavaScript',
-                  'React', 'WordPress', 'PHP',
-                  'HTML', 'CSS', 'Accessibility'
+                  'UX Design', 'Research', 'Strategy',
+                  'Next.js', 'React', 'TypeScript',
+                  'Node.js', 'PHP', 'Python',
+                  'HTML/CSS', 'UI/UX', 'API'
                 ].map((skill, index) => (
                   <div 
                     key={skill}
-                    className={`group relative px-6 py-4 border border-white/10 rounded-lg hover:border-white/30 transition-colors ${
-                      index % 3 === 0 ? 'transform translate-y-4' : ''
+                    className={`group relative px-4 py-2 border border-border rounded hover:border-foreground/30 transition-colors ${
+                      index % 3 === 0 ? 'transform translate-y-2' : ''
                     }`}
                   >
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <p className="relative">{skill}</p>
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-accent/20 rounded blur opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <p className="relative text-xs">{skill}</p>
                   </div>
                 ))}
               </div>
@@ -158,21 +139,21 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-white/10">
+      <footer className="py-8 border-t border-border">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <p className="text-gray-400">© 2024 Jide. All rights reserved.</p>
-            <div className="flex gap-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-xs text-muted-foreground">© 2024 Jide. All rights reserved.</p>
+            <div className="flex gap-4">
               {[
-                { icon: <Github className="h-5 w-5" />, label: "GitHub" },
-                { icon: <Linkedin className="h-5 w-5" />, label: "LinkedIn" },
-                { icon: <Twitter className="h-5 w-5" />, label: "Twitter" }
+                { icon: <Github className="h-4 w-4" />, label: "GitHub" },
+                { icon: <Linkedin className="h-4 w-4" />, label: "LinkedIn" },
+                { icon: <Twitter className="h-4 w-4" />, label: "Twitter" }
               ].map((item, i) => (
                 <button 
                   key={i} 
-                  className="group relative text-gray-400 hover:text-white transition-colors"
+                  className="group relative text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  <div className="absolute -inset-2 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative">
                     {item.icon}
                   </div>
@@ -185,5 +166,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
