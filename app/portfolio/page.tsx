@@ -1,46 +1,37 @@
 
 'use client'
 
-import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import type { PortfolioProject } from "@/types/portfolio"
 import { projects } from '@/data/portfolio'
 
 export default function PortfolioPage() {
   return (
-    <div className="container py-12">
-      <h1 className="text-4xl font-bold mb-8">Our Projects</h1>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.filter(p => p.status === 'published').map((project) => (
-          <Card key={project.id} className="overflow-hidden">
-            <div className="relative h-48">
+    <div className="container max-w-6xl mx-auto px-4 py-12">
+      <div className="grid lg:grid-cols-3 gap-6">
+        {projects.slice(0, 3).map((project) => (
+          <Link key={project.id} href={`/portfolio/${project.id}`} className="group">
+            <div className="relative aspect-[4/3] mb-4 overflow-hidden rounded-lg">
               <Image 
                 src={project.featuredImage}
                 alt={project.title}
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
-            <CardContent className="p-4">
-              <div className="flex gap-2 mb-2">
-                <Badge variant="secondary">{project.category}</Badge>
+            <div>
+              <h2 className="text-lg font-semibold mb-2">{project.title}</h2>
+              <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{project.description}</p>
+              <div className="flex gap-2">
+                <Badge variant="secondary" className="text-xs">{project.category}</Badge>
                 {project.tags.slice(0, 2).map(tag => (
-                  <Badge key={tag} variant="outline">{tag}</Badge>
+                  <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
                 ))}
               </div>
-              <h2 className="text-xl font-bold mb-2">{project.title}</h2>
-              <p className="text-muted-foreground mb-4">{project.description}</p>
-              <div className="text-sm text-muted-foreground mb-4">
-                Updated: {new Date(project.dateUpdated).toLocaleDateString()}
-              </div>
-              <Link href={`/portfolio/${project.id}`}>
-                <Button variant="outline" className="w-full">View Project</Button>
-              </Link>
-            </CardContent>
-          </Card>
+            </div>
+          </Link>
         ))}
       </div>
     </div>
