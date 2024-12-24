@@ -99,9 +99,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   )}
                 </div>
 
-                <EditProjectDialog 
-                  project={project} 
-                  onSave={(updatedProject) => {
+                {/* Only show edit button if user is authenticated */}
+                {typeof window !== 'undefined' && 
+                  fetch('/__replauthuser')
+                    .then(res => res.ok) && 
+                  <EditProjectDialog 
+                    project={project} 
+                    onSave={(updatedProject) => {
                     // Update the projects data
                     const projectIndex = projects.findIndex(p => p.id === updatedProject.id);
                     if (projectIndex !== -1) {
