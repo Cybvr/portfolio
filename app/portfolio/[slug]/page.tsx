@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { useToast } from "@/hooks/use-toast"
 import { ArrowLeft, ExternalLink, Edit2 } from "lucide-react"
+import { EditProjectDialog } from "@/components/ui/edit-project-dialog"
 import Image from "next/image"
 import Link from "next/link"
 import { projects } from '@/data/portfolio'
