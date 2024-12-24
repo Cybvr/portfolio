@@ -11,12 +11,12 @@ export default function Page() {
   return (
     <div className="w-full min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] overflow-hidden">
+      <section className="relative min-h-[70vh] overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-accent/20 via-primary/10 to-transparent transform rotate-12 translate-x-1/4 -translate-y-1/4" />
           <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-tr from-primary/20 via-accent/10 to-transparent transform -rotate-12 -translate-x-1/4 translate-y-1/4" />
         </div>
-        <div className="container mx-auto px-4 pt-20">
+        <div className="container mx-auto px-4 pt-12">
           <div className="max-w-4xl">
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="w-full md:w-2/3">
@@ -56,9 +56,9 @@ export default function Page() {
       </section>
 
       {/* Projects Section */}
-      <section className="py-12">
+      <section className="py-8">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex flex-col md:flex-row gap-3">
             <div className="w-full md:w-1/3 sticky top-20">
               <h2 className="text-xl font-bold mb-2">
                 Selected Work
@@ -95,10 +95,10 @@ export default function Page() {
       </section>
 
       {/* Skills Section */}
-      <section className="py-20 relative">
+      <section className="py-12 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent" />
         <div className="container mx-auto px-4 relative">
-          <div className="flex flex-col md:flex-row gap-16">
+          <div className="flex flex-col md:flex-row gap-8">
             <div className="w-full md:w-1/2">
               <h2 className="text-2xl md:text-3xl font-bold mb-8">
                 Technical Skills
