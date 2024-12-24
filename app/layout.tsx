@@ -5,7 +5,13 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from 'react'
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import './styles/globals.css'
+
+const plusJakartaSans = Plus_Jakarta_Sans({ 
+  subsets: ['latin'],
+  variable: '--font-plus-jakarta',
+});
 
 export default function RootLayout({
   children,
@@ -28,7 +34,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body>
+      <body className={`${plusJakartaSans.variable} font-plus-jakarta`}>
         <div className="min-h-screen flex flex-col bg-background">
           {!isPortfolioSubPage && (
             <header className={`sticky top-0 z-50 transition-all duration-300 ${

@@ -1,4 +1,3 @@
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class'],
@@ -45,7 +44,7 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)'
       },
       fontFamily: {
-        sora: ['var(--font-sora)'],
+        'plus-jakarta': ['var(--font-plus-jakarta)'],
         fira: ['var(--font-fira-sans)'],
         oswald: ['var(--font-oswald)'],
         quicksand: ['var(--font-quicksand)'],
