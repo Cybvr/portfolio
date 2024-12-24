@@ -64,18 +64,15 @@ function App() {
               {[
                 {
                   align: 'right',
-                  image: 'https://images.unsplash.com/photo-1673258761236-fc97c97a4e24',
-                  title: 'Digital Experience Platform'
+                  image: '/images/portfolio/fennel.jpg',
+                  title: 'Fennel',
+                  description: 'Mobile investing app with ESG data and shareholder voting info'
                 },
                 {
                   align: 'left',
-                  image: 'https://images.unsplash.com/photo-1674282140231-c71a8d5b00e5',
-                  title: 'E-commerce Redesign'
-                },
-                {
-                  align: 'right',
-                  image: 'https://images.unsplash.com/photo-1674421338672-3591ba6f776c',
-                  title: 'Brand Identity System'
+                  image: '/images/portfolio/umba.jpg',
+                  title: 'Umba',
+                  description: 'Digital banking platform for Africa'
                 }
               ].map((project, index) => (
                 <div key={index} className={`group ${project.align === 'right' ? 'ml-0 md:ml-12' : 'mr-0 md:mr-12'}`}>
@@ -136,11 +133,14 @@ function App() {
             <div className="w-full md:w-1/2 pl-0 md:pl-12 border-l border-white/10">
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  'UX Design', 'User Research', 'Design Strategy',
-                  'Next.js', 'TypeScript', 'JavaScript',
-                  'React', 'WordPress', 'PHP',
-                  'HTML', 'CSS', 'Accessibility'
-                ].map((skill, index) => (
+                  { category: 'Design', skills: ['UX Design', 'User Research', 'Design Strategy'] },
+                  { category: 'Frontend', skills: ['React', 'Next.js', 'TypeScript'] },
+                  { category: 'Backend', skills: ['Node.js', 'PHP', 'Python'] },
+                  { category: 'Other', skills: ['Accessibility', 'SEO', 'Performance'] }
+                ].map((group, index) => (
+                  <div key={index} className="col-span-1 space-y-4">
+                    <h3 className="text-sm text-gray-400 uppercase tracking-wider">{group.category}</h3>
+                    {group.skills.map((skill) => (
                   <div 
                     key={skill}
                     className={`group relative px-6 py-4 border border-white/10 rounded-lg hover:border-white/30 transition-colors ${
