@@ -34,14 +34,11 @@ export default function Page() {
                 <p className="text-sm">Design & Development</p>
               </div>
               <div className="flex gap-4 pt-4">
-                <a href="#" className="text-muted-foreground hover:text-muted-foreground transition-colors">
+                <a href="https://github.com/Cybvr" className="text-muted-foreground hover:text-muted-foreground transition-colors">
                   <Github className="w-5 h-5" />
                 </a>
-                <a href="#" className="text-muted-foreground hover:text-muted-foreground transition-colors">
+                <a href="https://www.linkedin.com/in/jidepinheiro/" className="text-muted-foreground hover:text-muted-foreground transition-colors">
                   <Linkedin className="w-5 h-5" />
-                </a>
-                <a href="#" className="text-muted-foreground hover:text-muted-foreground transition-colors">
-                  <Twitter className="w-5 h-5" />
                 </a>
               </div>
             </div>
@@ -51,7 +48,7 @@ export default function Page() {
             <h2 className="text-2xl font-bold mb-8">Selected Work</h2>
             <div className="grid md:grid-cols-4 gap-6">
               {projects.slice(0, 4).map((project) => (
-                <div key={project.id} className="bg-muted p-4 rounded-lg group">
+                <Link key={project.id} href={`/portfolio/${project.id}`} className="bg-muted p-4 rounded-lg group block">
                   <div className="relative aspect-[16/9] mb-4 overflow-hidden rounded-lg">
                     <Image 
                       src={project.featuredImage}
@@ -67,7 +64,7 @@ export default function Page() {
                       <Badge key={tag}>{tag}</Badge>
                     ))}
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

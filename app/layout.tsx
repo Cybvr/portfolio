@@ -75,6 +75,11 @@ export default function RootLayout({
                       Portfolio
                     </Link>
                   </li>
+                  <li>
+                    <Link href="/contact" className="hover:text-foreground transition-colors">
+                      Contact
+                    </Link>
+                  </li>
                 </ul>
 
                 {/* Mobile Navigation */}
@@ -136,6 +141,11 @@ export default function RootLayout({
                       <li>
                         <Link href="https://github.com/Cybvr" className="hover:text-gray-900 transition-colors">
                           GitHub
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="https://www.toptal.com/designers/resume/jide-pinheiro" className="hover:text-gray-900 transition-colors">
+                          Toptal
                         </Link>
                       </li>
                     </ul>
