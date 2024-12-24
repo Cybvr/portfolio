@@ -92,37 +92,16 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   </Button>
                 )}
 
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button variant="outline" className="gap-2">
-                      Edit Project
-                      <Edit2 className="w-4 h-4" />
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent>
-                    <DialogHeader>
-                      <DialogTitle>Edit Project</DialogTitle>
-                    </DialogHeader>
-                    <div className="space-y-4 py-4">
-                      <div className="space-y-2">
-                        <label>Title</label>
-                        <Input defaultValue={project.title} />
-                      </div>
-                      <div className="space-y-2">
-                        <label>Description</label>
-                        <Input defaultValue={project.description} />
-                      </div>
-                      <Button onClick={() => {
-                        toast({
-                          title: "Success",
-                          description: "Project updated successfully"
-                        })
-                      }}>
-                        Save Changes
-                      </Button>
-                    </div>
-                  </DialogContent>
-                </Dialog>
+                <EditProjectDialog 
+                  project={project} 
+                  onSave={(updatedProject) => {
+                    toast({
+                      title: "Success",
+                      description: "Project updated successfully"
+                    });
+                    console.log('Updated project:', updatedProject);
+                  }} 
+                />
               </div>
             </div>
           </div>
