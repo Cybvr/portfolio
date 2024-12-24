@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { useEffect, useState } from 'react'
 import './styles/globals.css'
 import { Plus_Jakarta_Sans } from 'next/font/google';
+import { Toaster } from "@/components/ui/toaster";
 
 const plusJakartaSans = Plus_Jakarta_Sans({ 
   subsets: ['latin'],
@@ -158,6 +159,7 @@ export default function RootLayout({
             </footer>
           )}
         </div>
+      <Toaster />
       </body>
     </html>
   )
