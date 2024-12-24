@@ -3,6 +3,38 @@ import type { PortfolioProject } from '@/types/portfolio'
 
 export const projects: PortfolioProject[] = [
   {
+    id: 'fennel',
+    title: 'Fennel',
+    description: 'A mobile investing app that empowers individuals to understand a company\'s impact through accessible ESG data and shareholder voting info.',
+    content: 'A mobile investing app that empowers individuals to understand a company\'s impact through accessible ESG data and shareholder voting info.',
+    featuredImage: '/images/portfolio/fennel.jpg',
+    gallery: [],
+    category: 'Finance',
+    tags: ['ESG', 'Investing', 'Mobile App'],
+    client: 'Fennel Inc',
+    technologies: ['React Native', 'TypeScript', 'Node.js'],
+    features: ['ESG data analysis', 'Shareholder voting info', 'Investment tracking'],
+    status: 'published',
+    dateCreated: '2024-04-01',
+    dateUpdated: '2024-04-01'
+  },
+  {
+    id: 'umba',
+    title: 'Umba',
+    description: 'A digital bank that offers financial services and bank accounts in Africa.',
+    content: 'Umba is a digital bank that offers financial services and bank accounts in Africa. Umba\'s services include: Free bank accounts, Small loans, Spending, Paying bills, Earning cashback, Account management, Payments, and Savings.',
+    featuredImage: '/images/portfolio/umba.jpg',
+    gallery: [],
+    category: 'Finance',
+    tags: ['Digital Banking', 'Financial Services', 'Africa'],
+    client: 'Umba',
+    technologies: ['React', 'Node.js', 'AWS'],
+    features: ['Free bank accounts', 'Small loans', 'Bill payments', 'Cashback', 'Savings'],
+    status: 'published',
+    dateCreated: '2024-04-01',
+    dateUpdated: '2024-04-01'
+  },
+  {
     id: 'hubbleiq',
     title: 'HubbleIQ',
     description: 'Effortlessly identify and conquer any hiccups that come your way, ensuring a smoother and more reliable experience for your valued users.',
