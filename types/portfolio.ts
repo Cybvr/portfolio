@@ -12,6 +12,7 @@ export interface PortfolioProject {
   tags: string[];
   client: string;
   technologies: string[];
+  url?: string;
   liveUrl?: string;
   features: string[];
   status: PortfolioStatus;
