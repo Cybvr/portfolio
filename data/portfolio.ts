@@ -14,7 +14,7 @@ export const projects: PortfolioProject[] = [
     client: 'Fennel Inc',
     technologies: ['React Native', 'TypeScript', 'Node.js'],
     features: ['ESG data analysis', 'Shareholder voting info', 'Investment tracking'],
-    url: 'https://fennel.app',
+    url: 'https://fennel.com',
     status: 'published',
     dateCreated: '2024-04-01',
     dateUpdated: '2024-04-01'
@@ -31,6 +31,7 @@ export const projects: PortfolioProject[] = [
     client: 'Umba',
     technologies: ['React', 'Node.js', 'AWS'],
     features: ['Free bank accounts', 'Small loans', 'Bill payments', 'Cashback', 'Savings'],
+    url: 'https://umba.com',
     status: 'published',
     dateCreated: '2024-04-01',
     dateUpdated: '2024-04-01'
@@ -47,26 +48,10 @@ export const projects: PortfolioProject[] = [
     client: 'HubbleIQ Inc',
     technologies: ['React', 'Node.js', 'AWS'],
     features: ['System monitoring', 'Performance tracking', 'User experience analytics'],
+    url: 'https://hubbleiq.com',
     status: 'published',
     dateCreated: '2024-04-01',
     dateUpdated: '2024-04-01'
-  },
-  {
-    id: 'solveai',
-    title: 'SolveAI',
-    description: 'AI Research Assistant Platform',
-    content: 'Detailed content about SolveAI project...',
-    featuredImage: '/images/portfolio/solveai.jpg',
-    gallery: ['/images/portfolio/solveai/1.png'],
-    industry: 'AI & Machine Learning',
-    tags: ['UX Design', 'Brand Identity', 'Presentation Design'],
-    client: 'SolveAI Inc',
-    technologies: ['React', 'Python', 'TensorFlow'],
-    liveUrl: 'https://solveai.com',
-    features: ['AI-powered research', 'Document analysis'],
-    status: 'published',
-    dateCreated: '2024-01-01',
-    dateUpdated: '2024-03-15'
   },
   {
     id: 'selectsportsusa',
@@ -80,6 +65,7 @@ export const projects: PortfolioProject[] = [
     client: 'Select Sports USA',
     technologies: ['Next.js', 'TypeScript', 'Tailwind'],
     features: ['Team management', 'Event scheduling'],
+    url: 'https://selectsportsusa.com',
     status: 'published',
     dateCreated: '2024-02-01',
     dateUpdated: '2024-03-20'
@@ -96,6 +82,7 @@ export const projects: PortfolioProject[] = [
     client: 'Juju Inc',
     technologies: ['React', 'TypeScript', 'Node.js'],
     features: ['Brand management', 'Content creation'],
+    url: 'https://jujuagi.com',
     status: 'published',
     dateCreated: '2024-04-01',
     dateUpdated: '2024-04-01'
