@@ -37,7 +37,7 @@ export default function ClientLayout({
             Jide Pinheiro
           </Link>
 
-          <ul className="hidden md:flex items-center space-x-8">
+          <ul className="hidden md:flex items-center space-x-8 text-muted-foreground">
             <li>
               <DropdownMenu>
                 <DropdownMenuTrigger className="hover:text-foreground transition-colors">Products</DropdownMenuTrigger>

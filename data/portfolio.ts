@@ -94,6 +94,7 @@ export const projects: PortfolioProject[] = [
     "dateCreated": "2024-24-01",
     "dateUpdated": "2024-12-24"
   },
+  
   {
     "id": "fennel",
     "title": "Fennel",
@@ -159,7 +160,7 @@ export const projects: PortfolioProject[] = [
     "title": "Wellthi",
     "description": "A fintech social enterprise helping customers structure their financial goals with family and friends through mobile banking.",
     "content": "Wellthi is a fintech social enterprise that revolutionizes how people manage their financial goals by incorporating social connections. The platform enables users to set and achieve financial objectives while leveraging support from their trusted network through mobile banking integration.",
-    "featuredImage": "/images/portfolio/Screenshot 2024-12-27 at 05.19.53.png",
+    "featuredImage": "/images/portfolio/wellthi.jpg",
     "gallery": [],
     "industry": "Fintech",
     "tags": [
@@ -181,11 +182,10 @@ export const projects: PortfolioProject[] = [
       "Email notification system",
       "Financial milestone tracking"
     ],
-    "url": "https://wellthiapp.com",
+    "url": "https://wellthi.com",
     "status": "published",
     "dateCreated": "2024-01-01",
-    "dateUpdated": "2024-12-27",
-    "embed": "<iframe style=\"border: 1px solid rgba(0, 0, 0, 0.1);\" width=\"800\" height=\"450\" src=\"https://embed.figma.com/design/AVgyf4lazZbBx4RdWwyazA/Wellthi?node-id=2-16&embed-host=share\" allowfullscreen></iframe>"
+    "dateUpdated": "2024-12-24"
   },
   {
     "id": "umba",
