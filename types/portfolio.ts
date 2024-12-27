@@ -18,6 +18,4 @@ export interface PortfolioProject {
   status: PortfolioStatus;
   dateCreated: string;
   dateUpdated: string;
-  pdfUrl?: string;
-  pdfTitle?: string;
 }

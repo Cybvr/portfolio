@@ -26,9 +26,9 @@ export default function PortfolioPage() {
                   </div>
                   <h2 className="text-base sm:text-lg font-medium mb-2 sm:mb-3">{project.title}</h2>
                   <div className="flex flex-wrap gap-1 sm:gap-2">
-                    <Badge variant="default" className="text-xs sm:text-sm">{project.industry}</Badge>
+                    <Badge variant="secondary" className="text-xs sm:text-sm">{project.industry}</Badge>
                     {project.tags.slice(0, 2).map(tag => (
-                      <Badge key={tag} variant="secondary" className="text-xs sm:text-sm">{tag}</Badge>
+                      <Badge key={tag} variant="outline" className="text-xs sm:text-sm">{tag}</Badge>
                     ))}
                   </div>
                 </div>
