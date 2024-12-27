@@ -86,11 +86,11 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
           <Edit2 className="w-4 h-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-4xl bg-card text-foreground border border-border">
+      <DialogContent className="w-[95vw] max-w-4xl bg-card text-foreground border border-border overflow-y-auto max-h-[90vh]">
         <DialogHeader>
           <DialogTitle className="text-foreground">Edit Project</DialogTitle>
         </DialogHeader>
-        <div className="grid grid-cols-2 gap-6 py-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 py-4">
           <div className="space-y-4">
             <div className="grid gap-2">
               <label className="text-foreground">Title</label>
@@ -147,7 +147,7 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
           <div className="space-y-4">
             <div className="grid gap-2">
               <label className="text-foreground">Featured Image</label>
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <Input
                   value={editedProject.featuredImage}
                   onChange={(e) => setEditedProject({ ...editedProject, featuredImage: e.target.value })}
@@ -157,7 +157,7 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
                 <Button 
                   type="button"
                   variant="outline"
-                  className="bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                  className="bg-secondary text-secondary-foreground hover:bg-secondary/80 whitespace-nowrap"
                   onClick={() => document.getElementById('imageUpload')?.click()}
                 >
                   Choose Image
