@@ -120,7 +120,8 @@ export const projects: PortfolioProject[] = [
     "url": "https://fennel.com",
     "status": "published",
     "dateCreated": "2024-04-01",
-    "dateUpdated": "2024-12-24"
+    "dateUpdated": "2024-12-24",
+    "embed": "<iframe style=\"border: 1px solid rgba(0, 0, 0, 0.1);\" width=\"800\" height=\"450\" src=\"https://embed.figma.com/design/dchaPec3yiCEvKoCQqjmXp/Fennel-Markets?node-id=182-1179&embed-host=share\" allowfullscreen></iframe>\n\n<div style=\"position: relative; width: 100%; height: 0; padding-top: 56.2500%;\n padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;\n border-radius: 8px; will-change: transform;\">\n  <iframe loading=\"lazy\" style=\"position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;\"\n    src=\"https://www.canva.com/design/DAF5_3ymLIs/xX1G1Y1j132lWilclrgjBw/view?embed\" allowfullscreen=\"allowfullscreen\" allow=\"fullscreen\">\n  </iframe>\n</div>\n<a href=\"https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF5_3ymLIs&#x2F;xX1G1Y1j132lWilclrgjBw&#x2F;view?utm_content=DAF5_3ymLIs&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link\" target=\"_blank\" rel=\"noopener\">Fennel Markets Slide Deck.pptx</a> by VisualHQ"
   },
   {
     "id": "qrtraffic",
@@ -182,7 +183,8 @@ export const projects: PortfolioProject[] = [
     "url": "https://umba.com",
     "status": "published",
     "dateCreated": "2024-04-01",
-    "dateUpdated": "2024-12-24"
+    "dateUpdated": "2024-12-24",
+    "embed": "<iframe style=\"border: 1px solid rgba(0, 0, 0, 0.1);\" width=\"800\" height=\"450\" src=\"https://embed.figma.com/design/819WikypSVPTScdFnOdGQp/Umba?node-id=12331-116162&embed-host=share\" allowfullscreen></iframe>"
   },
   {
     "id": "hubbleiq",
