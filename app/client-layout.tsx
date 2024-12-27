@@ -16,7 +16,6 @@ export default function ClientLayout({
   children: React.ReactNode
 }) {
   const pathname = usePathname()
-  const isPortfolioSubPage = pathname?.startsWith('/portfolio/') && pathname !== '/portfolio'
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -38,7 +37,6 @@ export default function ClientLayout({
             Jide Pinheiro
           </Link>
 
-          {/* Desktop Navigation */}
           <ul className="hidden md:flex items-center space-x-8">
             <li>
               <DropdownMenu>
@@ -74,7 +72,6 @@ export default function ClientLayout({
             </li>
           </ul>
 
-          {/* Mobile Navigation */}
           <div className="md:hidden">
             <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               <Menu className="h-5 w-5" />
@@ -86,17 +83,11 @@ export default function ClientLayout({
                   <Link href="/" className="text-6xl font-bold hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                     Home
                   </Link>
-                  <Link href="/portfolio" className="text-6xl font-bold over:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href="/portfolio" className="text-6xl font-bold hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                     Portfolio
                   </Link>
                   <Link href="/contact" className="text-6xl font-bold hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                     Contact
-                  </Link>
-                  <Link href="http://prune.cc" className="text-6xl font-bold hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                    Prune
-                  </Link>
-                  <Link href="http://jujuagi.com" className="text-6xl font-bold over:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                    Juju
                   </Link>
                 </nav>
               </div>

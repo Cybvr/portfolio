@@ -1,7 +1,8 @@
 
-import ClientLayout from './client-layout'
 import { Metadata } from 'next'
 import { Plus_Jakarta_Sans } from 'next/font/google'
+import './styles/globals.css'
+import ClientLayout from './client-layout'
 
 const plusJakartaSans = Plus_Jakarta_Sans({ 
   subsets: ['latin'],
@@ -9,8 +10,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Canvas - Image Generation',
-  description: 'Create artwork and images',
+  title: 'Jide Pinheiro - Portfolio',
+  description: 'Product Designer and Developer',
 }
 
 export default function RootLayout({
