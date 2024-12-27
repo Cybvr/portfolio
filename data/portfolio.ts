@@ -155,6 +155,39 @@ export const projects: PortfolioProject[] = [
     "dateUpdated": "2024-12-24"
   },
   {
+    "id": "wellthi",
+    "title": "Wellthi",
+    "description": "A fintech social enterprise helping customers structure their financial goals with family and friends through mobile banking.",
+    "content": "Wellthi is a fintech social enterprise that revolutionizes how people manage their financial goals by incorporating social connections. The platform enables users to set and achieve financial objectives while leveraging support from their trusted network through mobile banking integration.",
+    "featuredImage": "/images/portfolio/Screenshot 2024-12-27 at 05.19.53.png",
+    "gallery": [],
+    "industry": "Fintech",
+    "tags": [
+      "Brand Identity",
+      "UX Design",
+      "Email Design"
+    ],
+    "client": "Wellthi",
+    "technologies": [
+      "Figma",
+      "Adobe Suite",
+      "Mailchimp",
+      "Webflow"
+    ],
+    "features": [
+      "Social banking integration",
+      "Goal tracking system",
+      "Family & friends network",
+      "Email notification system",
+      "Financial milestone tracking"
+    ],
+    "url": "https://wellthiapp.com",
+    "status": "published",
+    "dateCreated": "2024-01-01",
+    "dateUpdated": "2024-12-27",
+    "embed": "<iframe style=\"border: 1px solid rgba(0, 0, 0, 0.1);\" width=\"800\" height=\"450\" src=\"https://embed.figma.com/design/AVgyf4lazZbBx4RdWwyazA/Wellthi?node-id=2-16&embed-host=share\" allowfullscreen></iframe>"
+  },
+  {
     "id": "umba",
     "title": "Umba",
     "description": "A digital bank that offers financial services and bank accounts in Africa.",
