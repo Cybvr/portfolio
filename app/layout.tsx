@@ -10,6 +10,11 @@ import './styles/globals.css'
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import { Toaster } from "@/components/ui/toaster";
 
+export const metadata: Metadata = {
+  title: 'Canvas - Image Generation',
+  description: 'Create artwork and images',
+};
+
 const plusJakartaSans = Plus_Jakarta_Sans({ 
   subsets: ['latin'],
   variable: '--font-plus-jakarta',
