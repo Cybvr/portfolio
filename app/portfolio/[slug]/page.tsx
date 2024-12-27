@@ -103,6 +103,19 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   )}
                 </div>
 
+                {project.pdfUrl && (
+                  <div className="mt-6">
+                    <h2 className="text-base sm:text-lg font-semibold mb-3">Documentation</h2>
+                    <div className="w-full h-[600px] rounded-lg overflow-hidden">
+                      <iframe 
+                        src={project.pdfUrl} 
+                        className="w-full h-full"
+                        title={project.pdfTitle || "Project Documentation"}
+                      />
+                    </div>
+                  </div>
+                )}
+
                 {process.env.NEXT_PUBLIC_REPLIT_ENVIRONMENT && (
                   <EditProjectDialog 
                     project={project} 

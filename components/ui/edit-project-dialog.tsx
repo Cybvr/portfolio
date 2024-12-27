@@ -133,6 +133,24 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
                 className="bg-input text-foreground"
               />
             </div>
+            <div className="grid gap-2">
+              <label className="text-foreground">PDF URL</label>
+              <Input
+                value={editedProject.pdfUrl || ''}
+                onChange={(e) => setEditedProject({ ...editedProject, pdfUrl: e.target.value })}
+                placeholder="https://example.com/document.pdf"
+                className="bg-input text-foreground"
+              />
+            </div>
+            <div className="grid gap-2">
+              <label className="text-foreground">PDF Title</label>
+              <Input
+                value={editedProject.pdfTitle || ''}
+                onChange={(e) => setEditedProject({ ...editedProject, pdfTitle: e.target.value })}
+                placeholder="Project Documentation"
+                className="bg-input text-foreground"
+              />
+            </div>
           </div>
           
           <div className="space-y-4">
