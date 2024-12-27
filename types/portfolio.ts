@@ -18,4 +18,5 @@ export interface PortfolioProject {
   status: PortfolioStatus;
   dateCreated: string;
   dateUpdated: string;
+  embed?: string;
 }

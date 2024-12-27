@@ -103,6 +103,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   )}
                 </div>
 
+                {project.embed && (
+                  <div className="mt-6">
+                    <h2 className="text-base sm:text-lg font-semibold mb-3">Interactive Content</h2>
+                    <div className="w-full rounded-lg overflow-hidden" dangerouslySetInnerHTML={{ __html: project.embed }} />
+                  </div>
+                )}
+
                 {process.env.NEXT_PUBLIC_REPLIT_ENVIRONMENT && (
                   <EditProjectDialog 
                     project={project} 

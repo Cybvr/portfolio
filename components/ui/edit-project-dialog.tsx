@@ -133,6 +133,15 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
                 className="bg-input text-foreground"
               />
             </div>
+            <div className="grid gap-2">
+              <label className="text-foreground">Embed Code</label>
+              <Textarea
+                value={editedProject.embed || ''}
+                onChange={(e) => setEditedProject({ ...editedProject, embed: e.target.value })}
+                placeholder="Paste embed code here (iframe, embed tags, etc.)"
+                className="bg-input text-foreground min-h-[100px]"
+              />
+            </div>
           </div>
           
           <div className="space-y-4">
