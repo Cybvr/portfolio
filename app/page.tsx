@@ -90,25 +90,69 @@ export default function Page() {
                 ))}
               </div>
 
-              <div className="col-span-2">
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                  {[
-                    'Next.js', 'React', 'TypeScript',
-                    'Node.js', 'PHP', 
-                    'HTML/CSS', 'API'
-                  ].map((skill) => (
-                    <div key={skill} className="p-3 bg-muted rounded-lg text-center">
-                      <p className="text-xs sm:text-sm font-medium">{skill}</p>
-                    </div>
-                  ))}
-                  {[
-                    'Replit', 'Bolt', 'vO', 'Canva', 'Figma', 'Photoshop', 'Illustrator', 'Miro', 'Juju'
-                  ].map((tool) => (
-                    <div key={tool} className="p-3 bg-muted rounded-lg text-center">
-                      <p className="text-xs sm:text-sm font-medium">{tool}</p>
-                    </div>
-                  ))}
+              <div className="col-span-2 space-y-6">
+                <div>
+                  <h3 className="text-base font-semibold mb-3">Languages</h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                    {[
+                      'TypeScript', 'JavaScript', 'PHP', 'HTML/CSS'
+                    ].map((skill) => (
+                      <div key={skill} className="p-3 bg-muted rounded-lg text-center">
+                        <p className="text-xs sm:text-sm font-medium">{skill}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
+
+                <div>
+                  <h3 className="text-base font-semibold mb-3">Tools</h3>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="text-sm font-medium mb-2">Development</h4>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                        {['Next.js', 'React', 'Node.js', 'API', 'Replit'].map((tool) => (
+                          <div key={tool} className="p-3 bg-muted rounded-lg text-center">
+                            <p className="text-xs sm:text-sm font-medium">{tool}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-medium mb-2">Design & UX</h4>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                        {['Figma', 'Miro', 'Canva'].map((tool) => (
+                          <div key={tool} className="p-3 bg-muted rounded-lg text-center">
+                            <p className="text-xs sm:text-sm font-medium">{tool}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-medium mb-2">Branding</h4>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                        {['Photoshop', 'Illustrator', 'vO'].map((tool) => (
+                          <div key={tool} className="p-3 bg-muted rounded-lg text-center">
+                            <p className="text-xs sm:text-sm font-medium">{tool}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-medium mb-2">Strategy</h4>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                        {['Bolt', 'Juju'].map((tool) => (
+                          <div key={tool} className="p-3 bg-muted rounded-lg text-center">
+                            <p className="text-xs sm:text-sm font-medium">{tool}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
               </div>
             </div>
           </div>
