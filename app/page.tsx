@@ -72,90 +72,41 @@ export default function Page() {
 
           <div className="bg-card p-6 sm:p-8 md:p-12 rounded-3xl">
             <h2 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8">Technical Skills</h2>
-            <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
-              <div className="space-y-4 sm:space-y-6">
-                {[
-                  { icon: <Code2 className="h-5 w-5" />, title: "Development" },
-                  { icon: <Palette className="h-5 w-5" />, title: "Branding" },
-                  { icon: <Briefcase className="h-5 w-5" />, title: "Strategy" },
-                  { icon: <User className="h-5 w-5" />, title: "UX" }
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-4 items-start bg-muted p-4 rounded-lg">
-                    <div className="p-2 bg-background rounded-full">
-                      {item.icon}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-base font-semibold mb-3">Skills</h3>
+                <div className="flex flex-wrap gap-3">
+                  {['Development', 'Branding', 'Strategy', 'UX'].map((skill) => (
+                    <div key={skill} className="p-3 bg-muted rounded-lg">
+                      <p className="text-xs sm:text-sm font-medium">{skill}</p>
                     </div>
-                    <div>
-                      <h3 className="text-sm sm:text-base font-medium">{item.title}</h3>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="col-span-2 space-y-6">
-                <div>
-                  <h3 className="text-base font-semibold mb-3">Languages</h3>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                    {[
-                      'TypeScript', 'JavaScript', 'PHP', 'HTML/CSS', 'Next.js', 'React', 'Node.js'
-                    ].map((skill) => (
-                      <div key={skill} className="p-3 bg-muted rounded-lg text-center">
-                        <p className="text-xs sm:text-sm font-medium">{skill}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-base font-semibold mb-3">Tools</h3>
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="text-sm font-medium mb-2">Development</h4>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                        {['Replit', 'API'].map((tool) => (
-                          <div key={tool} className="p-3 bg-muted rounded-lg text-center">
-                            <p className="text-xs sm:text-sm font-medium">{tool}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <h4 className="text-sm font-medium mb-2">Design & UX</h4>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                        {['Figma', 'Miro', 'Canva', 'Photoshop', 'Illustrator', 'vO'].map((tool) => (
-                          <div key={tool} className="p-3 bg-muted rounded-lg text-center">
-                            <p className="text-xs sm:text-sm font-medium">{tool}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <h4 className="text-sm font-medium mb-2">Branding</h4>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                        {['Photoshop', 'Illustrator', 'vO'].map((tool) => (
-                          <div key={tool} className="p-3 bg-muted rounded-lg text-center">
-                            <p className="text-xs sm:text-sm font-medium">{tool}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <h4 className="text-sm font-medium mb-2">Strategy</h4>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                        {['Bolt', 'Juju'].map((tool) => (
-                          <div key={tool} className="p-3 bg-muted rounded-lg text-center">
-                            <p className="text-xs sm:text-sm font-medium">{tool}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
+
+              <div>
+                <h3 className="text-base font-semibold mb-3">Languages</h3>
+                <div className="flex flex-wrap gap-3">
+                  {['TypeScript', 'JavaScript', 'PHP', 'HTML/CSS', 'Next.js', 'React', 'Node.js'].map((lang) => (
+                    <div key={lang} className="p-3 bg-muted rounded-lg">
+                      <p className="text-xs sm:text-sm font-medium">{lang}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-base font-semibold mb-3">Tools</h3>
+                <div className="flex flex-wrap gap-3">
+                  {['Replit', 'Figma', 'Miro', 'Canva', 'Photoshop', 'Illustrator', 'vO', 'Bolt', 'Juju'].map((tool) => (
+                    <div key={tool} className="p-3 bg-muted rounded-lg">
+                      <p className="text-xs sm:text-sm font-medium">{tool}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
+          </div>
           </div>
       </div>
   );
