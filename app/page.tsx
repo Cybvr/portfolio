@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { User, Briefcase, Code2, ChevronRight, Github, Linkedin, Twitter } from 'lucide-react';
+import { User, Briefcase, Code2, ChevronRight, Github, Linkedin, Twitter, Palette } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Badge } from "@/components/ui/badge";
@@ -75,9 +75,9 @@ export default function Page() {
             <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
               <div className="space-y-4 sm:space-y-6">
                 {[
-                  { icon: <Code2 className="h-5 w-5" />, title: "Development", desc: "Building accessible applications" },
-                  { icon: <User className="h-5 w-5" />, title: "UX Design", desc: "Creating intuitive experiences" },
-                  { icon: <Briefcase className="h-5 w-5" />, title: "Strategy", desc: "Developing design systems" }
+                  { icon: <Code2 className="h-5 w-5" />, title: "Development" },
+                  { icon: <Palette className="h-5 w-5" />, title: "Branding" },
+                  { icon: <Briefcase className="h-5 w-5" />, title: "Strategy" }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 items-start bg-muted p-4 rounded-lg">
                     <div className="p-2 bg-background rounded-full">
@@ -85,7 +85,6 @@ export default function Page() {
                     </div>
                     <div>
                       <h3 className="text-sm sm:text-base font-medium">{item.title}</h3>
-                      <p className="text-xs sm:text-sm text-muted-foreground">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -94,13 +93,19 @@ export default function Page() {
               <div className="col-span-2">
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                   {[
-                    'UX Design', 'Research', 'Strategy',
                     'Next.js', 'React', 'TypeScript',
-                    'Node.js', 'PHP', 'Python',
-                    'HTML/CSS', 'UI/UX', 'API'
+                    'Node.js', 'PHP', 
+                    'HTML/CSS', 'API'
                   ].map((skill) => (
                     <div key={skill} className="p-3 bg-muted rounded-lg text-center">
                       <p className="text-xs sm:text-sm font-medium">{skill}</p>
+                    </div>
+                  ))}
+                  {[
+                    'Replit', 'Bolt', 'vO', 'Canva', 'Figma', 'Photoshop', 'Illustrator', 'Miro', 'Juju'
+                  ].map((tool) => (
+                    <div key={tool} className="p-3 bg-muted rounded-lg text-center">
+                      <p className="text-xs sm:text-sm font-medium">{tool}</p>
                     </div>
                   ))}
                 </div>
@@ -111,4 +116,3 @@ export default function Page() {
     </div>
   );
 }
-
