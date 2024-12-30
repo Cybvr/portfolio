@@ -77,7 +77,8 @@ export default function Page() {
                 {[
                   { icon: <Code2 className="h-5 w-5" />, title: "Development" },
                   { icon: <Palette className="h-5 w-5" />, title: "Branding" },
-                  { icon: <Briefcase className="h-5 w-5" />, title: "Strategy" }
+                  { icon: <Briefcase className="h-5 w-5" />, title: "Strategy" },
+                  { icon: <User className="h-5 w-5" />, title: "UX" }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 items-start bg-muted p-4 rounded-lg">
                     <div className="p-2 bg-background rounded-full">
@@ -95,7 +96,7 @@ export default function Page() {
                   <h3 className="text-base font-semibold mb-3">Languages</h3>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                     {[
-                      'TypeScript', 'JavaScript', 'PHP', 'HTML/CSS'
+                      'TypeScript', 'JavaScript', 'PHP', 'HTML/CSS', 'Next.js', 'React', 'Node.js'
                     ].map((skill) => (
                       <div key={skill} className="p-3 bg-muted rounded-lg text-center">
                         <p className="text-xs sm:text-sm font-medium">{skill}</p>
@@ -110,7 +111,7 @@ export default function Page() {
                     <div>
                       <h4 className="text-sm font-medium mb-2">Development</h4>
                       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                        {['Next.js', 'React', 'Node.js', 'API', 'Replit'].map((tool) => (
+                        {['Replit', 'API'].map((tool) => (
                           <div key={tool} className="p-3 bg-muted rounded-lg text-center">
                             <p className="text-xs sm:text-sm font-medium">{tool}</p>
                           </div>
@@ -121,7 +122,7 @@ export default function Page() {
                     <div>
                       <h4 className="text-sm font-medium mb-2">Design & UX</h4>
                       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                        {['Figma', 'Miro', 'Canva'].map((tool) => (
+                        {['Figma', 'Miro', 'Canva', 'Photoshop', 'Illustrator', 'vO'].map((tool) => (
                           <div key={tool} className="p-3 bg-muted rounded-lg text-center">
                             <p className="text-xs sm:text-sm font-medium">{tool}</p>
                           </div>
