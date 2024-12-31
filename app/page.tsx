@@ -20,10 +20,10 @@ export default function Page() {
               <p className="text-base sm:text-lg text-muted-foreground mb-6">
                 Crafting intuitive digital experiences with a focus on accessibility and innovation.
               </p>
-              <button className="inline-flex items-center gap-2 text-sm font-medium bg-primary text-primary-foreground px-4 py-2 rounded-full hover:bg-primary/90 transition-colors">
+              <Link href="/portfolio" className="inline-flex items-center gap-2 text-sm font-medium bg-primary text-primary-foreground px-4 py-2 rounded-full hover:bg-primary/90 transition-colors">
                 <span>View Projects</span>
                 <ChevronRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
             <div className="w-full md:w-1/3 space-y-4 bg-muted p-4 sm:p-6 rounded-lg mt-6 md:mt-0">
               <div>
