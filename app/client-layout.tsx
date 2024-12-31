@@ -18,6 +18,7 @@ export default function ClientLayout({
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [productsOpen, setProductsOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -86,19 +87,27 @@ export default function ClientLayout({
                   <Link href="/portfolio" className="text-6xl font-bold hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                     Portfolio
                   </Link>
-                  <div>
-                    <h2 className="text-6xl font-bold mb-4">Products</h2>
-                    <div className="space-y-4 py-2 pl-4">
-                      <Link href="http://visual.ng" className="block text-3xl hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                        VisualHQ
-                      </Link>
-                      <Link href="http://jujuagi.com" className="block text-3xl hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                        Juju
-                      </Link>
-                      <Link href="http://prune.cc" className="block text-3xl hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                        Prune
-                      </Link>
-                    </div>
+                  <div className="relative">
+                    <button
+                      onClick={() => setProductsOpen(!productsOpen)}
+                      className="text-6xl font-bold hover:text-foreground transition-colors flex items-center gap-2"
+                    >
+                      Products
+                      <ChevronRight className={`w-8 h-8 transition-transform ${productsOpen ? 'rotate-90' : ''}`} />
+                    </button>
+                    {productsOpen && (
+                      <div className="space-y-4 py-4 pl-4">
+                        <Link href="http://visual.ng" className="block text-3xl hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                          VisualHQ
+                        </Link>
+                        <Link href="http://jujuagi.com" className="block text-3xl hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                          Juju
+                        </Link>
+                        <Link href="http://prune.cc" className="block text-3xl hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                          Prune
+                        </Link>
+                      </div>
+                    )}
                   </div>
                   <Link href="/contact" className="text-6xl font-bold hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                     Contact
