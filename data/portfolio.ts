@@ -6,7 +6,7 @@ export const projects: PortfolioProject[] = [
     "title": "The Party Platform",
     "description": "The Ultimate Party Planning Hub in the UAE - connecting event planners with top venues and vendors.",
     "content": "The Party Platform revolutionizes event planning in the UAE by providing a seamless mobile platform that connects users with premium venues and vendors. The app streamlines the party planning process with one-click quote requests and comprehensive venue discovery.",
-    "featuredImage": "/images/portfolio/partyplatform.jpg",
+    "featuredImage": "/images/portfolio/Mobile Screens (1).png",
     "gallery": [],
     "industry": "Events & Entertainment",
     "tags": [
@@ -16,10 +16,7 @@ export const projects: PortfolioProject[] = [
     ],
     "client": "The Party Platform LLC",
     "technologies": [
-      "React Native",
-      "TypeScript",
-      "Node.js",
-      "Firebase"
+      "figma"
     ],
     "features": [
       "Venue discovery",
@@ -28,10 +25,10 @@ export const projects: PortfolioProject[] = [
       "Event planning tools",
       "Real-time availability"
     ],
-    "url": "https://thepartyplatform.ae",
+    "url": "https://thepartyplatform.com",
     "status": "published",
     "dateCreated": "2024-01-01",
-    "dateUpdated": "2024-01-08"
+    "dateUpdated": "2024-12-31"
   },
   {
     "id": "skeletonkey",
