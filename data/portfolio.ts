@@ -2,6 +2,38 @@ import type { PortfolioProject } from '@/types/portfolio'
 
 export const projects: PortfolioProject[] = [
   {
+    "id": "thepartyplatform",
+    "title": "The Party Platform",
+    "description": "The Ultimate Party Planning Hub in the UAE - connecting event planners with top venues and vendors.",
+    "content": "The Party Platform revolutionizes event planning in the UAE by providing a seamless mobile platform that connects users with premium venues and vendors. The app streamlines the party planning process with one-click quote requests and comprehensive venue discovery.",
+    "featuredImage": "/images/portfolio/partyplatform.jpg",
+    "gallery": [],
+    "industry": "Events & Entertainment",
+    "tags": [
+      "Mobile App",
+      "UX Design",
+      "Platform"
+    ],
+    "client": "The Party Platform LLC",
+    "technologies": [
+      "React Native",
+      "TypeScript",
+      "Node.js",
+      "Firebase"
+    ],
+    "features": [
+      "Venue discovery",
+      "Vendor marketplace",
+      "One-click quote requests",
+      "Event planning tools",
+      "Real-time availability"
+    ],
+    "url": "https://thepartyplatform.ae",
+    "status": "published",
+    "dateCreated": "2024-01-01",
+    "dateUpdated": "2024-01-08"
+  },
+  {
     "id": "skeletonkey",
     "title": "Skeleton Key",
     "description": "Revolutionizes home buying and selling by removing traditional banks, allowing sellers to earn more and buyers to pay less monthly.",
