@@ -1,12 +1,12 @@
 
 import { Metadata } from 'next'
-import { Plus_Jakarta_Sans } from 'next/font/google'
+import { Roboto_Mono } from 'next/font/google'
 import './styles/globals.css'
 import ClientLayout from './client-layout'
 
-const plusJakartaSans = Plus_Jakarta_Sans({ 
+const robotoMono = Roboto_Mono({ 
   subsets: ['latin'],
-  variable: '--font-plus-jakarta',
+  variable: '--font-roboto-mono',
 })
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${plusJakartaSans.variable} font-plus-jakarta`}>
+      <body className={`${robotoMono.variable} font-roboto-mono`}>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

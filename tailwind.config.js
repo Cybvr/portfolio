@@ -45,12 +45,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        'plus-jakarta': ['var(--font-plus-jakarta)'],
-        fira: ['var(--font-fira-sans)'],
-        oswald: ['var(--font-oswald)'],
-        quicksand: ['var(--font-quicksand)'],
-        merriweather: ['var(--font-merriweather)'],
-        raleway: ['var(--font-raleway)']
+        'roboto-mono': ['var(--font-roboto-mono)'],
       },
     }
   },
