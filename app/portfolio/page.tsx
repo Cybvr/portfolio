@@ -40,10 +40,9 @@ export default function PortfolioPage() {
           
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
             <div>
-              <h3 className="text-sm font-medium mb-2">Industry</h3>
               <Select value={selectedIndustry} onValueChange={setSelectedIndustry}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select industry" />
+                  <SelectValue placeholder="Select Industry" />
                 </SelectTrigger>
                 <SelectContent>
                   {industries.map(industry => (
@@ -56,10 +55,9 @@ export default function PortfolioPage() {
             </div>
 
             <div>
-              <h3 className="text-sm font-medium mb-2">Tags</h3>
               <Select value={selectedTag} onValueChange={setSelectedTag}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select tag" />
+                  <SelectValue placeholder="Select Tag" />
                 </SelectTrigger>
                 <SelectContent>
                   {tags.map(tag => (
@@ -72,10 +70,9 @@ export default function PortfolioPage() {
             </div>
 
             <div>
-              <h3 className="text-sm font-medium mb-2">Technologies</h3>
               <Select value={selectedTechnology} onValueChange={setSelectedTechnology}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select technology" />
+                  <SelectValue placeholder="Select Technology" />
                 </SelectTrigger>
                 <SelectContent>
                   {technologies.map(tech => (
