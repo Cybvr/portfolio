@@ -6,6 +6,13 @@ import Image from "next/image"
 import Link from "next/link"
 import { projects } from '@/data/portfolio'
 import { useState, useMemo } from 'react'
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 export default function PortfolioPage() {
   const [selectedIndustry, setSelectedIndustry] = useState<string>('All')
@@ -24,14 +31,6 @@ export default function PortfolioPage() {
       return industryMatch && tagMatch && techMatch
     })
   }, [selectedIndustry, selectedTag, selectedTechnology])
-
-  import { 
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-  } from "@/components/ui/select"
 
   return (
     <div className="w-full bg-background text-foreground">
