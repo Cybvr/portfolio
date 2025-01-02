@@ -16,17 +16,17 @@ import {
 
 export default function PortfolioPage() {
   const [selectedIndustry, setSelectedIndustry] = useState<string>('All Industries')
-  const [selectedTag, setSelectedTag] = useState<string>('All Tags')
+  const [selectedTag, setSelectedTag] = useState<string>('All Types')
   const [selectedTechnology, setSelectedTechnology] = useState<string>('All Technologies')
 
   const industries = useMemo(() => ['All Industries', ...new Set(projects.map(p => p.industry))], [])
-  const tags = useMemo(() => ['All Tags', ...new Set(projects.flatMap(p => p.tags))], [])
+  const tags = useMemo(() => ['All Types', ...new Set(projects.flatMap(p => p.tags))], [])
   const technologies = useMemo(() => ['All Technologies', ...new Set(projects.flatMap(p => p.technologies))], [])
 
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
       const industryMatch = selectedIndustry === 'All Industries' || project.industry === selectedIndustry
-      const tagMatch = selectedTag === 'All Tags' || project.tags.includes(selectedTag)
+      const tagMatch = selectedTag === 'All Types' || project.tags.includes(selectedTag)
       const techMatch = selectedTechnology === 'All Technologies' || project.technologies.includes(selectedTechnology)
       return industryMatch && tagMatch && techMatch
     })
@@ -57,7 +57,7 @@ export default function PortfolioPage() {
             <div>
               <Select value={selectedTag} onValueChange={setSelectedTag}>
                 <SelectTrigger>
-                  <SelectValue placeholder="All Tags" />
+                  <SelectValue placeholder="All Types" />
                 </SelectTrigger>
                 <SelectContent>
                   {tags.map(tag => (

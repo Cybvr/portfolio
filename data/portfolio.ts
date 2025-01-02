@@ -401,7 +401,7 @@ export const projects: PortfolioProject[] = [
   },
   {
     "id": "athletxpr",
-    "title": "v",
+    "title": "AthletXPR",
     "description": "Advanced sports performance tracking and analytics platform for athletes and coaches.",
     "content": "AthletXPR provides comprehensive performance tracking and analytics tools to help athletes and coaches optimize training and achieve peak performance.",
     "featuredImage": "/images/portfolio/Screenshot 2024-12-24 at 04.40.46.png",
