@@ -12,10 +12,13 @@ export default function Page() {
     <div className="w-full bg-background text-foreground font-medium">
       <div className="flex flex-col p-4 sm:p-8 md:p-12 gap-8">
 
-        <div className="flex flex-col md:flex-row items-center gap-8 bg-card p-6 sm:p-8 md:p-12 rounded-3xl">
-            <div className="w-full">
-              <p className="text-base sm:text-lg text-muted-foreground">
-                I bridge human needs and technological possibilities, crafting intuitive experiences across AI, fintech, and gaming. Excellence in design isn't just about aesthetics – it's about creating meaningful impact through collaboration and understanding. In this rapidly evolving digital landscape, I maintain humanity while pushing the boundaries of what's possible through technology. True innovation happens at these intersections, where technical expertise meets cultural understanding.
+        <div className="flex flex-col md:flex-row items-center gap-8 p-6 sm:p-8 md:p-12 rounded-3xl">
+            <div className="w-full text-foreground text-2xl gap-4 flex flex-col font-normal">
+              <p>
+                I think that design isn't just about aesthetics – it's about bridging human needs and technological possibilities. Every interaction is an opportunity to make life more intuitive. Having worked across AI, fintech, and consumer technology, I'm fascinated by how different industries share a common challenge: making complex systems feel human.
+              </p>
+              <p>
+                Excellence in design is about more than the end product – it's about process, collaboration, and impact. In this digital age, our challenge lies in maintaining humanity while pushing technological boundaries. True innovation emerges where technical expertise meets cultural understanding, creating solutions that enhance how we live and work.
               </p>
               <div className="flex gap-4 pt-4">
                 <a href="https://github.com/Cybvr" className="text-muted-foreground hover:text-muted-foreground transition-colors">
