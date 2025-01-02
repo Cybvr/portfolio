@@ -15,10 +15,10 @@ export default function Page() {
         <div className="flex flex-col md:flex-row items-center gap-8 bg-card p-6 sm:p-8 md:p-12 rounded-3xl">
             <div className="w-full md:w-2/3">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-muted-foreground mb-4 leading-tight">
-                Digital Craftsman
+                Design & Innovation
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground mb-6">
-                Crafting intuitive digital experiences with a focus on accessibility and innovation.
+                I bridge human needs and technological possibilities, crafting intuitive experiences across AI, fintech, and gaming. Excellence in design isn't just about aesthetics – it's about creating meaningful impact through collaboration and understanding. In this rapidly evolving digital landscape, I maintain humanity while pushing the boundaries of what's possible through technology. True innovation happens at these intersections, where technical expertise meets cultural understanding.
               </p>
               <Link href="/portfolio" className="inline-flex items-center gap-2 text-sm font-medium bg-primary text-primary-foreground px-4 py-2 rounded-full hover:bg-primary/90 transition-colors">
                 <span>View Projects</span>
