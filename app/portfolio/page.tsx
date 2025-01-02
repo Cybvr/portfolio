@@ -1,18 +1,98 @@
+
 'use client'
 
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 import Link from "next/link"
 import { projects } from '@/data/portfolio'
+import { useState, useMemo } from 'react'
 
 export default function PortfolioPage() {
+  const [selectedIndustry, setSelectedIndustry] = useState<string>('All')
+  const [selectedTag, setSelectedTag] = useState<string>('All')
+  const [selectedTechnology, setSelectedTechnology] = useState<string>('All')
+
+  const industries = useMemo(() => ['All', ...new Set(projects.map(p => p.industry))], [])
+  const tags = useMemo(() => ['All', ...new Set(projects.flatMap(p => p.tags))], [])
+  const technologies = useMemo(() => ['All', ...new Set(projects.flatMap(p => p.technologies))], [])
+
+  const filteredProjects = useMemo(() => {
+    return projects.filter(project => {
+      const industryMatch = selectedIndustry === 'All' || project.industry === selectedIndustry
+      const tagMatch = selectedTag === 'All' || project.tags.includes(selectedTag)
+      const techMatch = selectedTechnology === 'All' || project.technologies.includes(selectedTechnology)
+      return industryMatch && tagMatch && techMatch
+    })
+  }, [selectedIndustry, selectedTag, selectedTechnology])
+
+  const FilterButton = ({ label, value, selected, onChange }) => (
+    <button
+      onClick={() => onChange(value)}
+      className={`px-3 py-1 rounded-full text-sm ${
+        selected === value 
+          ? 'bg-primary text-primary-foreground' 
+          : 'bg-muted hover:bg-muted/80'
+      }`}
+    >
+      {value}
+    </button>
+  )
+
   return (
     <div className="w-full bg-background text-foreground">
       <div className="flex flex-col p-4 sm:p-8 md:p-12 gap-4 sm:gap-6 md:gap-8">
         <div className="bg-card p-4 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl md:rounded-3xl">
-          <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 md:mb-8">Portfolio</h2>
+          <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Portfolio</h2>
+          
+          <div className="space-y-4 mb-6">
+            <div className="space-y-2">
+              <h3 className="text-sm font-medium">Industry</h3>
+              <div className="flex flex-wrap gap-2">
+                {industries.map(industry => (
+                  <FilterButton
+                    key={industry}
+                    label="Industry"
+                    value={industry}
+                    selected={selectedIndustry}
+                    onChange={setSelectedIndustry}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-sm font-medium">Tags</h3>
+              <div className="flex flex-wrap gap-2">
+                {tags.map(tag => (
+                  <FilterButton
+                    key={tag}
+                    label="Tag"
+                    value={tag}
+                    selected={selectedTag}
+                    onChange={setSelectedTag}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-sm font-medium">Technologies</h3>
+              <div className="flex flex-wrap gap-2">
+                {technologies.map(tech => (
+                  <FilterButton
+                    key={tech}
+                    label="Technology"
+                    value={tech}
+                    selected={selectedTechnology}
+                    onChange={setSelectedTechnology}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
-            {projects.map((project) => (
+            {filteredProjects.map((project) => (
               <Link key={project.id} href={`/portfolio/${project.id}`} className="group">
                 <div className="bg-muted p-3 sm:p-4 rounded-lg">
                   <div className="relative aspect-[16/9] mb-3 sm:mb-4 overflow-hidden rounded-lg">
@@ -40,4 +120,3 @@ export default function PortfolioPage() {
     </div>
   )
 }
-
