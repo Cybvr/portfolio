@@ -42,7 +42,7 @@ export default function PortfolioPage() {
             <div>
               <Select value={selectedIndustry} onValueChange={setSelectedIndustry}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select Industry" />
+                  <SelectValue placeholder="All Industries" />
                 </SelectTrigger>
                 <SelectContent>
                   {industries.map(industry => (
@@ -57,7 +57,7 @@ export default function PortfolioPage() {
             <div>
               <Select value={selectedTag} onValueChange={setSelectedTag}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select Tag" />
+                  <SelectValue placeholder="All Tags" />
                 </SelectTrigger>
                 <SelectContent>
                   {tags.map(tag => (
@@ -72,7 +72,7 @@ export default function PortfolioPage() {
             <div>
               <Select value={selectedTechnology} onValueChange={setSelectedTechnology}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select Technology" />
+                  <SelectValue placeholder="All Technologies" />
                 </SelectTrigger>
                 <SelectContent>
                   {technologies.map(tech => (
