@@ -25,18 +25,13 @@ export default function PortfolioPage() {
     })
   }, [selectedIndustry, selectedTag, selectedTechnology])
 
-  const FilterButton = ({ label, value, selected, onChange }) => (
-    <button
-      onClick={() => onChange(value)}
-      className={`px-3 py-1 rounded-full text-sm ${
-        selected === value 
-          ? 'bg-primary text-primary-foreground' 
-          : 'bg-muted hover:bg-muted/80'
-      }`}
-    >
-      {value}
-    </button>
-  )
+  import { 
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+  } from "@/components/ui/select"
 
   return (
     <div className="w-full bg-background text-foreground">
@@ -44,50 +39,53 @@ export default function PortfolioPage() {
         <div className="bg-card p-4 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl md:rounded-3xl">
           <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Portfolio</h2>
           
-          <div className="space-y-4 mb-6">
-            <div className="space-y-2">
-              <h3 className="text-sm font-medium">Industry</h3>
-              <div className="flex flex-wrap gap-2">
-                {industries.map(industry => (
-                  <FilterButton
-                    key={industry}
-                    label="Industry"
-                    value={industry}
-                    selected={selectedIndustry}
-                    onChange={setSelectedIndustry}
-                  />
-                ))}
-              </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            <div>
+              <h3 className="text-sm font-medium mb-2">Industry</h3>
+              <Select value={selectedIndustry} onValueChange={setSelectedIndustry}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select industry" />
+                </SelectTrigger>
+                <SelectContent>
+                  {industries.map(industry => (
+                    <SelectItem key={industry} value={industry}>
+                      {industry}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
-            <div className="space-y-2">
-              <h3 className="text-sm font-medium">Tags</h3>
-              <div className="flex flex-wrap gap-2">
-                {tags.map(tag => (
-                  <FilterButton
-                    key={tag}
-                    label="Tag"
-                    value={tag}
-                    selected={selectedTag}
-                    onChange={setSelectedTag}
-                  />
-                ))}
-              </div>
+            <div>
+              <h3 className="text-sm font-medium mb-2">Tags</h3>
+              <Select value={selectedTag} onValueChange={setSelectedTag}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select tag" />
+                </SelectTrigger>
+                <SelectContent>
+                  {tags.map(tag => (
+                    <SelectItem key={tag} value={tag}>
+                      {tag}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
-            <div className="space-y-2">
-              <h3 className="text-sm font-medium">Technologies</h3>
-              <div className="flex flex-wrap gap-2">
-                {technologies.map(tech => (
-                  <FilterButton
-                    key={tech}
-                    label="Technology"
-                    value={tech}
-                    selected={selectedTechnology}
-                    onChange={setSelectedTechnology}
-                  />
-                ))}
-              </div>
+            <div>
+              <h3 className="text-sm font-medium mb-2">Technologies</h3>
+              <Select value={selectedTechnology} onValueChange={setSelectedTechnology}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select technology" />
+                </SelectTrigger>
+                <SelectContent>
+                  {technologies.map(tech => (
+                    <SelectItem key={tech} value={tech}>
+                      {tech}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
           </div>
 
