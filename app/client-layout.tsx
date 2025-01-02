@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Menu } from 'lucide-react'
+import { Menu, ChevronRight } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from 'react'
 import { Toaster } from "@/components/ui/toaster"
