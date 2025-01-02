@@ -13,27 +13,10 @@ export default function Page() {
       <div className="flex flex-col p-4 sm:p-8 md:p-12 gap-8">
 
         <div className="flex flex-col md:flex-row items-center gap-8 bg-card p-6 sm:p-8 md:p-12 rounded-3xl">
-            <div className="w-full md:w-2/3">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-muted-foreground mb-4 leading-tight">
-                Design & Innovation
-              </h1>
-              <p className="text-base sm:text-lg text-muted-foreground mb-6">
+            <div className="w-full">
+              <p className="text-base sm:text-lg text-muted-foreground">
                 I bridge human needs and technological possibilities, crafting intuitive experiences across AI, fintech, and gaming. Excellence in design isn't just about aesthetics – it's about creating meaningful impact through collaboration and understanding. In this rapidly evolving digital landscape, I maintain humanity while pushing the boundaries of what's possible through technology. True innovation happens at these intersections, where technical expertise meets cultural understanding.
               </p>
-              <Link href="/portfolio" className="inline-flex items-center gap-2 text-sm font-medium bg-primary text-primary-foreground px-4 py-2 rounded-full hover:bg-primary/90 transition-colors">
-                <span>View Projects</span>
-                <ChevronRight className="w-4 h-4" />
-              </Link>
-            </div>
-            <div className="w-full md:w-1/3 space-y-4 bg-muted p-4 sm:p-6 rounded-lg mt-6 md:mt-0">
-              <div>
-                <h3 className="text-xs font-semibold text-muted-foreground uppercase">Location</h3>
-                <p className="text-sm">Lagos, Nigeria</p>
-              </div>
-              <div>
-                <h3 className="text-xs font-semibold text-muted-foreground uppercase">Expertise</h3>
-                <p className="text-sm">Design & Development</p>
-              </div>
               <div className="flex gap-4 pt-4">
                 <a href="https://github.com/Cybvr" className="text-muted-foreground hover:text-muted-foreground transition-colors">
                   <Github className="w-5 h-5" />
