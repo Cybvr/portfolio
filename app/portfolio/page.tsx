@@ -15,19 +15,19 @@ import {
 } from "@/components/ui/select"
 
 export default function PortfolioPage() {
-  const [selectedIndustry, setSelectedIndustry] = useState<string>('All')
-  const [selectedTag, setSelectedTag] = useState<string>('All')
-  const [selectedTechnology, setSelectedTechnology] = useState<string>('All')
+  const [selectedIndustry, setSelectedIndustry] = useState<string>('All Industries')
+  const [selectedTag, setSelectedTag] = useState<string>('All Tags')
+  const [selectedTechnology, setSelectedTechnology] = useState<string>('All Technologies')
 
-  const industries = useMemo(() => ['All', ...new Set(projects.map(p => p.industry))], [])
-  const tags = useMemo(() => ['All', ...new Set(projects.flatMap(p => p.tags))], [])
-  const technologies = useMemo(() => ['All', ...new Set(projects.flatMap(p => p.technologies))], [])
+  const industries = useMemo(() => ['All Industries', ...new Set(projects.map(p => p.industry))], [])
+  const tags = useMemo(() => ['All Tags', ...new Set(projects.flatMap(p => p.tags))], [])
+  const technologies = useMemo(() => ['All Technologies', ...new Set(projects.flatMap(p => p.technologies))], [])
 
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
-      const industryMatch = selectedIndustry === 'All' || project.industry === selectedIndustry
-      const tagMatch = selectedTag === 'All' || project.tags.includes(selectedTag)
-      const techMatch = selectedTechnology === 'All' || project.technologies.includes(selectedTechnology)
+      const industryMatch = selectedIndustry === 'All Industries' || project.industry === selectedIndustry
+      const tagMatch = selectedTag === 'All Tags' || project.tags.includes(selectedTag)
+      const techMatch = selectedTechnology === 'All Technologies' || project.technologies.includes(selectedTechnology)
       return industryMatch && tagMatch && techMatch
     })
   }, [selectedIndustry, selectedTag, selectedTechnology])
