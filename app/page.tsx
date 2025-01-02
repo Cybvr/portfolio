@@ -28,6 +28,15 @@ export default function Page() {
                   <Linkedin className="w-5 h-5" />
                 </a>
               </div>
+              <div className="w-full max-w-md mx-auto mt-8">
+                <Image 
+                  src="/images/jidepinheiro.png"
+                  alt="Jide Pinheiro"
+                  width={400}
+                  height={400}
+                  className="rounded-lg shadow-xl"
+                />
+              </div>
             </div>
           </div>
 
