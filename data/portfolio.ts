@@ -2,6 +2,37 @@ import type { PortfolioProject } from '@/types/portfolio'
 
 export const projects: PortfolioProject[] = [
   {
+    "id": "solopreneurslife",
+    "title": "Solopreneurs Life",
+    "description": "Personal brand and coaching platform for Stephanie Sgura, a marketing and sales coach with over 20 years of expertise.",
+    "content": "Solopreneurs Life is the digital home for Stephanie Sgura, a seasoned marketing and sales coach with 20 years of expertise, including 12 years in international corporations (Henkel, Microsoft, Red Bull) and 10 years in the start-up scene. The platform showcases her coaching services and thought leadership.",
+    "featuredImage": "/images/portfolio/solopreneurslife.png",
+    "gallery": [],
+    "industry": "Coaching & Consulting",
+    "tags": [
+      "Web Design",
+      "Brand Identity",
+      "Marketing"
+    ],
+    "client": "Stephanie Sgura",
+    "technologies": [
+      "WordPress",
+      "Elementor",
+      "PHP"
+    ],
+    "features": [
+      "Personal branding",
+      "Service showcase",
+      "Responsive design",
+      "Content strategy"
+    ],
+    "url": "https://www.solopreneurslife.com",
+    "status": "published",
+    "dateCreated": "2024-01-01",
+    "dateUpdated": "2024-12-31",
+    "embed": "<iframe style=\"border: 1px solid rgba(0, 0, 0, 0.1);\" width=\"800\" height=\"450\" src=\"https://embed.figma.com/design/W5mUFJDjwpD09lOwxwk9L6/Solopreneur's-Life?node-id=602-2175&embed-host=share\" allowfullscreen></iframe>"
+  },
+  {
     "id": "thepartyplatform",
     "title": "The Party Platform",
     "description": "The Ultimate Party Planning Hub in the UAE - connecting event planners with top venues and vendors.",
