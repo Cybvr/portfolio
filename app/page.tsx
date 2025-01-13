@@ -13,13 +13,23 @@ export default function Page() {
       <div className="flex flex-col p-4 sm:p-8 md:p-12 gap-8">
 
         <div className="flex flex-col md:flex-row items-center gap-8 p-6 sm:p-8 md:p-12 rounded-3xl">
-            <div className="w-full text-foreground text-2xl gap-4 flex flex-col font-normal">
+            <div className="w-full text-foreground text-2xl gap-4 flex flex-col font-normal items-left justify-start">
               <p>
                 I think that design isn't just about aesthetics – it's about bridging human needs and technological possibilities. Every interaction is an opportunity to make life more intuitive. Having worked across AI, fintech, and consumer technology, I'm fascinated by how different industries share a common challenge: making complex systems feel human.
               </p>
               <p>
                 Excellence in design is about more than the end product – it's about process, collaboration, and impact. In this digital age, our challenge lies in maintaining humanity while pushing technological boundaries. True innovation emerges where technical expertise meets cultural understanding, creating solutions that enhance how we live and work.
               </p>
+              <div className="w-full max-w-md items-start justify-start">
+                <Image
+                  src="/images/jidepinheiro.png"
+                  alt="Jide Pinheiro"
+                  width={240}
+                  height={240}
+                  className="rounded-lg shadow-xl"
+                />
+              </div>
+
               <div className="flex gap-4 pt-4">
                 <a href="https://github.com/Cybvr" className="text-muted-foreground hover:text-muted-foreground transition-colors">
                   <Github className="w-5 h-5" />
@@ -28,15 +38,7 @@ export default function Page() {
                   <Linkedin className="w-5 h-5" />
                 </a>
               </div>
-              <div className="w-full max-w-md mx-auto mt-8">
-                <Image 
-                  src="/images/jidepinheiro.png"
-                  alt="Jide Pinheiro"
-                  width={400}
-                  height={400}
-                  className="rounded-lg shadow-xl"
-                />
-              </div>
+              
             </div>
           </div>
 

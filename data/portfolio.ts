@@ -312,7 +312,7 @@ export const projects: PortfolioProject[] = [
     "id": "selectsportsusa",
     "title": "Select Sports USA",
     "description": "Sports Management Platform",
-    "content": "Comprehensive sports management solution...",
+    "content": "SelectSportsUSA connects young athletes with top sports.owerful tools designed to connect young athletes with the right opportunities and help organizations grow their programs. I worked on the Brand Design, UI/UX and web dev for the project",
     "featuredImage": "/images/portfolio/Screenshot 2024-12-24 at 03.54.03.png",
     "gallery": [],
     "industry": "Sports Tech",
