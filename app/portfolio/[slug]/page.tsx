@@ -14,7 +14,7 @@ import Link from "next/link"
 import { getProjectById } from '@/lib/db'
 import { notFound } from 'next/navigation'
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
+export default async function ProjectPage({ params }: { params: { slug: string } }) {
   const { toast } = useToast()
   const project = await getProjectById(params.slug)
 
