@@ -11,12 +11,12 @@ import { ArrowLeft, ExternalLink, Edit2 } from 'lucide-react'
 import { EditProjectDialog } from "@/components/ui/edit-project-dialog"
 import Image from "next/image"
 import Link from "next/link"
-import { getProjectById } from '@/lib/db'
+import { projects } from '@/data/portfolio'
 import { notFound } from 'next/navigation'
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const { toast } = useToast()
-  const project = await getProjectById(params.slug)
+  const project = projects.find(p => p.id === params.slug)
 
   if (!project) return notFound()
 
