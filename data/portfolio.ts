@@ -2,11 +2,43 @@ import type { PortfolioProject } from '@/types/portfolio'
 
 export const projects: PortfolioProject[] = [
   {
+    "id": "matiearth",
+    "title": "Mati Earth",
+    "description": "Pioneering carbon dioxide removal credits in the Global South through innovative engineering solutions.",
+    "content": "Mati Carbon achieved a significant milestone by delivering the first engineered carbon dioxide removal credits in the Global South, marking a pivotal advancement in climate technology and environmental sustainability.",
+    "featuredImage": "/images/portfolio/Home (2).png",
+    "gallery": [],
+    "industry": "Climate Tech",
+    "tags": [
+      "Web Development",
+      "Brand Identity",
+      "Sustainability"
+    ],
+    "client": "Mati Carbon",
+    "technologies": [
+      "Wordpress",
+      "Elementor",
+      "Figma",
+      "Figjam"
+    ],
+    "features": [
+      "Carbon credit tracking",
+      "Environmental impact metrics",
+      "Project documentation",
+      "Sustainability reporting"
+    ],
+    "url": "https://www.mati.earth",
+    "status": "published",
+    "dateCreated": "2024-01-01",
+    "dateUpdated": "2025-01-13",
+    "embed": "<iframe style=\"border: 1px solid rgba(0, 0, 0, 0.1);\" width=\"800\" height=\"450\" src=\"https://embed.figma.com/design/oUwfTB1yEEQwq0J1XLQnRL/Mati?node-id=1420-2440&embed-host=share\" allowfullscreen></iframe>"
+  },
+  {
     "id": "solopreneurslife",
     "title": "Solopreneurs Life",
     "description": "Personal brand and coaching platform for Stephanie Sgura, a marketing and sales coach with over 20 years of expertise.",
     "content": "Solopreneurs Life is the digital home for Stephanie Sgura, a seasoned marketing and sales coach with 20 years of expertise, including 12 years in international corporations (Henkel, Microsoft, Red Bull) and 10 years in the start-up scene. The platform showcases her coaching services and thought leadership.",
-    "featuredImage": "/images/portfolio/solopreneurslife.png",
+    "featuredImage": "/images/portfolio/Home (1).png",
     "gallery": [],
     "industry": "Coaching & Consulting",
     "tags": [
@@ -29,7 +61,7 @@ export const projects: PortfolioProject[] = [
     "url": "https://www.solopreneurslife.com",
     "status": "published",
     "dateCreated": "2024-01-01",
-    "dateUpdated": "2024-12-31",
+    "dateUpdated": "2025-01-13",
     "embed": "<iframe style=\"border: 1px solid rgba(0, 0, 0, 0.1);\" width=\"800\" height=\"450\" src=\"https://embed.figma.com/design/W5mUFJDjwpD09lOwxwk9L6/Solopreneur's-Life?node-id=602-2175&embed-host=share\" allowfullscreen></iframe>"
   },
   {
