@@ -1,7 +1,7 @@
 
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
@@ -11,14 +11,28 @@ import { ArrowLeft, ExternalLink, Edit2 } from 'lucide-react'
 import { EditProjectDialog } from "@/components/ui/edit-project-dialog"
 import Image from "next/image"
 import Link from "next/link"
-import { getProjectById } from '@/lib/db'
 import { notFound } from 'next/navigation'
+import type { PortfolioProject } from '@/types/portfolio'
 
-export default async function ProjectPage({ params }: { params: { slug: string } }) {
+export default function ProjectPage({ params }: { params: { slug: string } }) {
   const { toast } = useToast()
-  const project = await getProjectById(params.slug)
+  const [project, setProject] = useState<PortfolioProject | null>(null)
+  const [loading, setLoading] = useState(true)
 
-  if (!project) return notFound()
+  useEffect(() => {
+    fetch(`/api/portfolio/${params.slug}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.error) {
+          notFound()
+        }
+        setProject(data)
+        setLoading(false)
+      })
+      .catch(() => notFound())
+  }, [params.slug])
+
+  if (loading || !project) return null
 
   return (
     <div className="w-full bg-background text-foreground">
@@ -109,20 +123,15 @@ export default async function ProjectPage({ params }: { params: { slug: string }
                   )}
                 </div>
 
-                
-
                 {process.env.NEXT_PUBLIC_REPLIT_ENVIRONMENT && (
                   <EditProjectDialog 
                     project={project} 
                     onSave={(updatedProject) => {
-                      const projectIndex = projects.findIndex(p => p.id === updatedProject.id);
-                      if (projectIndex !== -1) {
-                        projects[projectIndex] = updatedProject;
-                      }
+                      setProject(updatedProject)
                       toast({
                         title: "Success",
                         description: "Project updated successfully"
-                      });
+                      })
                     }} 
                   />
                 )}
