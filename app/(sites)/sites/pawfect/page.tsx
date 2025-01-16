@@ -3,11 +3,43 @@ import {
   Award,
   Clock
 } from 'lucide-react';
+import Link from 'next/link';
 
 export const metadata = {
   title: 'PawfectMatch - Find Your Perfect Furry Friend',
   description: 'Discover your ideal canine companion from our carefully curated selection of loving, healthy dogs.',
 };
+
+const featuredDogs = [
+  {
+    id: "luna-golden",
+    image: "https://images.unsplash.com/photo-1587402092301-725e37c70fd8",
+    name: "Luna",
+    breed: "Golden Retriever",
+    price: "$1,200"
+  },
+  {
+    id: "max-shepherd",
+    image: "https://images.unsplash.com/photo-1577175889968-f551f5944abd",
+    name: "Max",
+    breed: "German Shepherd",
+    price: "$1,500"
+  },
+  {
+    id: "bella-bulldog",
+    image: "https://images.unsplash.com/photo-1591769225440-811ad7d6eab3",
+    name: "Bella",
+    breed: "French Bulldog",
+    price: "$2,000"
+  },
+  {
+    id: "charlie-lab",
+    image: "https://images.unsplash.com/photo-1553698217-934b000f1f00",
+    name: "Charlie",
+    breed: "Labrador",
+    price: "$1,300"
+  }
+];
 
 export default function PawfectPage() {
   return (
@@ -57,33 +89,8 @@ export default function PawfectPage() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Featured Dogs</h2>
           <div className="grid md:grid-cols-4 gap-8">
-            {[
-              {
-                image: "https://images.unsplash.com/photo-1587402092301-725e37c70fd8",
-                name: "Luna",
-                breed: "Golden Retriever",
-                price: "$1,200"
-              },
-              {
-                image: "https://images.unsplash.com/photo-1577175889968-f551f5944abd",
-                name: "Max",
-                breed: "German Shepherd",
-                price: "$1,500"
-              },
-              {
-                image: "https://images.unsplash.com/photo-1591769225440-811ad7d6eab3",
-                name: "Bella",
-                breed: "French Bulldog",
-                price: "$2,000"
-              },
-              {
-                image: "https://images.unsplash.com/photo-1553698217-934b000f1f00",
-                name: "Charlie",
-                breed: "Labrador",
-                price: "$1,300"
-              }
-            ].map((dog, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+            {featuredDogs.map((dog) => (
+              <div key={dog.id} className="bg-white rounded-lg shadow-md overflow-hidden">
                 <img 
                   src={dog.image} 
                   alt={dog.name} 
@@ -94,9 +101,12 @@ export default function PawfectPage() {
                   <p className="text-gray-600 mb-2">{dog.breed}</p>
                   <div className="flex justify-between items-center">
                     <span className="text-indigo-600 font-bold">{dog.price}</span>
-                    <button className="bg-indigo-600 text-white px-4 py-2 rounded-full text-sm hover:bg-indigo-700">
+                    <Link 
+                      href={`/sites/pawfect/dogs/${dog.id}`}
+                      className="bg-indigo-600 text-white px-4 py-2 rounded-full text-sm hover:bg-indigo-700 transition-colors"
+                    >
                       View Details
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
