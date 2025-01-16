@@ -1,13 +1,7 @@
 
-import { Metadata } from 'next'
-import '../styles/globals.css'
+import './styles.css'
 
-export const metadata: Metadata = {
-  title: 'Sites',
-  description: 'Collection of sites',
-}
-
-export default function SitesLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode

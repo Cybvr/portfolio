@@ -20,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${robotoMono.variable} font-roboto-mono`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${robotoMono.variable} font-roboto-mono`} suppressHydrationWarning>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
