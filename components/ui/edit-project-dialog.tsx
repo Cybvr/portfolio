@@ -58,13 +58,12 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
 
   const handleSave = async () => {
     try {
-      const updatedProjects = projects.map(p => p.id === editedProject.id ? editedProject : p);
       const response = await fetch('/api/portfolio/update', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(updatedProjects)
+        body: JSON.stringify(editedProject)
       });
       
       if (response.ok) {
