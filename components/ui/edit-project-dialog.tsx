@@ -64,7 +64,7 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(updatedProjects)
+        body: JSON.stringify({ projects: updatedProjects, projectToUpdate: editedProject })
       });
       
       if (response.ok) {
