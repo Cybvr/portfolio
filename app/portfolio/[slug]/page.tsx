@@ -1,4 +1,3 @@
-
 'use client'
 
 import React, { useEffect, useState } from 'react'
@@ -61,7 +60,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   <div className="w-full rounded-lg overflow-hidden" dangerouslySetInnerHTML={{ __html: project.embed }} />
                 </div>
               )}
-              
+
               {project.gallery && project.gallery.length > 0 && (
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4">
                   {project.gallery.map((img, i) => (
@@ -126,12 +125,32 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 {process.env.NEXT_PUBLIC_REPLIT_ENVIRONMENT && (
                   <EditProjectDialog 
                     project={project} 
-                    onSave={(updatedProject) => {
-                      setProject(updatedProject)
-                      toast({
-                        title: "Success",
-                        description: "Project updated successfully"
-                      })
+                    onSave={async (updatedProject) => {
+                      try {
+                        const response = await fetch(`/api/portfolio/update`, {
+                          method: 'POST',
+                          headers: {
+                            'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify(updatedProject)
+                        });
+
+                        if (!response.ok) throw new Error('Update failed');
+
+                        const savedProject = await response.json();
+                        setProject(savedProject);
+                        toast({
+                          title: "Success",
+                          description: "Project updated successfully"
+                        });
+                      } catch (error) {
+                        console.error('Save error:', error);
+                        toast({
+                          title: "Error",
+                          description: "Failed to update project",
+                          variant: "destructive"
+                        });
+                      }
                     }} 
                   />
                 )}
