@@ -2,6 +2,36 @@ import type { PortfolioProject } from '@/types/portfolio'
 
 export const projects: PortfolioProject[] = [
   {
+    "id": "honeywell-nigeria",
+    "title": "Honeywell Nigeria",
+    "description": "A Nigerian investment company creating, building and investing in great businesses since 1972.",
+    "content": "Honeywell Nigeria is a prominent investment company with a rich history of creating, building, and investing in successful businesses since 1972. Our work included designing annual reports and internal materials to effectively communicate their corporate vision and achievements.",
+    "featuredImage": "/images/portfolio/Screenshot 2024-12-24 at 04.31.41.png",
+    "gallery": [],
+    "industry": "Investment",
+    "tags": [
+      "Brand Identity",
+      "Print Design",
+      "Corporate Communications"
+    ],
+    "client": "Honeywell Group",
+    "technologies": [
+      "Adobe Suite",
+      "InDesign",
+      "Illustrator"
+    ],
+    "features": [
+      "Annual reports",
+      "Internal communications",
+      "Corporate documentation",
+      "Investment portfolios"
+    ],
+    "url": "https://www.honeywellgroup.com",
+    "status": "published",
+    "dateCreated": "2024-01-01",
+    "dateUpdated": "2024-12-31"
+  },
+  {
     "id": "matiearth",
     "title": "Mati Earth",
     "description": "Pioneering carbon dioxide removal credits in the Global South through innovative engineering solutions.",
