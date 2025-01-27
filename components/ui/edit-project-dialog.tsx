@@ -64,15 +64,15 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ projects: updatedProjects, projectToUpdate: editedProject })
+        body: JSON.stringify(updatedProjects)
       });
       
-      if (response.ok) {
-        onSave(editedProject);
-        setOpen(false);
-      } else {
+      if (!response.ok) {
         throw new Error('Failed to update project');
       }
+      
+      onSave(editedProject);
+      setOpen(false);
     } catch (error) {
       console.error('Save failed:', error);
     }

@@ -6,10 +6,10 @@ import type { PortfolioProject } from '@/types/portfolio';
 
 export async function POST(request: Request) {
   try {
-    const { projects, projectToUpdate } = await request.json();
+    const projects = await request.json();
     
-    if (!projects || !projectToUpdate || !projectToUpdate.id) {
-      return NextResponse.json({ error: 'Invalid project data' }, { status: 400 });
+    if (!Array.isArray(projects)) {
+      return NextResponse.json({ error: 'Invalid projects data' }, { status: 400 });
     }
 
     // Update portfolio.ts file
@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     const fileContent = `import type { PortfolioProject } from '@/types/portfolio'\n\nexport const projects: PortfolioProject[] = ${JSON.stringify(projects, null, 2)}`;
     
     await writeFile(portfolioPath, fileContent, 'utf-8');
-    return NextResponse.json(projectToUpdate);
+    return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Update error:', error);
     return NextResponse.json({ error: 'Update failed' }, { status: 500 });
