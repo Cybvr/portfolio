@@ -18,7 +18,8 @@ export const projects: PortfolioProject[] = [
     "technologies": [
       "Adobe Suite",
       "InDesign",
-      "Illustrator"
+      "Illustrator",
+      "Figma"
     ],
     "features": [
       "Annual reports",
@@ -29,7 +30,8 @@ export const projects: PortfolioProject[] = [
     "url": "https://www.honeywellgroup.com",
     "status": "published",
     "dateCreated": "2024-01-01",
-    "dateUpdated": "2024-12-31"
+    "dateUpdated": "2024-12-31",
+    "embed": "<iframe style=\"border: 1px solid rgba(0, 0, 0, 0.1);\" width=\"800\" height=\"450\" src=\"https://embed.figma.com/design/w66z6QNQr7l8JejvVuN5sn/Honeywell--Creatives?node-id=1757-284&embed-host=share\" allowfullscreen></iframe>"
   },
   {
     "id": "matiearth",
