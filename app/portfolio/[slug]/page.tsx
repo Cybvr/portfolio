@@ -46,18 +46,20 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
             <div>
-              <div className="relative aspect-video mb-4 sm:mb-6 rounded-lg overflow-hidden">
+              <div className="relative w-full aspect-video mb-4 sm:mb-6 rounded-lg overflow-hidden">
                 <Image
                   src={project.featuredImage}
                   alt={project.title}
                   fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
               {project.embed && (
                 <div className="mt-6">
                   <h2 className="text-base sm:text-lg font-semibold mb-3">Interactive Content</h2>
-                  <div className="w-full rounded-lg overflow-hidden" dangerouslySetInnerHTML={{ __html: project.embed }} />
+                  <div className="w-full h-full aspect-video rounded-lg overflow-hidden" dangerouslySetInnerHTML={{ __html: project.embed }} />
                 </div>
               )}
 
