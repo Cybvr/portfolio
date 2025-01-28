@@ -6,7 +6,7 @@ export const projects: PortfolioProject[] = [
     "title": "Honeywell Nigeria",
     "description": "A Nigerian investment company creating, building and investing in great businesses since 1972.",
     "content": "Honeywell Nigeria is a prominent investment company with a rich history of creating, building, and investing in successful businesses since 1972. Our work included designing annual reports and internal materials to effectively communicate their corporate vision and achievements.",
-    "featuredImage": "/images/portfolio/Screenshot 2024-12-24 at 04.31.41.png",
+    "featuredImage": "/images/portfolio/Screenshot 2025-01-28 at 10.07.17.png",
     "gallery": [],
     "industry": "Investment",
     "tags": [
@@ -30,7 +30,7 @@ export const projects: PortfolioProject[] = [
     "url": "https://www.honeywellgroup.com",
     "status": "published",
     "dateCreated": "2024-01-01",
-    "dateUpdated": "2024-12-31",
+    "dateUpdated": "2025-01-28",
     "embed": "<iframe style=\"border: 1px solid rgba(0, 0, 0, 0.1);\" width=\"800\" height=\"450\" src=\"https://embed.figma.com/design/w66z6QNQr7l8JejvVuN5sn/Honeywell--Creatives?node-id=1757-284&embed-host=share\" allowfullscreen></iframe>"
   },
   {
