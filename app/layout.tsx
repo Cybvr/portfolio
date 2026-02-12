@@ -1,19 +1,7 @@
 
 import { Metadata } from 'next'
-import { Old_Standard_TT, DM_Sans } from 'next/font/google'
 import './styles/globals.css'
 import ClientLayout from './client-layout'
-
-const oldStandardTT = Old_Standard_TT({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-old-standard',
-})
-
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  variable: '--font-dm-sans',
-})
 
 export const metadata: Metadata = {
   title: 'Jide Pinheiro - Portfolio',
@@ -27,7 +15,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${oldStandardTT.variable} ${dmSans.variable} font-sans antialiased`} suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="font-sans antialiased" suppressHydrationWarning>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
