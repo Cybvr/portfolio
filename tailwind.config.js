@@ -45,7 +45,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        'roboto-mono': ['var(--font-roboto-mono)'],
+        sans: ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-old-standard)', 'Georgia', 'serif'],
       },
     }
   },

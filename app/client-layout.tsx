@@ -141,17 +141,17 @@ export default function ClientLayout({
               <h3 className="font-bold mb-4">Connect</h3>
               <ul className="text-muted-foreground space-y-2">
                 <li>
-                  <Link href="https://www.linkedin.com/in/jidepinheiro/" className="hover:text-gray-900 transition-colors">
+                  <Link href="https://www.linkedin.com/in/jidepinheiro/" className="hover:text-foreground transition-colors">
                     LinkedIn
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://github.com/Cybvr" className="hover:text-gray-900 transition-colors">
+                  <Link href="https://github.com/Cybvr" className="hover:text-foreground transition-colors">
                     GitHub
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://www.toptal.com/designers/resume/jide-pinheiro" className="hover:text-gray-900 transition-colors">
+                  <Link href="https://www.toptal.com/designers/resume/jide-pinheiro" className="hover:text-foreground transition-colors">
                     Toptal
                   </Link>
                 </li>
