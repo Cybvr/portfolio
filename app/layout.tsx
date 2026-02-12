@@ -1,12 +1,18 @@
 
 import { Metadata } from 'next'
-import { Roboto_Mono } from 'next/font/google'
+import { Old_Standard_TT, DM_Sans } from 'next/font/google'
 import './styles/globals.css'
 import ClientLayout from './client-layout'
 
-const robotoMono = Roboto_Mono({ 
+const oldStandardTT = Old_Standard_TT({
   subsets: ['latin'],
-  variable: '--font-roboto-mono',
+  weight: ['400', '700'],
+  variable: '--font-old-standard',
+})
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-dm-sans',
 })
 
 export const metadata: Metadata = {
@@ -21,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${robotoMono.variable} font-roboto-mono`} suppressHydrationWarning>
+      <body className={`${oldStandardTT.variable} ${dmSans.variable} font-sans antialiased`} suppressHydrationWarning>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
