@@ -30,15 +30,14 @@ export default function ClientLayout({
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <header className={`sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-background/95 shadow-md backdrop-blur supports-[backdrop-filter]:bg-background/60' : 'bg-background border-b border-border'
+      <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 shadow-md backdrop-blur supports-[backdrop-filter]:bg-background/60' : 'bg-background border-b border-border'
         }`}>
         <nav className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between text-foreground">
           <Link href="/" className="text-xl font-bold transition-colors">
             Jide Pinheiro
           </Link>
 
-          <ul className="hidden md:flex items-center space-x-8 text-muted-foreground">
+          <ul className="hidden md:flex items-center space-x-8 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
             <li>
               <DropdownMenu>
                 <DropdownMenuTrigger className="hover:text-foreground transition-colors">Products</DropdownMenuTrigger>
@@ -62,6 +61,11 @@ export default function ClientLayout({
               </DropdownMenu>
             </li>
             <li>
+              <Link href="/about" className="hover:text-foreground transition-colors">
+                About
+              </Link>
+            </li>
+            <li>
               <Link href="/portfolio" className="hover:text-foreground transition-colors">
                 Portfolio
               </Link>
@@ -80,36 +84,39 @@ export default function ClientLayout({
             </Button>
             {isMobileMenuOpen && (
               <div className="absolute top-16 left-0 h-screen w-full bg-background shadow-md">
-                <nav className="flex flex-col items-start p-4 space-y-4">
-                  <Link href="/" className="text-6xl font-bold hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                <nav className="flex flex-col items-start p-4 space-y-4 font-mono text-xl uppercase tracking-widest">
+                  <Link href="/" className="hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                     Home
                   </Link>
-                  <Link href="/portfolio" className="text-6xl font-bold hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href="/about" className="hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                    About
+                  </Link>
+                  <Link href="/portfolio" className="hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                     Portfolio
                   </Link>
                   <div className="relative">
                     <button
                       onClick={() => setProductsOpen(!productsOpen)}
-                      className="text-6xl font-bold hover:text-foreground transition-colors flex items-center gap-2"
+                      className="hover:text-foreground transition-colors flex items-center gap-2"
                     >
                       Products
-                      <ChevronRight className={`w-8 h-8 transition-transform ${productsOpen ? 'rotate-90' : ''}`} />
+                      <ChevronRight className={`w-6 h-6 transition-transform ${productsOpen ? 'rotate-90' : ''}`} />
                     </button>
                     {productsOpen && (
-                      <div className="space-y-4 py-4 pl-4">
-                        <Link href="http://visual.ng" className="block text-3xl hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                      <div className="space-y-4 py-4 pl-4 text-lg">
+                        <Link href="http://visual.ng" className="block hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                           VisualHQ
                         </Link>
-                        <Link href="http://jujuagi.com" className="block text-3xl hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="http://jujuagi.com" className="block hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                           Juju
                         </Link>
-                        <Link href="http://prune.cc" className="block text-3xl hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="http://prune.cc" className="block hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                           Prune
                         </Link>
                       </div>
                     )}
                   </div>
-                  <Link href="/contact" className="text-6xl font-bold hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href="/contact" className="hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                     Contact
                   </Link>
                 </nav>
@@ -121,45 +128,29 @@ export default function ClientLayout({
       <main className="flex-1">
         {children}
       </main>
-      <footer className="border-t mt-20">
-        <div className="max-w-6xl mx-auto px-4 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-foreground">
-            <div>
-              <h3 className="font-bold mb-4">Contact</h3>
-              <p className="text-muted-foreground">Lagos, Nigeria</p>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4">Skills</h3>
-              <ul className="text-muted-foreground space-y-2">
-                <li>UX Research & Strategy</li>
-                <li>Web & App Development</li>
-                <li>Business Development</li>
-                <li>Brand Strategy</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4">Connect</h3>
-              <ul className="text-muted-foreground space-y-2">
-                <li>
-                  <Link href="https://www.linkedin.com/in/jidepinheiro/" className="hover:text-foreground transition-colors">
-                    LinkedIn
-                  </Link>
-                </li>
-                <li>
-                  <Link href="https://github.com/Cybvr" className="hover:text-foreground transition-colors">
-                    GitHub
-                  </Link>
-                </li>
-                <li>
-                  <Link href="https://www.toptal.com/designers/resume/jide-pinheiro" className="hover:text-foreground transition-colors">
-                    Toptal
-                  </Link>
-                </li>
-              </ul>
+      <footer className="mt-20 px-4 pb-8">
+        <div className="max-w-6xl mx-auto bg-[#DDE5C9] rounded-[40px] py-16 px-8 text-center text-[#2C3E2D]">
+          <h2 className="text-3xl md:text-5xl uppercase mb-8 tracking-tight">
+            The Portfolio of Jide Pinheiro
+          </h2>
+
+          <div className="mb-8 font-mono">
+            <span className="text-[10px] uppercase tracking-[0.3em] font-medium block mb-4">Connect</span>
+            <div className="flex flex-wrap justify-center gap-6 text-[10px] uppercase tracking-widest font-medium">
+              <Link href="https://www.linkedin.com/in/jidepinheiro/" className="hover:opacity-60 transition-opacity">
+                LinkedIn
+              </Link>
+              <Link href="https://github.com/Cybvr" className="hover:opacity-60 transition-opacity">
+                GitHub
+              </Link>
+              <Link href="https://www.toptal.com/designers/resume/jide-pinheiro" className="hover:opacity-60 transition-opacity">
+                Toptal
+              </Link>
             </div>
           </div>
-          <div className="mt-8 pt-8 border-t text-center text-muted-foreground">
-            <p>&copy; {new Date().getFullYear()} Jide Pinheiro. All rights reserved.</p>
+
+          <div className="pt-8 text-xs opacity-60">
+            <p>© {new Date().getFullYear()} . All rights reserved.</p>
           </div>
         </div>
       </footer>

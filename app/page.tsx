@@ -54,8 +54,17 @@ export default function Page() {
       <div className="max-w-6xl mx-auto flex flex-col px-4 sm:px-8 md:px-12 py-8 md:py-16 gap-16 md:gap-24">
 
         {/* Hero / Intro */}
-        <section className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
-          <div className="flex flex-col gap-6 md:max-w-2xl">
+        <section className="flex flex-col items-center gap-12 text-center">
+          <div className="shrink-0">
+            <Image
+              src="/images/jidepinheiro.png"
+              alt="Jide Pinheiro"
+              width={240}
+              height={240}
+              className="rounded-full"
+            />
+          </div>
+          <div className="flex flex-col items-center gap-6 max-w-3xl">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground text-balance leading-tight">
               Designing at the intersection of people and technology
             </h1>
@@ -71,30 +80,21 @@ export default function Page() {
               </a>
             </div>
           </div>
-          <div className="shrink-0">
-            <Image
-              src="/images/jidepinheiro.png"
-              alt="Jide Pinheiro"
-              width={240}
-              height={240}
-              className="rounded-2xl shadow-lg"
-            />
-          </div>
         </section>
 
         {/* Ethos */}
-        <section>
+        <section className="text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-3 text-foreground">Ethos</h2>
-          <p className="text-muted-foreground mb-8 max-w-xl">The principles that guide every project and decision.</p>
-          <div className="grid sm:grid-cols-2 gap-6">
+          <p className="text-muted-foreground mb-12 mx-auto max-w-xl">The principles that guide every project and decision.</p>
+          <div className="grid sm:grid-cols-2 gap-8 text-left">
             {ethos.map((item) => (
-              <div key={item.title} className="bg-card rounded-2xl p-6 flex gap-4 items-start border border-border">
-                <div className="shrink-0 w-10 h-10 rounded-xl bg-secondary flex items-center justify-center">
-                  <item.icon className="w-5 h-5 text-secondary-foreground" />
+              <div key={item.title} className="bg-card rounded-2xl p-8 flex gap-6 items-start border border-border">
+                <div className="shrink-0 w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
+                  <item.icon className="w-6 h-6 text-secondary-foreground" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold mb-1 text-foreground">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                  <h3 className="text-xl font-bold mb-2 text-foreground">{item.title}</h3>
+                  <p className="text-base text-muted-foreground leading-relaxed">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -102,20 +102,19 @@ export default function Page() {
         </section>
 
         {/* Capabilities */}
-        <section>
+        <section className="text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-3 text-foreground">Capabilities</h2>
-          <p className="text-muted-foreground mb-8 max-w-xl">What I bring to the table -- from concept to code.</p>
-          <div className="grid sm:grid-cols-3 gap-6">
+          <p className="text-muted-foreground mb-12 mx-auto max-w-xl">What I bring to the table -- from concept to code.</p>
+          <div className="grid sm:grid-cols-3 gap-8">
             {capabilities.map((cap) => (
-              <div key={cap.title} className="bg-card rounded-2xl p-6 border border-border flex flex-col gap-4">
-                <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center">
-                  <cap.icon className="w-5 h-5 text-accent-foreground" />
+              <div key={cap.title} className="bg-card rounded-2xl p-8 border border-border flex flex-col items-center gap-6">
+                <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center">
+                  <cap.icon className="w-6 h-6 text-accent-foreground" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground">{cap.title}</h3>
-                <ul className="flex flex-col gap-2">
+                <h3 className="text-xl font-bold text-foreground">{cap.title}</h3>
+                <ul className="flex flex-col items-center gap-3">
                   {cap.items.map((item) => (
-                    <li key={item} className="text-sm text-muted-foreground flex items-center gap-2">
-                      <ArrowRight className="w-3 h-3 text-primary shrink-0" />
+                    <li key={item} className="text-base text-muted-foreground">
                       {item}
                     </li>
                   ))}
@@ -126,69 +125,33 @@ export default function Page() {
         </section>
 
         {/* Selected Work */}
-        <section>
+        <section className="text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-3 text-foreground">Selected Work</h2>
-          <p className="text-muted-foreground mb-8 max-w-xl">A few projects I am proud of.</p>
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <p className="text-muted-foreground mb-12 mx-auto max-w-xl">A few projects I am proud of.</p>
+          <div className="grid sm:grid-cols-2 gap-12">
             {projects.slice(0, 4).map((project) => (
-              <Link key={project.id} href={`/portfolio/${project.id}`} className="bg-card border border-border p-4 rounded-2xl group block hover:shadow-md transition-shadow">
-                <div className="relative aspect-[16/9] mb-4 overflow-hidden rounded-xl">
-                  <Image
-                    src={project.featuredImage}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform group-hover:scale-105"
-                  />
-                </div>
-                <h3 className="text-base sm:text-lg font-bold mb-3 text-foreground">{project.title}</h3>
-                <div className="flex flex-wrap gap-2">
-                  <Badge>{project.industry}</Badge>
-                  {project.tags.slice(0, 2).map(tag => (
-                    <Badge key={tag}>{tag}</Badge>
-                  ))}
+              <Link key={project.id} href={`/portfolio/${project.id}`} className="group block text-left">
+                <div className="bg-card border border-border p-8 rounded-[40px] group hover:shadow-xl transition-all duration-300">
+                  <div className="relative aspect-[16/10] mb-8 overflow-hidden rounded-[30px]">
+                    <Image
+                      src={project.featuredImage}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-foreground">{project.title}</h3>
+                  <div className="flex flex-wrap gap-3 font-mono uppercase text-[10px] tracking-widest">
+                    <Badge className="bg-secondary text-secondary-foreground hover:bg-secondary/80 border-none px-4 py-1">{project.industry}</Badge>
+                    {project.tags.slice(0, 2).map(tag => (
+                      <Badge key={tag} variant="outline" className="text-muted-foreground border-border px-4 py-1">{tag}</Badge>
+                    ))}
+                  </div>
                 </div>
               </Link>
             ))}
           </div>
         </section>
-
-        {/* Technical Skills */}
-        <section className="bg-card rounded-2xl p-6 sm:p-8 md:p-12 border border-border">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-foreground">Technical Skills</h2>
-          <div className="flex flex-col gap-8">
-            <div>
-              <h3 className="text-base font-bold mb-3 text-foreground">Skills</h3>
-              <div className="flex flex-wrap gap-3">
-                {['Development', 'Branding', 'Strategy', 'UX'].map((skill) => (
-                  <div key={skill} className="px-4 py-2 bg-secondary rounded-xl">
-                    <p className="text-sm font-medium text-secondary-foreground">{skill}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h3 className="text-base font-bold mb-3 text-foreground">Languages & Frameworks</h3>
-              <div className="flex flex-wrap gap-3">
-                {['TypeScript', 'JavaScript', 'PHP', 'HTML/CSS', 'Next.js', 'React', 'Node.js'].map((lang) => (
-                  <div key={lang} className="px-4 py-2 bg-muted rounded-xl">
-                    <p className="text-sm font-medium text-foreground">{lang}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h3 className="text-base font-bold mb-3 text-foreground">Tools</h3>
-              <div className="flex flex-wrap gap-3">
-                {['Replit', 'Figma', 'Miro', 'Canva', 'Photoshop', 'Illustrator', 'v0', 'Bolt', 'Juju'].map((tool) => (
-                  <div key={tool} className="px-4 py-2 bg-muted rounded-xl">
-                    <p className="text-sm font-medium text-foreground">{tool}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
       </div>
     </div>
   );
