@@ -48,13 +48,8 @@ export default function ClientLayout({
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="http://jujuagi.com" className="flex items-center">
+                    <Link href="http://jujuapp.co" className="flex items-center">
                       Juju
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Link href="http://prune.cc" className="flex items-center">
-                      Prune
                     </Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -107,11 +102,8 @@ export default function ClientLayout({
                         <Link href="http://visual.ng" className="block hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                           VisualHQ
                         </Link>
-                        <Link href="http://jujuagi.com" className="block hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="http://jujuapp.co" className="block hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                           Juju
-                        </Link>
-                        <Link href="http://prune.cc" className="block hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                          Prune
                         </Link>
                       </div>
                     )}

@@ -1,6 +1,4 @@
-
 'use client'
-
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 import Link from "next/link"
@@ -35,9 +33,8 @@ export default function PortfolioPage() {
   return (
     <div className="w-full bg-background text-foreground">
       <div className="flex flex-col p-4 sm:p-8 md:p-12 gap-4 sm:gap-6 md:gap-8">
-        <div className="bg-card p-4 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl md:rounded-3xl">
+        <div className=" rounded-xl sm:rounded-2xl md:rounded-3xl">
           <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Portfolio</h2>
-
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
             <div>
               <Select value={selectedIndustry} onValueChange={setSelectedIndustry}>
@@ -53,7 +50,6 @@ export default function PortfolioPage() {
                 </SelectContent>
               </Select>
             </div>
-
             <div>
               <Select value={selectedTag} onValueChange={setSelectedTag}>
                 <SelectTrigger>
@@ -68,7 +64,6 @@ export default function PortfolioPage() {
                 </SelectContent>
               </Select>
             </div>
-
             <div>
               <Select value={selectedTechnology} onValueChange={setSelectedTechnology}>
                 <SelectTrigger>
@@ -84,19 +79,18 @@ export default function PortfolioPage() {
               </Select>
             </div>
           </div>
-
           <div className="space-y-12">
             {/* First 6: 2-column grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {filteredProjects.slice(0, 6).map((project) => (
-                <Link key={project.id} href={`/portfolio/${project.id}`} className="group block">
-                  <div className="bg-card border border-border p-6 rounded-2xl group hover:shadow-md transition-shadow">
+                <Link key={project.id} href={`/portfolio/${project.id}`} className="block">
+                  <div className="bg-card border border-border p-6 rounded-2xl">
                     <div className="relative aspect-[16/9] mb-6 overflow-hidden rounded-xl">
                       <Image
                         src={project.featuredImage}
                         alt={project.title}
                         fill
-                        className="object-cover transition-transform group-hover:scale-105"
+                        className="object-cover"
                       />
                     </div>
                     <h2 className="text-xl sm:text-2xl font-bold mb-4">{project.title}</h2>
@@ -110,19 +104,18 @@ export default function PortfolioPage() {
                 </Link>
               ))}
             </div>
-
             {/* Remaining: List view */}
             {filteredProjects.length > 6 && (
               <div className="flex flex-col gap-6">
                 {filteredProjects.slice(6).map((project) => (
-                  <Link key={project.id} href={`/portfolio/${project.id}`} className="group block">
-                    <div className="bg-card border border-border p-4 rounded-2xl flex flex-col sm:flex-row gap-6 hover:shadow-md transition-shadow">
+                  <Link key={project.id} href={`/portfolio/${project.id}`} className="block">
+                    <div className=" border-border border-b p-4  flex flex-col sm:flex-row gap-6">
                       <div className="relative w-full sm:w-48 h-32 shrink-0 overflow-hidden rounded-xl">
                         <Image
                           src={project.featuredImage}
                           alt={project.title}
                           fill
-                          className="object-cover transition-transform group-hover:scale-105"
+                          className="object-cover"
                         />
                       </div>
                       <div className="flex flex-col justify-center flex-1">

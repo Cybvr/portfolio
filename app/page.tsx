@@ -130,14 +130,14 @@ export default function Page() {
           <p className="text-muted-foreground mb-12 mx-auto max-w-xl">A few projects I am proud of.</p>
           <div className="grid sm:grid-cols-2 gap-12">
             {projects.slice(0, 4).map((project) => (
-              <Link key={project.id} href={`/portfolio/${project.id}`} className="group block text-left">
-                <div className="bg-card border border-border p-8 rounded-[40px] group hover:shadow-xl transition-all duration-300">
+              <Link key={project.id} href={`/portfolio/${project.id}`} className="block text-left">
+                <div className="bg-card border border-border p-8 rounded-[40px]">
                   <div className="relative aspect-[16/10] mb-8 overflow-hidden rounded-[30px]">
                     <Image
                       src={project.featuredImage}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="object-cover"
                     />
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-foreground">{project.title}</h3>

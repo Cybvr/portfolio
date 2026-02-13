@@ -458,7 +458,7 @@ export const projects: PortfolioProject[] = [
       "Brand management",
       "Content creation"
     ],
-    "url": "https://jujuagi.com",
+    "url": "https://jujuapp.co",
     "status": "published",
     "dateCreated": "2024-04-01",
     "dateUpdated": "2024-12-24"

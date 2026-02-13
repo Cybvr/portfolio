@@ -27,9 +27,8 @@ export function Navigation() {
 
   return (
     <>
-      <header className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background shadow-md' : 'bg-background border-b'
-      }`}>
+      <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background shadow-md' : 'bg-background border-b'
+        }`}>
         <nav className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link href="/" className="text-xl font-bold hover:text-primary transition-colors">
             Jide Pinheiro
@@ -39,9 +38,9 @@ export function Navigation() {
             <li><Link href="http://jujuagi.com" className="hover:text-primary transition-colors">Juju</Link></li>
             <li><Link href="/portfolio" className="hover:text-primary transition-colors">Portfolio</Link></li>
           </ul>
-          <Button 
-            variant="ghost" 
-            size="icon" 
+          <Button
+            variant="ghost"
+            size="icon"
             className="md:hidden"
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -52,36 +51,35 @@ export function Navigation() {
       </header>
 
       {/* Mobile Menu */}
-      <div 
-        className={`fixed inset-0 bg-background transition-all duration-300 transform md:hidden ${
-          isOpen ? 'translate-y-16' : '-translate-y-full'
-        } flex flex-col`} // Added flex and flex-col for proper layout
+      <div
+        className={`fixed inset-0 bg-background transition-all duration-300 transform md:hidden ${isOpen ? 'translate-y-16' : '-translate-y-full'
+          } flex flex-col`} // Added flex and flex-col for proper layout
         style={{ height: 'calc(100vh - 4rem)', overflowY: 'auto' }} // Added overflowY to handle scrolling in mobile menu
       >
         <nav className="flex flex-col p-4 space-y-4"> {/* Added space-y-4 for better spacing between items */}
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="w-full text-3xl font-bold hover:text-primary transition-colors p-4 border-b"
             onClick={() => setIsOpen(false)}
           >
             Home
           </Link>
-          <Link 
-            href="http://visual.ng" 
+          <Link
+            href="http://visual.ng"
             className="w-full text-3xl font-bold hover:text-primary transition-colors p-4 border-b"
             onClick={() => setIsOpen(false)}
           >
             VisualHQ
           </Link>
-          <Link 
-            href="http://jujuagi.com" 
+          <Link
+            href="http://jujuapp.co"
             className="w-full text-3xl font-bold hover:text-primary transition-colors p-4 border-b"
             onClick={() => setIsOpen(false)}
           >
             Juju
           </Link>
-          <Link 
-            href="/portfolio" 
+          <Link
+            href="/portfolio"
             className="w-full text-3xl font-bold hover:text-primary transition-colors p-4 border-b"
             onClick={() => setIsOpen(false)}
           >
