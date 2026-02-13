@@ -1,4 +1,4 @@
-
+import React, { Suspense } from 'react'
 import { Metadata } from 'next'
 import './styles/globals.css'
 import ClientLayout from './client-layout'
@@ -24,7 +24,9 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
-        <ClientLayout>{children}</ClientLayout>
+        <Suspense fallback={null}>
+          <ClientLayout>{children}</ClientLayout>
+        </Suspense>
       </body>
     </html>
   )

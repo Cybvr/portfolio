@@ -38,9 +38,9 @@ export default function PortfolioPage() {
     fetchProjects();
   }, [])
 
-  const industries = useMemo(() => ['All Industries', ...new Set(projects.map(p => p.industry))], [projects])
-  const tags = useMemo(() => ['All Types', ...new Set(projects.flatMap(p => p.tags))], [projects])
-  const technologies = useMemo(() => ['All Technologies', ...new Set(projects.flatMap(p => p.technologies))], [projects])
+  const industries = useMemo(() => ['All Industries', ...new Set(projects.map(p => p.industry).filter(Boolean))], [projects])
+  const tags = useMemo(() => ['All Types', ...new Set(projects.flatMap(p => p.tags || []))], [projects])
+  const technologies = useMemo(() => ['All Technologies', ...new Set(projects.flatMap(p => p.technologies || []))], [projects])
 
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {

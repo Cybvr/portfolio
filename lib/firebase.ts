@@ -14,10 +14,18 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
-const db = getFirestore(app);
-const auth = getAuth(app);
+let app;
+if (getApps().length === 0) {
+    if (firebaseConfig.apiKey) {
+        app = initializeApp(firebaseConfig);
+    }
+} else {
+    app = getApps()[0];
+}
+
+const db = app ? getFirestore(app) : null!;
+const auth = app ? getAuth(app) : null!;
 const googleProvider = new GoogleAuthProvider();
-const storage = getStorage(app);
+const storage = app ? getStorage(app) : null!;
 
 export { db, auth, googleProvider, storage };
