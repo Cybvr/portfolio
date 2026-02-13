@@ -8,6 +8,9 @@ export interface PortfolioProject {
   content: string;
   featuredImage: string;
   gallery: string[];
+  imageSet1?: string[];
+  imageSet2?: string[];
+  imageSet3?: string[];
   industry: string;
   tags: string[];
   client: string;
@@ -15,6 +18,12 @@ export interface PortfolioProject {
   url?: string;
   liveUrl?: string;
   features: string[];
+  challenges?: string;
+  solutions?: string;
+  insight?: string;
+  strategy?: string;
+  outcomes?: string;
+  press?: { title: string; url: string }[];
   status: PortfolioStatus;
   dateCreated: string;
   dateUpdated: string;

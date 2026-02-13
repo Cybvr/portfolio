@@ -2,8 +2,7 @@
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 import Link from "next/link"
-import { projects } from '@/data/portfolio'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import {
   Select,
   SelectContent,
@@ -11,15 +10,37 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '@/lib/firebase'
+import type { PortfolioProject } from '@/types/portfolio'
 
 export default function PortfolioPage() {
+  const [projects, setProjects] = useState<PortfolioProject[]>([])
+  const [loading, setLoading] = useState(true)
   const [selectedIndustry, setSelectedIndustry] = useState<string>('All Industries')
   const [selectedTag, setSelectedTag] = useState<string>('All Types')
   const [selectedTechnology, setSelectedTechnology] = useState<string>('All Technologies')
 
-  const industries = useMemo(() => ['All Industries', ...new Set(projects.map(p => p.industry))], [])
-  const tags = useMemo(() => ['All Types', ...new Set(projects.flatMap(p => p.tags))], [])
-  const technologies = useMemo(() => ['All Technologies', ...new Set(projects.flatMap(p => p.technologies))], [])
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'jpportfolio'));
+        const projectsData = querySnapshot.docs.map(doc => ({
+          ...doc.data(),
+        })) as PortfolioProject[];
+        setProjects(projectsData);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchProjects();
+  }, [])
+
+  const industries = useMemo(() => ['All Industries', ...new Set(projects.map(p => p.industry))], [projects])
+  const tags = useMemo(() => ['All Types', ...new Set(projects.flatMap(p => p.tags))], [projects])
+  const technologies = useMemo(() => ['All Technologies', ...new Set(projects.flatMap(p => p.technologies))], [projects])
 
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
@@ -28,7 +49,13 @@ export default function PortfolioPage() {
       const techMatch = selectedTechnology === 'All Technologies' || project.technologies.includes(selectedTechnology)
       return industryMatch && tagMatch && techMatch
     })
-  }, [selectedIndustry, selectedTag, selectedTechnology])
+  }, [projects, selectedIndustry, selectedTag, selectedTechnology])
+
+  if (loading) return (
+    <div className="w-full h-screen flex items-center justify-center bg-background">
+      <div className="animate-pulse font-mono text-sm tracking-widest text-muted-foreground uppercase">Loading Portfolio...</div>
+    </div>
+  )
 
   return (
     <div className="w-full bg-background text-foreground">
