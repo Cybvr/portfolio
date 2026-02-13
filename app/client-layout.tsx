@@ -65,7 +65,7 @@ export default function ClientLayout({
             </Link>
           </h2>
 
-          <ul className="bg-card  p-4 rounded-full hidden md:flex items-center space-x-6 font-mono text-[10px] uppercase tracking-widest text-muted-foreground mr-4">
+          <ul className={`bg-card p-4 rounded-full hidden md:flex items-center space-x-6 font-mono text-[10px] uppercase tracking-widest text-muted-foreground mr-4 ${!user ? 'ml-auto' : ''}`}>
             <li>
               <Link href="/about" className="hover:text-foreground transition-colors flex items-center gap-2">
                 <HiOutlineUser className="w-4 h-4" />
