@@ -30,15 +30,21 @@ export default function ClientLayout({
   }, [])
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
-      <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 shadow-md backdrop-blur supports-[backdrop-filter]:bg-background/60' : 'bg-background border-b border-border'
-        }`}>
+    <div className="min-h-screen flex flex-col ">
+      <header
+        className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled
+          ? ''
+          : ' '
+          }`}
+      >
         <nav className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between text-foreground">
-          <Link href="/" className="text-xl font-bold transition-colors">
-            Jide Pinheiro
-          </Link>
+          <h2 className="text-xl font-bold">
+            <Link href="/" className="transition-colors">
+              Jide Pinheiro
+            </Link>
+          </h2>
 
-          <ul className="hidden md:flex items-center space-x-6 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+          <ul className="bg-card  p-4 rounded-full hidden hidden md:flex items-center space-x-6 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
             <li>
               <Link href="/about" className="hover:text-foreground transition-colors flex items-center gap-2">
                 <HiOutlineUser className="w-4 h-4" />
@@ -52,9 +58,9 @@ export default function ClientLayout({
               </Link>
             </li>
             <li>
-              <Link href="http://visual.ng" className="hover:text-foreground transition-colors flex items-center gap-2">
+              <Link href="http://visualhq.space" className="hover:text-foreground transition-colors flex items-center gap-2">
                 <HiOutlineSparkles className="w-4 h-4" />
-                VisualHQ
+                Studio
               </Link>
             </li>
             <li>
@@ -108,9 +114,11 @@ export default function ClientLayout({
           </div>
         </nav>
       </header>
+
       <main className="flex-1">
         {children}
       </main>
+
       <footer className="mt-20 px-4 pb-8">
         <div className="max-w-6xl mx-auto bg-[#DDE5C9] rounded-[40px] py-16 px-8 text-center text-[#2C3E2D]">
           <h2 className="text-3xl md:text-5xl uppercase mb-8 tracking-tight">
@@ -118,7 +126,9 @@ export default function ClientLayout({
           </h2>
 
           <div className="mb-8 font-mono">
-            <span className="text-[10px] uppercase tracking-[0.3em] font-medium block mb-4">Connect</span>
+            <span className="text-[10px] uppercase tracking-[0.3em] font-medium block mb-4">
+              Connect
+            </span>
             <div className="flex flex-wrap justify-center gap-6 text-[10px] uppercase tracking-widest font-medium">
               <Link href="https://www.linkedin.com/in/jidepinheiro/" className="hover:opacity-60 transition-opacity">
                 LinkedIn
@@ -137,6 +147,7 @@ export default function ClientLayout({
           </div>
         </div>
       </footer>
+
       <Toaster />
     </div>
   )
