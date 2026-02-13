@@ -18,7 +18,8 @@ import {
     HiOutlinePlus,
     HiOutlineCloudArrowUp,
     HiOutlineCheck,
-    HiOutlineTrash
+    HiOutlineTrash,
+    HiOutlineSparkles
 } from "react-icons/hi2";
 import Image from "next/image";
 import Link from "next/link";
@@ -59,6 +60,7 @@ export default function ProjectEditor({ projectId }: ProjectEditorProps) {
     });
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
+    const [generating, setGenerating] = useState(false);
     const [uploading, setUploading] = useState<string | null>(null); // key of field being uploaded
     const [originalId, setOriginalId] = useState<string | null>(null);
 
@@ -144,6 +146,67 @@ export default function ProjectEditor({ projectId }: ProjectEditorProps) {
             toast({ title: "Error saving project", variant: "destructive" });
         } finally {
             setSaving(false);
+        }
+    };
+
+    const handleAIGenerate = async () => {
+        if (!project.description && !project.content) {
+            toast({
+                title: "Incomplete info",
+                description: "Add a project summary or main content first so I have something to work with!",
+                variant: "destructive"
+            });
+            return;
+        }
+
+        setGenerating(true);
+        try {
+            const response = await fetch('/api/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    description: project.description,
+                    content: project.content
+                }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) throw new Error(data.error || "Generation failed");
+
+            // Update only empty fields
+            const updates: Partial<PortfolioProject> = {};
+            let updatedCount = 0;
+
+            const fieldsToUpdate = ['challenges', 'solutions', 'insight', 'strategy', 'outcomes'] as const;
+
+            fieldsToUpdate.forEach(field => {
+                if (!project[field] && data[field]) {
+                    updates[field] = data[field];
+                    updatedCount++;
+                }
+            });
+
+            if (updatedCount > 0) {
+                setProject(prev => ({ ...prev, ...updates }));
+                toast({
+                    title: "AI Generation Complete",
+                    description: `Populated ${updatedCount} empty fields. Review them below!`
+                });
+            } else {
+                toast({
+                    title: "Nothing to update",
+                    description: "All narrative fields are already filled. AI won't overwrite your content."
+                });
+            }
+        } catch (error: any) {
+            toast({
+                title: "Generation failed",
+                description: error.message,
+                variant: "destructive"
+            });
+        } finally {
+            setGenerating(false);
         }
     };
 
@@ -309,7 +372,20 @@ export default function ProjectEditor({ projectId }: ProjectEditorProps) {
 
                 {/* Narrative Section */}
                 <section className="space-y-8">
-                    <SectionTitle title="The Story" />
+                    <div className="flex items-center justify-between border-b border-border pb-2 mb-6">
+                        <h3 className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">The Story</h3>
+                        <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            onClick={handleAIGenerate}
+                            disabled={generating}
+                            className="h-8 rounded-lg font-mono text-[9px] uppercase tracking-wider gap-2 bg-secondary/30 border-secondary/50 hover:bg-secondary/50"
+                        >
+                            <HiOutlineSparkles className={`w-3.5 h-3.5 ${generating ? 'animate-pulse' : ''}`} />
+                            {generating ? 'AI Thinking...' : 'Generate with AI'}
+                        </Button>
+                    </div>
                     <div className="space-y-12">
                         <div className="space-y-2">
                             <Label>Main Overview Content</Label>
