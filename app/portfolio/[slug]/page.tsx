@@ -82,7 +82,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 <div className="grid grid-cols-2 gap-4">
                   {project.gallery.map((img, i) => (
                     <div key={i} className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-border">
-                      <Image src={img} alt={`Gallery ${i + 1}`} fill className="object-cover" />
+                      <Image src={img} alt={`Gallery ${i + 1}`} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover" />
                     </div>
                   ))}
                 </div>
@@ -153,7 +153,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       {project.imageSet1.map((img, i) => (
                         <div key={i} className="relative aspect-[4/3] rounded-[32px] overflow-hidden border border-border">
-                          <Image src={img} alt={`Visual Set 1 - ${i + 1}`} fill className="object-cover" />
+                          <Image src={img} alt={`Visual Set 1 - ${i + 1}`} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
                         </div>
                       ))}
                     </div>
@@ -167,7 +167,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       {project.imageSet2.map((img, i) => (
                         <div key={i} className="relative aspect-square rounded-[24px] overflow-hidden border border-border">
-                          <Image src={img} alt={`Visual Set 2 - ${i + 1}`} fill className="object-cover" />
+                          <Image src={img} alt={`Visual Set 2 - ${i + 1}`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
                         </div>
                       ))}
                     </div>
@@ -181,7 +181,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     <div className="grid grid-cols-1 gap-6">
                       {project.imageSet3.map((img, i) => (
                         <div key={i} className="relative aspect-[21/9] rounded-[40px] overflow-hidden border border-border">
-                          <Image src={img} alt={`Visual Set 3 - ${i + 1}`} fill className="object-cover" />
+                          <Image src={img} alt={`Visual Set 3 - ${i + 1}`} fill sizes="100vw" className="object-cover" />
                         </div>
                       ))}
                     </div>
@@ -261,6 +261,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                       src={prevProject.featuredImage}
                       alt={prevProject.title}
                       fill
+                      sizes="96px"
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
@@ -285,6 +286,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                       src={nextProject.featuredImage}
                       alt={nextProject.title}
                       fill
+                      sizes="96px"
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>

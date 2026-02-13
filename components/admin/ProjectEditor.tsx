@@ -234,7 +234,7 @@ export default function ProjectEditor({ projectId }: ProjectEditorProps) {
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                     {!isArray && project[field] ? (
                         <div className="relative aspect-video rounded-2xl overflow-hidden border border-border group col-span-2">
-                            <Image src={value as string} alt={label} fill className="object-cover" />
+                            <Image src={value as string} alt={label} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover" />
                             <button
                                 type="button"
                                 onClick={() => setProject({ ...project, [field]: '' })}
@@ -247,7 +247,7 @@ export default function ProjectEditor({ projectId }: ProjectEditorProps) {
                         <>
                             {value.map((url, i) => (
                                 <div key={i} className="relative aspect-square rounded-2xl overflow-hidden border border-border group">
-                                    <Image src={url} alt={`${label} ${i}`} fill className="object-cover" />
+                                    <Image src={url} alt={`${label} ${i}`} fill sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" className="object-cover" />
                                     <button
                                         type="button"
                                         onClick={() => {
