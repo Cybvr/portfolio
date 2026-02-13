@@ -17,15 +17,16 @@ const firebaseConfig = {
 let app;
 if (getApps().length === 0) {
     if (!firebaseConfig.apiKey) {
-        throw new Error('Firebase configuration is missing. Please check your .env.local file.');
+        console.error('Firebase configuration is missing. Please check your environment variables.');
+    } else {
+        app = initializeApp(firebaseConfig);
     }
-    app = initializeApp(firebaseConfig);
 } else {
     app = getApps()[0];
 }
 
 if (!app) {
-    throw new Error('Failed to initialize Firebase app.');
+    console.error('Failed to initialize Firebase app.');
 }
 
 const db = getFirestore(app);
