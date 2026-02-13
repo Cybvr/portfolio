@@ -1,11 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, ArrowRight, Sparkles, Layers, Users, Zap, Eye, Heart } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Badge } from "@/components/ui/badge";
-import { projects } from '@/data/portfolio';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
+import type { PortfolioProject } from '@/types/portfolio';
 
 const ethos = [
   {
@@ -49,6 +51,26 @@ const capabilities = [
 ];
 
 export default function Page() {
+  const [projects, setProjects] = useState<PortfolioProject[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'jpportfolio'));
+        const projectsData = querySnapshot.docs.map(doc => ({
+          ...doc.data(),
+        })) as PortfolioProject[];
+        setProjects(projectsData);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchProjects();
+  }, []);
+
   return (
     <div className="w-full bg-background text-foreground">
       <div className="max-w-6xl mx-auto flex flex-col px-4 sm:px-8 md:px-12 py-8 md:py-16 gap-16 md:gap-24">

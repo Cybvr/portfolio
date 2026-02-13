@@ -16,16 +16,21 @@ const firebaseConfig = {
 // Initialize Firebase
 let app;
 if (getApps().length === 0) {
-    if (firebaseConfig.apiKey) {
-        app = initializeApp(firebaseConfig);
+    if (!firebaseConfig.apiKey) {
+        throw new Error('Firebase configuration is missing. Please check your .env.local file.');
     }
+    app = initializeApp(firebaseConfig);
 } else {
     app = getApps()[0];
 }
 
-const db = app ? getFirestore(app) : null!;
-const auth = app ? getAuth(app) : null!;
+if (!app) {
+    throw new Error('Failed to initialize Firebase app.');
+}
+
+const db = getFirestore(app);
+const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
-const storage = app ? getStorage(app) : null!;
+const storage = getStorage(app);
 
 export { db, auth, googleProvider, storage };

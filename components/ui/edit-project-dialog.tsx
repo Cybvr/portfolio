@@ -9,7 +9,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Edit2, Plus, X } from "lucide-react";
 import { Badge } from "./badge";
 import type { PortfolioProject } from '@/types/portfolio';
-import { projects } from '@/data/portfolio';
+import { doc, updateDoc } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
 
 interface EditProjectDialogProps {
   project: PortfolioProject;
@@ -58,23 +59,18 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
 
   const handleSave = async () => {
     try {
-      const updatedProjects = projects.map(p => p.id === editedProject.id ? editedProject : p);
-      const response = await fetch('/api/portfolio/update', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updatedProjects)
+      // Update in Firebase Firestore
+      const projectRef = doc(db, 'jpportfolio', editedProject.id);
+      await updateDoc(projectRef, {
+        ...editedProject,
+        dateUpdated: new Date().toISOString().split('T')[0]
       });
-      
-      if (!response.ok) {
-        throw new Error('Failed to update project');
-      }
-      
+
       onSave(editedProject);
       setOpen(false);
     } catch (error) {
       console.error('Save failed:', error);
+      alert('Failed to save project. Please try again.');
     }
   };
 
@@ -143,7 +139,7 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
               />
             </div>
           </div>
-          
+
           <div className="space-y-4">
             <div className="grid gap-2">
               <label className="text-foreground">Featured Image</label>
@@ -154,7 +150,7 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
                   placeholder="Enter image URL"
                   className="flex-1 bg-input text-foreground"
                 />
-                <Button 
+                <Button
                   type="button"
                   variant="outline"
                   className="bg-secondary text-secondary-foreground hover:bg-secondary/80 whitespace-nowrap"
@@ -172,13 +168,13 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
                     if (file) {
                       const formData = new FormData();
                       formData.append('file', file);
-                      
+
                       try {
                         const response = await fetch('/api/upload', {
                           method: 'POST',
                           body: formData,
                         });
-                        
+
                         if (response.ok) {
                           const { filePath } = await response.json();
                           // Update both the UI state and the data source
@@ -196,7 +192,7 @@ export function EditProjectDialog({ project, onSave }: EditProjectDialogProps) {
                 />
               </div>
             </div>
-            
+
             <div className="grid gap-2">
               <label className="text-foreground">Tags</label>
               <div className="flex gap-2 mb-2 flex-wrap">
