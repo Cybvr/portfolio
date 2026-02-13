@@ -87,7 +87,7 @@ export default function Page() {
             />
           </div>
           <div className="flex flex-col items-center gap-6 max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground text-balance leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl  text-foreground text-balance leading-tight">
               Designing at the intersection of people and technology
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -106,11 +106,11 @@ export default function Page() {
 
         {/* Ethos */}
         <section className="text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3 text-foreground">Ethos</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3 text-foreground">Spirit & Character</h2>
           <p className="text-muted-foreground mb-12 mx-auto max-w-xl">The principles that guide every project and decision.</p>
           <div className="grid sm:grid-cols-2 gap-8 text-left">
             {ethos.map((item) => (
-              <div key={item.title} className="bg-card rounded-2xl p-8 flex gap-6 items-start border border-border">
+              <div key={item.title} className="bg-card rounded-2xl p-8 flex gap-6 items-start ">
                 <div className="shrink-0 w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
                   <item.icon className="w-6 h-6 text-secondary-foreground" />
                 </div>
@@ -125,11 +125,11 @@ export default function Page() {
 
         {/* Capabilities */}
         <section className="text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3 text-foreground">Capabilities</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3 text-foreground">Strengths & Forte</h2>
           <p className="text-muted-foreground mb-12 mx-auto max-w-xl">What I bring to the table -- from concept to code.</p>
           <div className="grid sm:grid-cols-3 gap-8">
             {capabilities.map((cap) => (
-              <div key={cap.title} className="bg-card rounded-2xl p-8 border border-border flex flex-col items-center gap-6">
+              <div key={cap.title} className="bg-card rounded-2xl p-8  flex flex-col items-center gap-6">
                 <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center">
                   <cap.icon className="w-6 h-6 text-accent-foreground" />
                 </div>
@@ -153,7 +153,7 @@ export default function Page() {
           <div className="grid sm:grid-cols-2 gap-12">
             {projects.slice(0, 4).map((project) => (
               <Link key={project.id} href={`/portfolio/${project.id}`} className="block text-left">
-                <div className="bg-card border border-border p-8 rounded-[40px]">
+                <div className="bg-card  p-8 rounded-[40px]">
                   <div className="relative aspect-[16/10] mb-8 overflow-hidden rounded-[30px]">
                     <Image
                       src={project.featuredImage}
