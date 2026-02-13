@@ -7,11 +7,14 @@ export default function AboutPage() {
     return (
         <div className="w-full bg-background text-foreground">
             <div className="max-w-6xl mx-auto flex flex-col px-4 sm:px-8 md:px-12 py-8 md:py-16 gap-16 md:gap-24">
-                <section>
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground text-balance leading-tight mb-8">
+                <section className="text-center">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground text-balance leading-tight mb-4">
                         About Me
                     </h1>
-                    <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
+                    <h2 className="text-lg sm:text-xl text-muted-foreground mb-8">
+                        Designer, Developer, and Strategic Thinker
+                    </h2>
+                    <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
                         I'm a Product Designer and Developer focused on making complex systems feel intuitive and human.
                         My work sits at the intersection of design, technology, and business development.
                     </p>

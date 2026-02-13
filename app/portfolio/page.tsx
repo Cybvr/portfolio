@@ -61,7 +61,10 @@ export default function PortfolioPage() {
     <div className="w-full bg-background text-foreground">
       <div className="flex flex-col p-4 sm:p-8 md:p-12 gap-4 sm:gap-6 md:gap-8">
         <div className=" rounded-xl sm:rounded-2xl md:rounded-3xl">
-          <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Portfolio</h2>
+          <div className="text-center mb-6 sm:mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Portfolio</h1>
+            <h2 className="text-base sm:text-lg md:text-xl text-muted-foreground">Selected Work Across Industries</h2>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
             <div>
               <Select value={selectedIndustry} onValueChange={setSelectedIndustry}>
