@@ -5,7 +5,8 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Menu, ChevronRight } from 'lucide-react'
+import { Menu } from 'lucide-react'
+import { HiOutlineUser, HiOutlineBriefcase, HiOutlineEnvelope, HiOutlineSparkles, HiOutlineGlobeAlt } from 'react-icons/hi2'
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from 'react'
 import { Toaster } from "@/components/ui/toaster"
@@ -37,36 +38,34 @@ export default function ClientLayout({
             Jide Pinheiro
           </Link>
 
-          <ul className="hidden md:flex items-center space-x-8 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+          <ul className="hidden md:flex items-center space-x-6 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
             <li>
-              <DropdownMenu>
-                <DropdownMenuTrigger className="hover:text-foreground transition-colors">Products</DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuItem>
-                    <Link href="http://visual.ng" className="flex items-center">
-                      VisualHQ
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Link href="http://jujuapp.co" className="flex items-center">
-                      Juju
-                    </Link>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </li>
-            <li>
-              <Link href="/about" className="hover:text-foreground transition-colors">
+              <Link href="/about" className="hover:text-foreground transition-colors flex items-center gap-2">
+                <HiOutlineUser className="w-4 h-4" />
                 About
               </Link>
             </li>
             <li>
-              <Link href="/portfolio" className="hover:text-foreground transition-colors">
+              <Link href="/portfolio" className="hover:text-foreground transition-colors flex items-center gap-2">
+                <HiOutlineBriefcase className="w-4 h-4" />
                 Portfolio
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:text-foreground transition-colors">
+              <Link href="http://visual.ng" className="hover:text-foreground transition-colors flex items-center gap-2">
+                <HiOutlineSparkles className="w-4 h-4" />
+                VisualHQ
+              </Link>
+            </li>
+            <li>
+              <Link href="http://jujuapp.co" className="hover:text-foreground transition-colors flex items-center gap-2">
+                <HiOutlineGlobeAlt className="w-4 h-4" />
+                Juju
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="hover:text-foreground transition-colors flex items-center gap-2">
+                <HiOutlineEnvelope className="w-4 h-4" />
                 Contact
               </Link>
             </li>
@@ -83,32 +82,24 @@ export default function ClientLayout({
                   <Link href="/" className="hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                     Home
                   </Link>
-                  <Link href="/about" className="hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href="/about" className="hover:text-foreground transition-colors flex items-center gap-3 w-full" onClick={() => setIsMobileMenuOpen(false)}>
+                    <HiOutlineUser className="w-6 h-6" />
                     About
                   </Link>
-                  <Link href="/portfolio" className="hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href="/portfolio" className="hover:text-foreground transition-colors flex items-center gap-3 w-full" onClick={() => setIsMobileMenuOpen(false)}>
+                    <HiOutlineBriefcase className="w-6 h-6" />
                     Portfolio
                   </Link>
-                  <div className="relative">
-                    <button
-                      onClick={() => setProductsOpen(!productsOpen)}
-                      className="hover:text-foreground transition-colors flex items-center gap-2"
-                    >
-                      Products
-                      <ChevronRight className={`w-6 h-6 transition-transform ${productsOpen ? 'rotate-90' : ''}`} />
-                    </button>
-                    {productsOpen && (
-                      <div className="space-y-4 py-4 pl-4 text-lg">
-                        <Link href="http://visual.ng" className="block hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                          VisualHQ
-                        </Link>
-                        <Link href="http://jujuapp.co" className="block hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                          Juju
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                  <Link href="/contact" className="hover:text-foreground transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href="http://visual.ng" className="hover:text-foreground transition-colors flex items-center gap-3 w-full" onClick={() => setIsMobileMenuOpen(false)}>
+                    <HiOutlineSparkles className="w-6 h-6" />
+                    VisualHQ
+                  </Link>
+                  <Link href="http://jujuapp.co" className="hover:text-foreground transition-colors flex items-center gap-3 w-full" onClick={() => setIsMobileMenuOpen(false)}>
+                    <HiOutlineGlobeAlt className="w-6 h-6" />
+                    Juju
+                  </Link>
+                  <Link href="/contact" className="hover:text-foreground transition-colors flex items-center gap-3 w-full" onClick={() => setIsMobileMenuOpen(false)}>
+                    <HiOutlineEnvelope className="w-6 h-6" />
                     Contact
                   </Link>
                 </nav>
