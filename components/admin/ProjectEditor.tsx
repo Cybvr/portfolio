@@ -17,7 +17,8 @@ import {
     HiOutlineXMark,
     HiOutlinePlus,
     HiOutlineCloudArrowUp,
-    HiOutlineCheck
+    HiOutlineCheck,
+    HiOutlineTrash
 } from "react-icons/hi2";
 import Image from "next/image";
 import Link from "next/link";
