@@ -1,4 +1,9 @@
 
+// This migration script was used to initially migrate portfolio data to Firebase
+// It has already been run and is kept here for reference only
+// If you need to run it again, uncomment the code below
+
+/*
 const admin = require('firebase-admin');
 const fs = require('fs');
 const path = require('path');
@@ -61,3 +66,7 @@ async function migrate() {
 }
 
 migrate();
+*/
+
+console.log('Migration script is disabled. Data is already in Firebase.');
+

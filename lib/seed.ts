@@ -1,6 +1,7 @@
 
 import { Pool } from 'pg';
-import { projects } from '../data/portfolio';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from './firebase';
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL
@@ -8,9 +9,15 @@ const pool = new Pool({
 
 async function seedDatabase() {
   try {
+    // Fetch projects from Firebase
+    const querySnapshot = await getDocs(collection(db, 'jpportfolio'));
+    const projects = querySnapshot.docs.map(doc => ({
+      ...doc.data(),
+    }));
+
     const schemaSQL = await require('fs').readFileSync('./lib/schema.sql', 'utf-8');
     await pool.query(schemaSQL);
-    
+
     for (const project of projects) {
       await pool.query(
         `INSERT INTO portfolio_projects (
