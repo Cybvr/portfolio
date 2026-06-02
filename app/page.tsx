@@ -1,53 +1,44 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, ArrowRight, Sparkles, Layers, Users, Zap, Eye, Heart } from 'lucide-react';
-import Image from 'next/image';
+import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
-import { Badge } from "@/components/ui/badge";
+import { ArrowRight, Github, Linkedin } from 'lucide-react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import type { PortfolioProject } from '@/types/portfolio';
 
-const ethos = [
+const positioning = [
+  'Positioning brands so they are easier to understand, choose, and remember.',
+  'Turning scattered messaging into a point of view teams can actually use.',
+  'Bringing strategy, language, and digital execution into one line of thought.',
+];
+
+const focusAreas = [
   {
-    icon: Eye,
-    title: 'Clarity over complexity',
-    description: 'Every design decision should reduce friction, not add it. I strip away the unnecessary until only what matters remains.',
+    title: 'Positioning',
+    label: '01',
+    description:
+      'Who you are for, what you are really selling, where you should compete, and what you should stop saying.',
   },
   {
-    icon: Users,
-    title: 'People first, pixels second',
-    description: 'Technology should serve human needs. I start with empathy, then build outward with intention and care.',
+    title: 'Messaging',
+    label: '02',
+    description:
+      'Sharper narratives for websites, decks, launches, and internal alignment so the brand sounds deliberate, clear, and usable.',
   },
   {
-    icon: Heart,
-    title: 'Craft with conviction',
-    description: 'Details matter. From spacing to micro-interactions, I believe the small things compound into experiences people love.',
-  },
-  {
-    icon: Sparkles,
-    title: 'Culture shapes design',
-    description: 'True innovation happens when technical expertise meets cultural understanding. Context is everything.',
+    title: 'Expression',
+    label: '03',
+    description:
+      'Translating strategy into digital experiences, product touchpoints, and visual systems that feel consistent with the business.',
   },
 ];
 
-const capabilities = [
-  {
-    icon: Layers,
-    title: 'Product Design',
-    items: ['User Research', 'Wireframing & Prototyping', 'Design Systems', 'Interaction Design'],
-  },
-  {
-    icon: Zap,
-    title: 'Development',
-    items: ['React / Next.js', 'TypeScript', 'Node.js', 'Responsive Interfaces'],
-  },
-  {
-    icon: Users,
-    title: 'Strategy',
-    items: ['Brand Identity', 'UX Audits', 'Product Roadmaps', 'Design Thinking Workshops'],
-  },
+const workingStyle = [
+  'Brand thinking and execution move together in the work.',
+  'Commercial clarity stays at the center of every decision.',
+  'I look for the sentence, structure, and signal that make a company legible.',
+  'I still design and build, with the work starting at the level of positioning, messaging, and direction.',
 ];
 
 export default function Page() {
@@ -58,120 +49,180 @@ export default function Page() {
     async function fetchProjects() {
       try {
         const querySnapshot = await getDocs(collection(db, 'jpportfolio'));
-        const projectsData = querySnapshot.docs.map(doc => ({
+        const projectsData = querySnapshot.docs.map((doc) => ({
           ...doc.data(),
         })) as PortfolioProject[];
         setProjects(projectsData);
       } catch (error) {
-        console.error("Error fetching projects:", error);
+        console.error('Error fetching projects:', error);
       } finally {
         setLoading(false);
       }
     }
+
     fetchProjects();
   }, []);
 
+  const featuredProjects = useMemo(() => projects.slice(0, 4), [projects]);
+
   return (
     <div className="w-full bg-background text-foreground">
-      <div className="max-w-6xl mx-auto flex flex-col px-4 sm:px-8 md:px-12 py-8 md:py-16 gap-16 md:gap-24">
-
-        {/* Hero / Intro */}
-        <section className="flex flex-col items-center gap-12 text-center">
-          <div className="shrink-0">
-            <Image
-              src="/images/jidepinheiro.png"
-              alt="Jide Pinheiro"
-              width={240}
-              height={240}
-              className="rounded-full"
-            />
+      <div className="mx-auto flex max-w-6xl flex-col px-4 py-10 sm:px-8 md:px-12 md:py-16">
+        <section className="grid gap-10 border-t border-foreground pt-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:pt-14">
+          <div className="space-y-3 text-sm uppercase tracking-[0.2em] text-muted-foreground">
+            <p>Jide Pinheiro</p>
+            <p>Brand Consultant</p>
           </div>
-          <div className="flex flex-col items-center gap-6 max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl  text-foreground text-balance leading-tight">
-              Designing at the intersection of people and technology
-            </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              I bridge human needs and technological possibilities. Having worked across AI, fintech, and consumer technology, I make complex systems feel intuitive and human.
-            </p>
-            <div className="flex gap-4 pt-2">
-              <a href="https://github.com/Cybvr" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="GitHub">
-                <Github className="w-5 h-5" />
+          <div className="space-y-8">
+            <div className="max-w-4xl space-y-5">
+              <h1 className="text-4xl leading-tight sm:text-5xl md:text-7xl">
+                I help businesses articulate their value with more precision, more confidence, and less noise.
+              </h1>
+              <p className="max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
+                I started in design. The work grew into positioning, messaging, and brand direction because that is
+                usually where the real problem sits. My practice centers on clarity, language, and market presence.
+              </p>
+            </div>
+
+            <div className="border-t border-border pt-6">
+              <ul className="grid gap-3 text-sm leading-7 text-muted-foreground md:grid-cols-3">
+                {positioning.map((statement, index) => (
+                  <li key={statement} className="flex gap-3 border-t border-border py-3 md:block md:border-t-0 md:py-0">
+                    <span className="shrink-0 text-foreground">{`0${index + 1}`}</span>
+                    <span>{statement}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-5 border-t border-border pt-6 text-sm">
+              <Link href="/portfolio" className="inline-flex items-center gap-2 hover:text-primary transition-colors">
+                Selected work
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <a
+                href="https://www.linkedin.com/in/jidepinheiro/"
+                className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Linkedin className="h-4 w-4" />
+                LinkedIn
               </a>
-              <a href="https://www.linkedin.com/in/jidepinheiro/" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="LinkedIn">
-                <Linkedin className="w-5 h-5" />
+              <a
+                href="https://github.com/Cybvr"
+                className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Github className="h-4 w-4" />
+                GitHub
               </a>
             </div>
           </div>
         </section>
 
-        {/* Ethos */}
-        <section className="text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3 text-foreground">Spirit & Character</h2>
-          <p className="text-muted-foreground mb-12 mx-auto max-w-xl">The principles that guide every project and decision.</p>
-          <div className="grid sm:grid-cols-2 gap-8 text-left">
-            {ethos.map((item) => (
-              <div key={item.title} className="bg-card rounded-2xl p-8 flex gap-6 items-start ">
-                <div className="shrink-0 w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
-                  <item.icon className="w-6 h-6 text-secondary-foreground" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2 text-foreground">{item.title}</h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">{item.description}</p>
-                </div>
+        <section className="grid gap-10 border-t border-border py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+          <div>
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">What Changed</p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2">
+            <p className="text-2xl leading-10">
+              I work as a brand consultant focused on positioning, messaging, and digital expression for businesses
+              that need sharper language and a clearer market presence.
+            </p>
+            <div className="space-y-5 text-base leading-8 text-muted-foreground">
+              <p>
+                The work starts with category, audience, offer, narrative, and internal alignment, then carries those
+                decisions into the website, the product, and the wider brand system.
+              </p>
+              <p>
+                Strategy becomes useful when people can hear it in the language, see it in the expression, and feel it
+                in the decisions across the business.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="grid gap-10 border-t border-border py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+          <div>
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">What I Do</p>
+          </div>
+          <div className="border-t border-border">
+            {focusAreas.map((area) => (
+              <div
+                key={area.title}
+                className="grid gap-3 border-b border-border py-5 md:grid-cols-[56px_minmax(0,220px)_minmax(0,1fr)] md:gap-6"
+              >
+                <p className="text-sm text-muted-foreground">{area.label}</p>
+                <h2 className="text-2xl text-foreground">{area.title}</h2>
+                <p className="text-base leading-8 text-muted-foreground">{area.description}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Capabilities */}
-        <section className="text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3 text-foreground">Strengths & Forte</h2>
-          <p className="text-muted-foreground mb-12 mx-auto max-w-xl">What I bring to the table -- from concept to code.</p>
-          <div className="grid sm:grid-cols-3 gap-8">
-            {capabilities.map((cap) => (
-              <div key={cap.title} className="bg-card rounded-2xl p-8  flex flex-col items-center gap-6">
-                <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center">
-                  <cap.icon className="w-6 h-6 text-accent-foreground" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground">{cap.title}</h3>
-                <ul className="flex flex-col items-center gap-3">
-                  {cap.items.map((item) => (
-                    <li key={item} className="text-base text-muted-foreground">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+        <section className="grid gap-10 border-t border-border py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+          <div>
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">How I Work</p>
+          </div>
+          <ol className="border-t border-border">
+            {workingStyle.map((item, index) => (
+              <li
+                key={item}
+                className="grid gap-3 border-b border-border py-4 text-base leading-8 text-muted-foreground md:grid-cols-[56px_minmax(0,1fr)] md:gap-6"
+              >
+                <span className="text-sm text-foreground">{`0${index + 1}`}</span>
+                <span>{item}</span>
+              </li>
             ))}
+          </ol>
+        </section>
+
+        <section className="grid gap-10 border-t border-border py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+          <div>
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Selected Work</p>
+          </div>
+          <div className="border-t border-border">
+            {loading ? (
+              <p className="py-5 text-muted-foreground">Loading work...</p>
+            ) : (
+              featuredProjects.map((project, index) => (
+                <Link
+                  key={project.id}
+                  href={`/portfolio/${project.id}`}
+                  className="grid gap-3 border-b border-border py-5 transition-colors hover:text-primary md:grid-cols-[56px_minmax(0,160px)_minmax(0,1fr)_auto] md:gap-6"
+                >
+                  <div className="text-sm text-foreground">{`0${index + 1}`}</div>
+                  <div className="text-sm uppercase tracking-[0.15em] text-muted-foreground">{project.industry}</div>
+                  <div className="space-y-2">
+                    <h2 className="text-2xl text-foreground">{project.title}</h2>
+                    <p className="max-w-2xl text-base leading-8 text-muted-foreground">{project.description}</p>
+                  </div>
+                  <div className="flex items-start md:justify-end">
+                    <span className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-muted-foreground">
+                      View
+                      <ArrowRight className="h-4 w-4" />
+                    </span>
+                  </div>
+                </Link>
+              ))
+            )}
           </div>
         </section>
 
-        {/* Selected Work */}
-        <section className="text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3 text-foreground">Selected Work</h2>
-          <p className="text-muted-foreground mb-12 mx-auto max-w-xl">A few projects I am proud of.</p>
-          <div className="grid sm:grid-cols-2 gap-12">
-            {projects.slice(0, 4).map((project) => (
-              <Link key={project.id} href={`/portfolio/${project.id}`} className="block text-left">
-                <div className="bg-card  p-8 rounded-[40px]">
-                  <div className="relative aspect-[16/10] mb-8 overflow-hidden rounded-[30px]">
-                    <Image
-                      src={project.featuredImage}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-foreground">{project.title}</h3>
-                  <div className="flex flex-wrap gap-3 font-mono uppercase text-[10px] tracking-widest">
-                    <Badge className="bg-secondary text-secondary-foreground hover:bg-secondary/80 border-none px-4 py-1">{project.industry}</Badge>
-                    {project.tags.slice(0, 2).map(tag => (
-                      <Badge key={tag} variant="outline" className="text-muted-foreground border-border px-4 py-1">{tag}</Badge>
-                    ))}
-                  </div>
-                </div>
-              </Link>
-            ))}
+        <section className="grid gap-10 border-t border-b border-foreground py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+          <div>
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Contact</p>
+          </div>
+          <div className="space-y-5">
+            <p className="max-w-3xl text-2xl leading-10">
+              I work with teams that need sharper positioning, stronger messaging, and a clearer market presence.
+            </p>
+            <p className="max-w-2xl text-base leading-8 text-muted-foreground">
+              Positioning reviews, messaging work, digital brand direction, and advisory support for teams that need
+              sharper language and a clearer market presence.
+            </p>
+            <Link href="/contact" className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.15em] hover:text-primary transition-colors">
+              Start a conversation
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </section>
       </div>

@@ -4,8 +4,8 @@ import './styles/globals.css'
 import ClientLayout from './client-layout'
 
 export const metadata: Metadata = {
-  title: 'Jide Pinheiro - Portfolio',
-  description: 'Product Designer and Developer',
+  title: 'Jide Pinheiro - Brand Consultant',
+  description: 'Brand consultant focused on positioning, messaging, and digital expression.',
 }
 
 export default function RootLayout({
