@@ -6,6 +6,7 @@ import { ArrowRight, Github, Linkedin } from 'lucide-react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import type { PortfolioProject } from '@/types/portfolio';
+import { ToptalBadge } from '@/components/ToptalBadge';
 
 const positioning = [
   'Positioning brands so they are easier to understand, choose, and remember.',
@@ -137,6 +138,25 @@ export default function Page() {
                 in the decisions across the business.
               </p>
             </div>
+          </div>
+        </section>
+
+        <section className="grid gap-10 border-t border-border py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+          <div>
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Recognition</p>
+          </div>
+          <div className="grid gap-8 border-t border-border pt-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-12">
+            <div className="space-y-4">
+              <p className="max-w-2xl text-2xl leading-10">
+                Selected as Toptal top 3% talent for the combination of strategic thinking, design rigor, and digital
+                execution.
+              </p>
+              <p className="max-w-2xl text-base leading-8 text-muted-foreground">
+                It is a useful signal for teams that want someone who can work from positioning and messaging all the
+                way through to the actual product and site experience.
+              </p>
+            </div>
+            <ToptalBadge />
           </div>
         </section>
 
