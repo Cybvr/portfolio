@@ -18,6 +18,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
 import type { PortfolioProject } from "@/types/portfolio";
+import DeleteConfirmDialog from "@/components/admin/DeleteConfirmDialog";
 
 export default function PortfolioManagement() {
     const router = useRouter();
@@ -50,13 +51,13 @@ export default function PortfolioManagement() {
     }
 
     const handleDelete = async (id: string) => {
-        if (!confirm("Are you sure you want to delete this project?")) return;
         try {
             await deleteDoc(doc(db, "jpportfolio", id));
             toast({ title: "Project deleted" });
-            fetchProjects();
+            await fetchProjects();
         } catch (error) {
             toast({ title: "Error deleting project", variant: "destructive" });
+            throw error;
         }
     };
 
@@ -113,14 +114,21 @@ export default function PortfolioManagement() {
                                             <HiOutlinePencilSquare className="w-5 h-5" />
                                         </Button>
                                     </Link>
-                                    <Button
-                                        variant="destructive"
-                                        size="icon"
-                                        className="rounded-xl"
-                                        onClick={() => handleDelete(project.id)}
-                                    >
-                                        <HiOutlineTrash className="w-5 h-5" />
-                                    </Button>
+                                    <DeleteConfirmDialog
+                                        itemType="project"
+                                        itemName={project.title}
+                                        onConfirm={() => handleDelete(project.id)}
+                                        trigger={
+                                            <Button
+                                                variant="destructive"
+                                                size="icon"
+                                                className="rounded-xl"
+                                                aria-label={`Delete ${project.title}`}
+                                            >
+                                                <HiOutlineTrash className="w-5 h-5" />
+                                            </Button>
+                                        }
+                                    />
                                     <div className="ml-auto flex items-center">
                                         <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground opacity-50">
                                             ID: {project.id}

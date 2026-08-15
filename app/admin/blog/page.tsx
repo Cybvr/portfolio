@@ -17,6 +17,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
 import type { BlogPost } from "@/types/blog";
+import DeleteConfirmDialog from "@/components/admin/DeleteConfirmDialog";
 
 export default function BlogManagement() {
     const router = useRouter();
@@ -49,13 +50,13 @@ export default function BlogManagement() {
     }
 
     const handleDelete = async (id: string) => {
-        if (!confirm("Are you sure you want to delete this post?")) return;
         try {
             await deleteDoc(doc(db, "jpblog", id));
             toast({ title: "Post deleted" });
-            fetchPosts();
+            await fetchPosts();
         } catch (error) {
             toast({ title: "Error deleting post", variant: "destructive" });
+            throw error;
         }
     };
 
@@ -116,14 +117,21 @@ export default function BlogManagement() {
                                             <HiOutlinePencilSquare className="w-5 h-5" />
                                         </Button>
                                     </Link>
-                                    <Button
-                                        variant="destructive"
-                                        size="icon"
-                                        className="rounded-xl"
-                                        onClick={() => handleDelete(post.id)}
-                                    >
-                                        <HiOutlineTrash className="w-5 h-5" />
-                                    </Button>
+                                    <DeleteConfirmDialog
+                                        itemType="post"
+                                        itemName={post.title}
+                                        onConfirm={() => handleDelete(post.id)}
+                                        trigger={
+                                            <Button
+                                                variant="destructive"
+                                                size="icon"
+                                                className="rounded-xl"
+                                                aria-label={`Delete ${post.title}`}
+                                            >
+                                                <HiOutlineTrash className="w-5 h-5" />
+                                            </Button>
+                                        }
+                                    />
                                     <div className="ml-auto flex items-center">
                                         <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground opacity-50">
                                             {post.date}
