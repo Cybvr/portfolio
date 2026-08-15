@@ -1,8 +1,8 @@
 const hexagonClipPath = 'polygon(50% 0, 100% 24%, 100% 76%, 50% 100%, 0 76%, 0 24%)';
 
-export function ToptalBadge() {
+export function ToptalBadge({ className = '' }: { className?: string }) {
   return (
-    <div className="flex justify-center md:justify-start">
+    <div className={`flex justify-center md:justify-start ${className}`}>
       <div
         className="inline-block bg-[#25a9ef] p-[6px]"
         style={{ clipPath: hexagonClipPath }}

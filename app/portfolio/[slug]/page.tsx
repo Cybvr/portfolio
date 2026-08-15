@@ -8,6 +8,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { notFound } from 'next/navigation'
 import type { PortfolioProject } from '@/types/portfolio'
+import { Sidebar } from '@/components/Sidebar'
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const [project, setProject] = useState<PortfolioProject | null>(null)
@@ -62,8 +63,10 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="w-full bg-background text-foreground">
-      <div className="max-w-6xl mx-auto flex flex-col px-4 py-10 sm:px-8 md:px-12 md:py-16">
-        <section className="grid gap-10 border-t border-foreground pt-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:pt-14">
+      <div className="max-w-6xl mx-auto px-4 py-10 sm:px-8 md:px-12 md:py-16">
+        <div className="grid gap-10 md:gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
+          <div className="flex flex-col">
+        <section className="grid gap-8 border-t border-foreground py-8 md:gap-10 md:py-10">
           <div className="space-y-6">
             <Link href="/portfolio" className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors">
               <ArrowLeft className="w-4 h-4" />
@@ -72,16 +75,16 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Case Study</p>
           </div>
           <div className="space-y-6">
-            <h1 className="max-w-4xl text-4xl leading-tight sm:text-5xl md:text-7xl">{project.title}</h1>
+            <h1 className="max-w-4xl text-3xl leading-tight sm:text-4xl md:text-5xl">{project.title}</h1>
             <p className="max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">{project.description}</p>
           </div>
         </section>
 
-        <section className="grid gap-10 border-t border-border py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+        <section className="grid gap-8 border-t border-border py-8 md:gap-10 md:py-10">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Overview</p>
           </div>
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
+          <div className="space-y-8">
             <div className="space-y-6">
               <div className="relative w-full aspect-[16/10] overflow-hidden border border-border">
                 <Image
@@ -94,7 +97,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 />
               </div>
               {project.content && (
-                <p className="max-w-3xl text-base leading-8 text-muted-foreground">{project.content}</p>
+                <p className="content-body max-w-3xl text-base leading-8 text-muted-foreground">{project.content}</p>
               )}
             </div>
 
@@ -124,7 +127,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </section>
 
         {narrativeRows.length > 0 && (
-          <section className="grid gap-10 border-t border-border py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+          <section className="grid gap-8 border-t border-border py-8 md:gap-10 md:py-10">
             <div>
               <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Narrative</p>
             </div>
@@ -141,7 +144,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         )}
 
         {project.gallery && project.gallery.length > 0 && (
-          <section className="grid gap-10 border-t border-border py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+          <section className="grid gap-8 border-t border-border py-8 md:gap-10 md:py-10">
             <div>
               <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Gallery</p>
             </div>
@@ -156,7 +159,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         )}
 
         {project.imageSet1 && project.imageSet1.length > 0 && (
-          <section className="grid gap-10 border-t border-border py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+          <section className="grid gap-8 border-t border-border py-8 md:gap-10 md:py-10">
             <div>
               <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Visuals 01</p>
             </div>
@@ -171,7 +174,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         )}
 
         {project.imageSet2 && project.imageSet2.length > 0 && (
-          <section className="grid gap-10 border-t border-border py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+          <section className="grid gap-8 border-t border-border py-8 md:gap-10 md:py-10">
             <div>
               <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Visuals 02</p>
             </div>
@@ -186,7 +189,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         )}
 
         {project.imageSet3 && project.imageSet3.length > 0 && (
-          <section className="grid gap-10 border-t border-border py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+          <section className="grid gap-8 border-t border-border py-8 md:gap-10 md:py-10">
             <div>
               <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Visuals 03</p>
             </div>
@@ -201,7 +204,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         )}
 
         {project.embed && (
-          <section className="grid gap-10 border-t border-border py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+          <section className="grid gap-8 border-t border-border py-8 md:gap-10 md:py-10">
             <div>
               <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Embed</p>
             </div>
@@ -211,7 +214,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </section>
         )}
 
-        <section className="grid gap-10 border-t border-b border-foreground py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+        <section className="grid gap-8 border-t border-b border-foreground py-8 md:gap-10 md:py-10">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Navigation</p>
           </div>
@@ -238,6 +241,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             )}
           </div>
         </section>
+          </div>
+          <Sidebar className="lg:sticky lg:top-8 lg:self-start lg:border-l lg:border-border lg:pl-10" />
+        </div>
       </div>
     </div>
   )

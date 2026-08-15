@@ -1,11 +1,12 @@
 'use client'
 
-import Link from "next/link"
 import { useEffect, useMemo, useState } from 'react'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { collection, getDocs } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import type { PortfolioProject } from '@/types/portfolio'
+import { Sidebar } from '@/components/Sidebar'
+import { PostList, type PostListItem } from '@/components/PostList'
 
 export default function PortfolioPage() {
   const [projects, setProjects] = useState<PortfolioProject[]>([])
@@ -44,6 +45,18 @@ export default function PortfolioPage() {
     })
   }, [projects, selectedIndustry, selectedTag, selectedTechnology])
 
+  const projectItems = useMemo<PostListItem[]>(
+    () =>
+      filteredProjects.map((project) => ({
+        id: project.id,
+        href: `/portfolio/${project.id}`,
+        title: project.title,
+        meta: [project.industry, ...project.tags.slice(0, 2)].filter(Boolean).join(' · '),
+        thumbnail: project.featuredImage,
+      })),
+    [filteredProjects]
+  )
+
   if (loading) {
     return (
       <div className="w-full bg-background text-foreground">
@@ -56,22 +69,10 @@ export default function PortfolioPage() {
 
   return (
     <div className="w-full bg-background text-foreground">
-      <div className="max-w-6xl mx-auto flex flex-col px-4 py-10 sm:px-8 md:px-12 md:py-16">
-        <section className="grid gap-10 border-t border-foreground pt-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:pt-14">
-          <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Portfolio</p>
-          </div>
-          <div className="space-y-6">
-            <h1 className="max-w-4xl text-4xl leading-tight sm:text-5xl md:text-7xl">
-              Selected work across strategy, product, and digital expression.
-            </h1>
-            <p className="max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
-              A working index of projects across industries, platforms, and business contexts.
-            </p>
-          </div>
-        </section>
-
-        <section className="grid gap-10 border-t border-border py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+      <div className="max-w-6xl mx-auto px-4 py-10 sm:px-8 md:px-12 md:py-16">
+        <div className="grid gap-10 md:gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
+          <div className="flex flex-col">
+        <section className="grid gap-8 border-t border-foreground py-8 md:gap-10 md:py-10">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Filters</p>
           </div>
@@ -117,31 +118,15 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        <section className="grid gap-10 border-t border-b border-foreground py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+        <section className="grid gap-8 border-t border-b border-foreground py-8 md:gap-10 md:py-10">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Projects</p>
           </div>
-          <div className="border-t border-border">
-            {filteredProjects.map((project, index) => (
-              <Link
-                key={project.id}
-                href={`/portfolio/${project.id}`}
-                className="grid gap-3 border-b border-border py-5 transition-colors hover:text-primary md:grid-cols-[56px_minmax(0,180px)_minmax(0,1fr)_auto] md:gap-6"
-              >
-                <span className="text-sm text-foreground">{`0${index + 1}`}</span>
-                <span className="text-sm uppercase tracking-[0.15em] text-muted-foreground">{project.industry}</span>
-                <div className="space-y-2">
-                  <h2 className="text-2xl text-foreground">{project.title}</h2>
-                  <p className="max-w-2xl text-base leading-8 text-muted-foreground">{project.description}</p>
-                  <p className="text-sm uppercase tracking-[0.15em] text-muted-foreground">
-                    {[...project.tags.slice(0, 2), ...project.technologies.slice(0, 2)].join(' / ')}
-                  </p>
-                </div>
-                <span className="text-sm uppercase tracking-[0.15em] text-muted-foreground md:text-right">View</span>
-              </Link>
-            ))}
-          </div>
+          <PostList items={projectItems} emptyLabel="No projects match these filters." />
         </section>
+          </div>
+          <Sidebar showWork={false} className="lg:sticky lg:top-8 lg:self-start lg:border-l lg:border-border lg:pl-10" />
+        </div>
       </div>
     </div>
   )

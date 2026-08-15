@@ -2,7 +2,7 @@
 'use client'
 
 import { auth } from "@/lib/firebase";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut, User } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -10,26 +10,46 @@ import Link from "next/link";
 import {
     HiOutlineBriefcase,
     HiOutlineArrowLeftOnRectangle,
-    HiOutlineChartBar,
+    HiOutlineExclamationTriangle,
+    HiOutlineNewspaper,
     HiOutlineSparkles,
     HiOutlineCog6Tooth
 } from "react-icons/hi2";
 
 export default function AdminDashboard() {
     const router = useRouter();
-    const [user, setUser] = useState<any>(null);
+    const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
+    const [authError, setAuthError] = useState(false);
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (!user) {
-                router.push("/admin/login");
-            } else {
-                setUser(user);
-            }
+        const verificationTimeout = window.setTimeout(() => {
             setLoading(false);
-        });
-        return () => unsubscribe();
+            router.replace("/admin/login");
+        }, 4000);
+
+        const unsubscribe = onAuthStateChanged(
+            auth,
+            (currentUser) => {
+                window.clearTimeout(verificationTimeout);
+                setUser(currentUser);
+                setLoading(false);
+
+                if (!currentUser) {
+                    router.replace("/admin/login");
+                }
+            },
+            (error) => {
+                window.clearTimeout(verificationTimeout);
+                console.error("Admin authentication check failed:", error);
+                setAuthError(true);
+                setLoading(false);
+            }
+        );
+        return () => {
+            window.clearTimeout(verificationTimeout);
+            unsubscribe();
+        };
     }, [router]);
 
     const handleLogout = async () => {
@@ -37,11 +57,32 @@ export default function AdminDashboard() {
         router.push("/admin/login");
     };
 
-    if (loading || !user) return (
-        <div className="h-screen flex items-center justify-center font-mono text-[10px] uppercase tracking-[0.3em]">
-            Verifying Access...
+    if (loading) return (
+        <div
+            role="status"
+            aria-live="polite"
+            className="flex min-h-screen items-center justify-center font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
+        >
+            Verifying access&hellip;
         </div>
     );
+
+    if (authError) return (
+        <div className="flex min-h-screen items-center justify-center px-4">
+            <div className="max-w-md space-y-5 text-center">
+                <HiOutlineExclamationTriangle className="mx-auto h-8 w-8 text-destructive" aria-hidden="true" />
+                <h1 className="text-2xl font-bold font-syne">Access check failed</h1>
+                <p className="text-sm leading-6 text-muted-foreground">
+                    Your session could not be verified. Sign in again to continue.
+                </p>
+                <Button asChild variant="outline">
+                    <Link href="/admin/login">Go to sign in</Link>
+                </Button>
+            </div>
+        </div>
+    );
+
+    if (!user) return null;
 
     return (
         <div className="min-h-screen bg-background p-4 sm:p-8 md:p-12">
@@ -78,19 +119,19 @@ export default function AdminDashboard() {
                         </div>
                     </Link>
 
-                    <div className="group opacity-50 cursor-not-allowed">
-                        <div className="h-full bg-card border border-border p-8 rounded-[32px] flex flex-col gap-6">
-                            <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center">
-                                <HiOutlineChartBar className="w-6 h-6 text-foreground" />
+                    <Link href="/admin/blog" className="group">
+                        <div className="h-full bg-card border border-border p-8 rounded-[32px] transition-all duration-300 hover:bg-secondary/50 flex flex-col gap-6">
+                            <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center transition-transform group-hover:scale-110">
+                                <HiOutlineNewspaper className="w-6 h-6 text-foreground" />
                             </div>
                             <div className="space-y-2">
-                                <h3 className="text-xl font-bold font-syne">Analytics</h3>
+                                <h3 className="text-xl font-bold font-syne">Blog Management</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
-                                    View traffic and engagement metrics (Coming soon).
+                                    Write, edit, or remove posts from your blog.
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </Link>
 
                     <div className="group opacity-50 cursor-not-allowed">
                         <div className="h-full bg-card border border-border p-8 rounded-[32px] flex flex-col gap-6">

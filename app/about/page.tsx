@@ -2,21 +2,21 @@
 
 import React from 'react';
 
-const practiceAreas = [
+const focusAreas = [
   {
     label: '01',
     title: 'Positioning',
-    description: 'Defining the role a brand should play in the market, the audience it should speak to, and the territory it can credibly own.',
+    description: 'Who you are for, what you are really selling, where you should compete, and what you should stop saying.',
   },
   {
     label: '02',
     title: 'Messaging',
-    description: 'Building language systems for websites, decks, launches, and internal alignment so the brand stays clear across every context.',
+    description: 'Sharper narratives for websites, decks, launches, and internal alignment so the brand sounds deliberate, clear, and usable.',
   },
   {
     label: '03',
-    title: 'Digital Expression',
-    description: 'Carrying strategy into product surfaces, websites, and brand systems with the same level of precision as the positioning work.',
+    title: 'Expression',
+    description: 'Translating strategy into digital experiences, product touchpoints, and visual systems that feel consistent with the business.',
   },
 ];
 
@@ -35,12 +35,12 @@ export default function AboutPage() {
   return (
     <div className="w-full bg-background text-foreground">
       <div className="max-w-6xl mx-auto flex flex-col px-4 py-10 sm:px-8 md:px-12 md:py-16">
-        <section className="grid gap-10 border-t border-foreground pt-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:pt-14">
+        <section className="grid gap-8 border-t border-foreground py-8 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-10 md:py-10">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">About</p>
           </div>
           <div className="space-y-5">
-            <h1 className="max-w-4xl text-4xl leading-tight sm:text-5xl md:text-7xl">
+            <h1 className="max-w-4xl text-3xl leading-tight sm:text-4xl md:text-5xl">
               I work across strategy, language, and digital expression.
             </h1>
             <p className="max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
@@ -50,12 +50,34 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="grid gap-10 border-t border-border py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+        <section className="grid gap-8 border-t border-border py-8 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-10 md:py-10">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Practice</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">What Changed</p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2">
+            <p className="text-2xl leading-10">
+              I work as a brand consultant focused on positioning, messaging, and digital expression for businesses
+              that need sharper language and a clearer market presence.
+            </p>
+            <div className="space-y-5 text-base leading-8 text-muted-foreground">
+              <p>
+                The work starts with category, audience, offer, narrative, and internal alignment, then carries those
+                decisions into the website, the product, and the wider brand system.
+              </p>
+              <p>
+                Strategy becomes useful when people can hear it in the language, see it in the expression, and feel it
+                in the decisions across the business.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="grid gap-8 border-t border-border py-8 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-10 md:py-10">
+          <div>
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">What I Do</p>
           </div>
           <div className="border-t border-border">
-            {practiceAreas.map((item) => (
+            {focusAreas.map((item) => (
               <div key={item.title} className="grid gap-3 border-b border-border py-5 md:grid-cols-[56px_minmax(0,220px)_minmax(0,1fr)] md:gap-6">
                 <p className="text-sm text-muted-foreground">{item.label}</p>
                 <h2 className="text-2xl text-foreground">{item.title}</h2>
@@ -65,7 +87,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="grid gap-10 border-t border-b border-foreground py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+        <section className="grid gap-8 border-t border-b border-foreground py-8 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-10 md:py-10">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Capabilities</p>
           </div>

@@ -45,7 +45,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+        inter: ['"Inter"', 'system-ui', 'sans-serif'],
         serif: ['"Old Standard TT"', 'Georgia', 'serif'],
         mono: ['"DM Mono"', 'monospace'],
         syne: ['"Syne"', 'sans-serif'],

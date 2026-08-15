@@ -34,12 +34,12 @@ export default function ContactPage() {
   return (
     <div className="w-full bg-background text-foreground">
       <div className="max-w-6xl mx-auto flex flex-col px-4 py-10 sm:px-8 md:px-12 md:py-16">
-        <section className="grid gap-10 border-t border-foreground pt-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:pt-14">
+        <section className="grid gap-8 border-t border-foreground py-8 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-10 md:py-10">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Contact</p>
           </div>
           <div className="space-y-6">
-            <h1 className="max-w-4xl text-4xl leading-tight sm:text-5xl md:text-7xl">
+            <h1 className="max-w-4xl text-3xl leading-tight sm:text-4xl md:text-5xl">
               For consulting, direction, and brand work.
             </h1>
             <p className="max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
@@ -49,7 +49,7 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="grid gap-10 border-t border-border py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+        <section className="grid gap-8 border-t border-border py-8 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-10 md:py-10">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Details</p>
           </div>
@@ -68,7 +68,7 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="grid gap-10 border-t border-b border-foreground py-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16 md:py-14">
+        <section className="grid gap-8 border-t border-b border-foreground py-8 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-10 md:py-10">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Calendar</p>
           </div>

@@ -38,8 +38,8 @@
   }
 
   body {
-    @apply bg-background text-foreground leading-relaxed font-light;
-    font-weight: 300;
+    @apply bg-background text-foreground font-normal;
+    font-weight: 400;
   }
 
   h1,
@@ -48,11 +48,25 @@
   h5,
   h6 {
     @apply font-sans;
-    font-weight: 300;
+    font-weight: 700;
   }
 
   h2 {
     @apply font-syne;
-    font-weight: 400;
+    font-weight: 700;
+  }
+
+  /* Underline links only within long-form content (articles, case studies). */
+  .content-body a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: hsl(var(--muted-foreground) / 0.5);
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  }
+
+  .content-body a:hover {
+    color: hsl(var(--foreground));
+    text-decoration-color: hsl(var(--foreground));
   }
 }

@@ -14,13 +14,26 @@ export default function LoginPage() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                router.push("/admin");
+        const verificationTimeout = window.setTimeout(() => setLoading(false), 4000);
+        const unsubscribe = onAuthStateChanged(
+            auth,
+            (user) => {
+                window.clearTimeout(verificationTimeout);
+                if (user) {
+                    router.replace("/admin");
+                }
+                setLoading(false);
+            },
+            (error) => {
+                window.clearTimeout(verificationTimeout);
+                console.error("Login authentication check failed:", error);
+                setLoading(false);
             }
-            setLoading(false);
-        });
-        return () => unsubscribe();
+        );
+        return () => {
+            window.clearTimeout(verificationTimeout);
+            unsubscribe();
+        };
     }, [router]);
 
     const handleLogin = async () => {
