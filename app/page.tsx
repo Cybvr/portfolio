@@ -24,7 +24,7 @@ export default function Page() {
               href: `/blog/${post.id}`,
               title: post.title,
               meta: `${post.category} · ${formatDate(post.date)}`,
-              thumbnail: post.thumbnail,
+              thumbnail: post.thumbnail || post.coverImage,
             }))
         );
       })
