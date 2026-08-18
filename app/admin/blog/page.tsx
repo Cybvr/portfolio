@@ -11,7 +11,6 @@ import {
     HiOutlinePencilSquare,
     HiOutlineTrash,
     HiOutlineArrowLeft,
-    HiOutlinePhoto
 } from "react-icons/hi2";
 import Image from "next/image";
 import Link from "next/link";
@@ -94,11 +93,7 @@ export default function BlogManagement() {
                             <div className="relative aspect-[16/10] overflow-hidden">
                                 {post.coverImage || post.thumbnail ? (
                                     <Image src={(post.coverImage || post.thumbnail) as string} alt={post.title} fill className="object-cover" />
-                                ) : (
-                                    <div className="w-full h-full bg-secondary flex items-center justify-center">
-                                        <HiOutlinePhoto className="w-12 h-12 text-muted-foreground" />
-                                    </div>
-                                )}
+                                ) : null}
                             </div>
                             <div className="p-8 flex-1 flex flex-col gap-6">
                                 <div className="space-y-2">
