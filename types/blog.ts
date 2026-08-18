@@ -3,7 +3,8 @@ export interface BlogPost {
   id: string;
   title: string;
   excerpt: string;
-  content: string[];
+  // New posts store Tiptap HTML; string[] keeps older Firestore posts readable.
+  content: string | string[];
   category: string;
   author: string;
   readTime: string;

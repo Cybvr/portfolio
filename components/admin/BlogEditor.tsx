@@ -10,6 +10,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import RichTextEditor from "@/components/admin/RichTextEditor";
+import { blogContentToHtml } from "@/lib/blog-content";
 import {
     HiOutlineArrowLeft,
     HiOutlineXMark,
@@ -49,8 +51,7 @@ export default function BlogEditor({ postId }: BlogEditorProps) {
         coverImage: '',
         status: 'published',
     });
-    // Content is edited as a single textarea; paragraphs are separated by blank lines.
-    const [contentText, setContentText] = useState('');
+    const [contentHtml, setContentHtml] = useState('');
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
     const [uploading, setUploading] = useState<string | null>(null);
@@ -78,7 +79,7 @@ export default function BlogEditor({ postId }: BlogEditorProps) {
             if (docSnap.exists()) {
                 const data = docSnap.data() as BlogPost;
                 setPost(data);
-                setContentText((data.content || []).join('\n\n'));
+                setContentHtml(blogContentToHtml(data.content));
                 setOriginalId(data.id);
             } else {
                 toast({ title: "Post not found", variant: "destructive" });
@@ -138,14 +139,9 @@ export default function BlogEditor({ postId }: BlogEditorProps) {
                 await deleteDoc(doc(db, "jpblog", originalId));
             }
 
-            const content = contentText
-                .split(/\n\s*\n/)
-                .map((p) => p.trim())
-                .filter(Boolean);
-
             const dataToSave = {
                 ...post,
-                content,
+                content: contentHtml,
                 date: post.date || new Date().toISOString().slice(0, 10),
                 dateUpdated: new Date().toISOString(),
                 dateCreated: post.dateCreated || new Date().toISOString(),
@@ -342,13 +338,8 @@ export default function BlogEditor({ postId }: BlogEditorProps) {
                 <section className="space-y-8">
                     <SectionTitle title="Content" />
                     <div className="space-y-2">
-                        <Label>Body (separate paragraphs with a blank line)</Label>
-                        <Textarea
-                            value={contentText}
-                            onChange={e => setContentText(e.target.value)}
-                            placeholder={"First paragraph...\n\nSecond paragraph..."}
-                            className="min-h-[400px] rounded-2xl leading-8"
-                        />
+                        <Label>Body</Label>
+                        <RichTextEditor value={contentHtml} onChange={setContentHtml} />
                     </div>
                 </section>
 

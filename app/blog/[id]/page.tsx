@@ -7,6 +7,8 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { fetchBlogPost, fetchBlogPosts, getAdjacentPosts } from '@/lib/blog'
 import { Sidebar } from '@/components/Sidebar'
 import type { BlogPost } from '@/types/blog'
+import { blogContentToHtml } from '@/lib/blog-content'
+import DOMPurify from 'isomorphic-dompurify'
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString('en-US', {
@@ -92,13 +94,10 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
                   />
                 </div>
               )}
-              <div className="content-body max-w-3xl space-y-6">
-                {post.content.map((paragraph, i) => (
-                  <p key={i} className="text-base leading-8 text-muted-foreground">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
+              <div
+                className="content-body max-w-3xl text-base leading-8 text-muted-foreground"
+                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blogContentToHtml(post.content)) }}
+              />
             </div>
 
             <div className="border-t border-border">
