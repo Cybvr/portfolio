@@ -5,7 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 import { doc, getDoc, setDoc, deleteDoc } from "firebase/firestore";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -97,12 +97,24 @@ export default function BlogEditor({ postId }: BlogEditorProps) {
         setUploading(field);
         const storageRef = ref(storage, `blog/${Date.now()}_${file.name}`);
         try {
-            const uploadTask = await uploadBytesResumable(storageRef, file);
-            const url = await getDownloadURL(uploadTask.ref);
+            if (!auth.currentUser) {
+                throw new Error("You must be signed in to upload images.");
+            }
+
+            // uploadBytes returns a promise. uploadBytesResumable returns an
+            // UploadTask, which must be observed separately before its result
+            // can be used.
+            const snapshot = await uploadBytes(storageRef, file);
+            const url = await getDownloadURL(snapshot.ref);
             setPost((prev) => ({ ...prev, [field]: url }));
             toast({ title: "Image uploaded" });
         } catch (error) {
-            toast({ title: "Upload failed", variant: "destructive" });
+            console.error("Blog image upload failed:", error);
+            toast({
+                title: "Upload failed",
+                description: error instanceof Error ? error.message : "Please try again.",
+                variant: "destructive",
+            });
         } finally {
             setUploading(null);
         }

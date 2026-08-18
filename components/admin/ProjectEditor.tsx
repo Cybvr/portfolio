@@ -6,7 +6,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 import { doc, getDoc, setDoc, deleteDoc } from "firebase/firestore";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -101,8 +101,12 @@ export default function ProjectEditor({ projectId }: ProjectEditorProps) {
         setUploading(field);
         const storageRef = ref(storage, `portfolio/${Date.now()}_${file.name}`);
         try {
-            const uploadTask = await uploadBytesResumable(storageRef, file);
-            const url = await getDownloadURL(uploadTask.ref);
+            if (!auth.currentUser) {
+                throw new Error("You must be signed in to upload images.");
+            }
+
+            const snapshot = await uploadBytes(storageRef, file);
+            const url = await getDownloadURL(snapshot.ref);
 
             if (isArray) {
                 const currentArr = (project[field] as string[]) || [];
@@ -112,7 +116,12 @@ export default function ProjectEditor({ projectId }: ProjectEditorProps) {
             }
             toast({ title: "Image uploaded" });
         } catch (error) {
-            toast({ title: "Upload failed", variant: "destructive" });
+            console.error("Portfolio image upload failed:", error);
+            toast({
+                title: "Upload failed",
+                description: error instanceof Error ? error.message : "Please try again.",
+                variant: "destructive",
+            });
         } finally {
             setUploading(null);
         }
