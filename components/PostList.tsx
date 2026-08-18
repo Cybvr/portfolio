@@ -28,21 +28,17 @@ export function PostList({ items, loading, loadingLabel = 'Loading…', emptyLab
 
   return (
     <div className="border-t border-border">
-      {items.map((item, index) => (
+      {items.map((item) => (
         <Link
           key={item.id}
           href={item.href}
           className="group grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-4 border-b border-border py-4 transition-colors hover:text-primary md:gap-6"
         >
-          <div className="relative h-14 w-20 shrink-0 overflow-hidden border border-border bg-muted">
-            {item.thumbnail ? (
+          {item.thumbnail && (
+            <div className="relative h-14 w-20 shrink-0 overflow-hidden border border-border bg-muted">
               <Image src={item.thumbnail} alt={item.title} fill sizes="80px" className="object-cover" />
-            ) : (
-              <div className="flex h-full w-full items-center justify-center text-sm text-muted-foreground">
-                {`0${index + 1}`}
-              </div>
-            )}
-          </div>
+            </div>
+          )}
           <div className="min-w-0 space-y-1">
             <h3 className="truncate text-lg text-foreground md:text-xl">{item.title}</h3>
             {item.meta && (
