@@ -46,7 +46,6 @@ export default function BlogEditor({ postId }: BlogEditorProps) {
         author: 'Jide Pinheiro',
         readTime: '',
         date: '',
-        thumbnail: '',
         coverImage: '',
         status: 'published',
     });
@@ -356,10 +355,7 @@ export default function BlogEditor({ postId }: BlogEditorProps) {
                 {/* Assets */}
                 <section className="space-y-12">
                     <SectionTitle title="Images" />
-                    <ImageUploader field="thumbnail" label="Thumbnail (list image)" />
-                    <div className="pt-8 border-t border-border">
-                        <ImageUploader field="coverImage" label="Cover Image (article hero)" />
-                    </div>
+                    <ImageUploader field="coverImage" label="Cover Image" />
                 </section>
             </main>
         </div>

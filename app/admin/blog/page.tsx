@@ -92,8 +92,8 @@ export default function BlogManagement() {
                     {posts.map((post) => (
                         <div key={post.id} className="bg-card border border-border rounded-[40px] overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                             <div className="relative aspect-[16/10] overflow-hidden">
-                                {post.thumbnail || post.coverImage ? (
-                                    <Image src={(post.thumbnail || post.coverImage) as string} alt={post.title} fill className="object-cover" />
+                                {post.coverImage || post.thumbnail ? (
+                                    <Image src={(post.coverImage || post.thumbnail) as string} alt={post.title} fill className="object-cover" />
                                 ) : (
                                     <div className="w-full h-full bg-secondary flex items-center justify-center">
                                         <HiOutlinePhoto className="w-12 h-12 text-muted-foreground" />
