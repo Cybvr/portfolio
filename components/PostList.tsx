@@ -19,11 +19,11 @@ interface PostListProps {
 
 export function PostList({ items, loading, loadingLabel = 'Loading…', emptyLabel = 'Nothing here yet.' }: PostListProps) {
   if (loading) {
-    return <p className="border-t border-border py-5 text-sm text-muted-foreground">{loadingLabel}</p>
+    return <p className="border-t border-border py-5 text-sm text-foreground">{loadingLabel}</p>
   }
 
   if (items.length === 0) {
-    return <p className="border-t border-border py-5 text-sm text-muted-foreground">{emptyLabel}</p>
+    return <p className="border-t border-border py-5 text-sm text-foreground">{emptyLabel}</p>
   }
 
   return (
@@ -42,10 +42,10 @@ export function PostList({ items, loading, loadingLabel = 'Loading…', emptyLab
           <div className="min-w-0 space-y-1">
             <h3 className="truncate text-lg text-foreground md:text-xl">{item.title}</h3>
             {item.meta && (
-              <p className="truncate text-[11px] uppercase tracking-[0.15em] text-muted-foreground">{item.meta}</p>
+              <p className="truncate text-[11px] uppercase tracking-[0.15em] text-foreground">{item.meta}</p>
             )}
           </div>
-          <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1" />
+          <ArrowRight className="h-4 w-4 shrink-0 text-foreground transition-transform group-hover:translate-x-1" />
         </Link>
       ))}
     </div>

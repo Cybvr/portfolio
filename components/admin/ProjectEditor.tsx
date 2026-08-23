@@ -226,7 +226,7 @@ export default function ProjectEditor({ projectId }: ProjectEditorProps) {
     );
 
     const SectionTitle = ({ title }: { title: string }) => (
-        <h3 className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground border-b border-border pb-2 mb-6">{title}</h3>
+        <h3 className="font-mono text-[10px] uppercase tracking-widest text-foreground border-b border-border pb-2 mb-6">{title}</h3>
     );
 
     const Label = ({ children }: { children: React.ReactNode }) => (
@@ -280,8 +280,8 @@ export default function ProjectEditor({ projectId }: ProjectEditorProps) {
                             disabled={uploading === field}
                             className="aspect-square rounded-2xl border-2 border-dashed border-border hover:border-secondary transition-colors flex flex-col items-center justify-center p-4 disabled:opacity-50"
                         >
-                            <HiOutlineCloudArrowUp className="w-6 h-6 mb-2 text-muted-foreground" />
-                            <span className="text-[10px] uppercase font-mono tracking-tighter text-muted-foreground">
+                            <HiOutlineCloudArrowUp className="w-6 h-6 mb-2 text-foreground" />
+                            <span className="text-[10px] uppercase font-mono tracking-tighter text-foreground">
                                 {uploading === field ? 'Uploading...' : 'Upload'}
                             </span>
                             <input
@@ -314,7 +314,7 @@ export default function ProjectEditor({ projectId }: ProjectEditorProps) {
                             <h1 className="text-2xl font-bold font-syne tracking-tight">
                                 {originalId ? `Editing: ${project.title}` : 'New Project'}
                             </h1>
-                            <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">
+                            <p className="font-mono text-[9px] uppercase tracking-widest text-foreground">
                                 Portfolio Builder
                             </p>
                         </div>
@@ -382,7 +382,7 @@ export default function ProjectEditor({ projectId }: ProjectEditorProps) {
                 {/* Narrative Section */}
                 <section className="space-y-8">
                     <div className="flex items-center justify-between border-b border-border pb-2 mb-6">
-                        <h3 className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">The Story</h3>
+                        <h3 className="font-mono text-[10px] uppercase tracking-widest text-foreground">The Story</h3>
                         <Button
                             type="button"
                             variant="outline"

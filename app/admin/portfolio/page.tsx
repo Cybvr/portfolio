@@ -97,14 +97,14 @@ export default function PortfolioManagement() {
                                     <Image src={project.featuredImage} alt={project.title} fill className="object-cover" />
                                 ) : (
                                     <div className="w-full h-full bg-secondary flex items-center justify-center">
-                                        <HiOutlinePhoto className="w-12 h-12 text-muted-foreground" />
+                                        <HiOutlinePhoto className="w-12 h-12 text-foreground" />
                                     </div>
                                 )}
                             </div>
                             <div className="p-8 flex-1 flex flex-col gap-6">
                                 <div className="space-y-2">
                                     <h3 className="text-2xl font-bold font-syne tracking-tight group-hover:text-primary transition-colors">{project.title}</h3>
-                                    <p className="text-muted-foreground text-sm line-clamp-2 leading-relaxed">
+                                    <p className="text-foreground text-sm line-clamp-2 leading-relaxed">
                                         {project.description}
                                     </p>
                                 </div>
@@ -130,7 +130,7 @@ export default function PortfolioManagement() {
                                         }
                                     />
                                     <div className="ml-auto flex items-center">
-                                        <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground opacity-50">
+                                        <span className="font-mono text-[9px] uppercase tracking-widest text-foreground opacity-50">
                                             ID: {project.id}
                                         </span>
                                     </div>
@@ -142,7 +142,7 @@ export default function PortfolioManagement() {
 
                 {projects.length === 0 && !loading && (
                     <div className="text-center py-24 border border-dashed border-border rounded-[40px]">
-                        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground">
                             No projects found in the collection.
                         </p>
                     </div>

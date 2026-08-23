@@ -4,11 +4,11 @@
 
 @layer base {
   :root {
-    --background: 30 33% 97%;
+    --background: 0 0% 100%;
     --foreground: 240 10% 20%;
     --muted: 30 25% 93%;
-    --muted-foreground: 240 5% 46%;
-    --popover: 30 33% 97%;
+    --muted-foreground: 240 10% 20%;
+    --popover: 0 0% 100%;
     --popover-foreground: 240 10% 16%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 16%;
@@ -38,8 +38,20 @@
   }
 
   body {
-    @apply bg-background text-foreground font-normal;
+    @apply bg-background text-foreground;
+    font-family: "Goudy Bookletter 1911", Georgia, serif;
     font-weight: 400;
+    line-height: normal;
+  }
+
+  :where(p, li, dd, blockquote) {
+    line-height: normal !important;
+  }
+
+  label,
+  legend,
+  [class~="uppercase"] {
+    @apply font-sans;
   }
 
   h1,

@@ -68,21 +68,21 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           <div className="flex flex-col">
         <section className="grid gap-8 border-t border-foreground py-8 md:gap-10 md:py-10">
           <div className="space-y-6">
-            <Link href="/portfolio" className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/portfolio" className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-foreground hover:text-foreground transition-colors">
               <ArrowLeft className="w-4 h-4" />
               Back
             </Link>
-            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Case Study</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-foreground">Case Study</p>
           </div>
           <div className="space-y-6">
             <h1 className="max-w-4xl text-3xl leading-tight sm:text-4xl md:text-5xl">{project.title}</h1>
-            <p className="max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">{project.description}</p>
+            <p className="max-w-2xl text-lg leading-8 text-foreground sm:text-xl">{project.description}</p>
           </div>
         </section>
 
         <section className="grid gap-8 border-t border-border py-8 md:gap-10 md:py-10">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Overview</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-foreground">Overview</p>
           </div>
           <div className="space-y-8">
             <div className="space-y-6">
@@ -97,7 +97,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 />
               </div>
               {project.content && (
-                <p className="content-body max-w-3xl text-base leading-8 text-muted-foreground">{project.content}</p>
+                <p className="content-body max-w-3xl text-base leading-8 text-foreground">{project.content}</p>
               )}
             </div>
 
@@ -106,8 +106,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 <div key={item.label} className="grid gap-3 border-b border-border py-4 md:grid-cols-[56px_minmax(0,1fr)] md:gap-6">
                   <span className="text-sm text-foreground">{`0${index + 1}`}</span>
                   <div className="space-y-1">
-                    <p className="text-sm uppercase tracking-[0.15em] text-muted-foreground">{item.label}</p>
-                    <p className="text-base leading-8 text-muted-foreground">{item.value}</p>
+                    <p className="text-sm uppercase tracking-[0.15em] text-foreground">{item.label}</p>
+                    <p className="text-base leading-8 text-foreground">{item.value}</p>
                   </div>
                 </div>
               ))}
@@ -116,7 +116,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   href={project.url || project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 pt-5 text-sm uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors"
+                  className="inline-flex items-center gap-2 pt-5 text-sm uppercase tracking-[0.15em] text-foreground hover:text-foreground transition-colors"
                 >
                   Visit Site
                   <ExternalLink className="w-4 h-4" />
@@ -129,14 +129,14 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         {narrativeRows.length > 0 && (
           <section className="grid gap-8 border-t border-border py-8 md:gap-10 md:py-10">
             <div>
-              <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Narrative</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-foreground">Narrative</p>
             </div>
             <div className="border-t border-border">
               {narrativeRows.map((item, index) => (
                 <div key={item.label} className="grid gap-3 border-b border-border py-5 md:grid-cols-[56px_minmax(0,180px)_minmax(0,1fr)] md:gap-6">
                   <span className="text-sm text-foreground">{`0${index + 1}`}</span>
-                  <p className="text-sm uppercase tracking-[0.15em] text-muted-foreground">{item.label}</p>
-                  <p className="text-base leading-8 text-muted-foreground">{item.value}</p>
+                  <p className="text-sm uppercase tracking-[0.15em] text-foreground">{item.label}</p>
+                  <p className="text-base leading-8 text-foreground">{item.value}</p>
                 </div>
               ))}
             </div>
@@ -146,7 +146,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         {project.gallery && project.gallery.length > 0 && (
           <section className="grid gap-8 border-t border-border py-8 md:gap-10 md:py-10">
             <div>
-              <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Gallery</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-foreground">Gallery</p>
             </div>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {project.gallery.map((img, i) => (
@@ -161,7 +161,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         {project.imageSet1 && project.imageSet1.length > 0 && (
           <section className="grid gap-8 border-t border-border py-8 md:gap-10 md:py-10">
             <div>
-              <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Visuals 01</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-foreground">Visuals 01</p>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               {project.imageSet1.map((img, i) => (
@@ -176,7 +176,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         {project.imageSet2 && project.imageSet2.length > 0 && (
           <section className="grid gap-8 border-t border-border py-8 md:gap-10 md:py-10">
             <div>
-              <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Visuals 02</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-foreground">Visuals 02</p>
             </div>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {project.imageSet2.map((img, i) => (
@@ -191,7 +191,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         {project.imageSet3 && project.imageSet3.length > 0 && (
           <section className="grid gap-8 border-t border-border py-8 md:gap-10 md:py-10">
             <div>
-              <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Visuals 03</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-foreground">Visuals 03</p>
             </div>
             <div className="grid grid-cols-1 gap-6">
               {project.imageSet3.map((img, i) => (
@@ -206,7 +206,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         {project.embed && (
           <section className="grid gap-8 border-t border-border py-8 md:gap-10 md:py-10">
             <div>
-              <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Embed</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-foreground">Embed</p>
             </div>
             <div className="border border-border aspect-video">
               <div className="w-full h-full" dangerouslySetInnerHTML={{ __html: project.embed }} />
@@ -216,27 +216,27 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
         <section className="grid gap-8 border-t border-b border-foreground py-8 md:gap-10 md:py-10">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Navigation</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-foreground">Navigation</p>
           </div>
           <div className="border-t border-border">
             {prevProject && (
               <Link href={`/portfolio/${prevProject.id}`} className="grid gap-3 border-b border-border py-5 transition-colors hover:text-primary md:grid-cols-[56px_minmax(0,1fr)_auto] md:gap-6">
                 <span className="text-sm text-foreground">01</span>
                 <div>
-                  <p className="text-sm uppercase tracking-[0.15em] text-muted-foreground">Previous</p>
+                  <p className="text-sm uppercase tracking-[0.15em] text-foreground">Previous</p>
                   <p className="text-2xl text-foreground">{prevProject.title}</p>
                 </div>
-                <ArrowLeft className="w-5 h-5 text-muted-foreground" />
+                <ArrowLeft className="w-5 h-5 text-foreground" />
               </Link>
             )}
             {nextProject && (
               <Link href={`/portfolio/${nextProject.id}`} className="grid gap-3 py-5 transition-colors hover:text-primary md:grid-cols-[56px_minmax(0,1fr)_auto] md:gap-6">
                 <span className="text-sm text-foreground">02</span>
                 <div>
-                  <p className="text-sm uppercase tracking-[0.15em] text-muted-foreground">Next</p>
+                  <p className="text-sm uppercase tracking-[0.15em] text-foreground">Next</p>
                   <p className="text-2xl text-foreground">{nextProject.title}</p>
                 </div>
-                <ArrowRight className="w-5 h-5 text-muted-foreground" />
+                <ArrowRight className="w-5 h-5 text-foreground" />
               </Link>
             )}
           </div>

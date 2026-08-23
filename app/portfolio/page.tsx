@@ -61,7 +61,7 @@ export default function PortfolioPage() {
     return (
       <div className="w-full bg-background text-foreground">
         <div className="max-w-6xl mx-auto px-4 py-20 sm:px-8 md:px-12">
-          <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Loading portfolio</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-foreground">Loading portfolio</p>
         </div>
       </div>
     )
@@ -74,7 +74,7 @@ export default function PortfolioPage() {
           <div className="flex flex-col">
         <section className="grid gap-8 border-t border-foreground py-8 md:gap-10 md:py-10">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Filters</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-foreground">Filters</p>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             <Select value={selectedIndustry} onValueChange={setSelectedIndustry}>
@@ -120,7 +120,7 @@ export default function PortfolioPage() {
 
         <section className="grid gap-8 border-t border-b border-foreground py-8 md:gap-10 md:py-10">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Projects</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-foreground">Projects</p>
           </div>
           <PostList items={projectItems} emptyLabel="No projects match these filters." />
         </section>

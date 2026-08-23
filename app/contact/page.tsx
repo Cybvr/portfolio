@@ -36,13 +36,13 @@ export default function ContactPage() {
       <div className="max-w-6xl mx-auto flex flex-col px-4 py-10 sm:px-8 md:px-12 md:py-16">
         <section className="grid gap-8 border-t border-foreground py-8 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-10 md:py-10">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Contact</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-foreground">Contact</p>
           </div>
           <div className="space-y-6">
             <h1 className="max-w-4xl text-3xl leading-tight sm:text-4xl md:text-5xl">
               For consulting, direction, and brand work.
             </h1>
-            <p className="max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
+            <p className="max-w-2xl text-lg leading-8 text-foreground sm:text-xl">
               Positioning, messaging, digital expression, and advisory work for teams that need sharper language and a
               stronger presence.
             </p>
@@ -51,7 +51,7 @@ export default function ContactPage() {
 
         <section className="grid gap-8 border-t border-border py-8 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-10 md:py-10">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Details</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-foreground">Details</p>
           </div>
           <div className="border-t border-border">
             {contactItems.map((item, index) => (
@@ -61,8 +61,8 @@ export default function ContactPage() {
                 className="grid gap-3 border-b border-border py-4 transition-colors hover:text-foreground md:grid-cols-[56px_minmax(0,180px)_minmax(0,1fr)] md:gap-6"
               >
                 <span className="text-sm text-foreground">{`0${index + 1}`}</span>
-                <span className="text-sm uppercase tracking-[0.15em] text-muted-foreground">{item.label}</span>
-                <span className="text-base leading-8 text-muted-foreground">{item.value}</span>
+                <span className="text-sm uppercase tracking-[0.15em] text-foreground">{item.label}</span>
+                <span className="text-base leading-8 text-foreground">{item.value}</span>
               </a>
             ))}
           </div>
@@ -70,7 +70,7 @@ export default function ContactPage() {
 
         <section className="grid gap-8 border-t border-b border-foreground py-8 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-10 md:py-10">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Calendar</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-foreground">Calendar</p>
           </div>
           <div className="border-t border-border pt-6">
             <div className="w-full border border-border" style={{ height: calHeight }}>

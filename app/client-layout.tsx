@@ -69,7 +69,7 @@ export default function ClientLayout({
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-48 text-[10px] uppercase tracking-[0.2em]">
-        <div className="px-2 py-1.5 text-muted-foreground truncate border-b border-border/50 mb-1">
+        <div className="px-2 py-1.5 text-foreground truncate border-b border-border/50 mb-1">
           {user.email}
         </div>
         <DropdownMenuItem asChild>
@@ -115,7 +115,7 @@ export default function ClientLayout({
           </Link>
 
           <nav>
-            <ul className="space-y-1 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+            <ul className="space-y-1 text-[11px] uppercase tracking-[0.2em] text-foreground">
               {primaryLinks.map(({ href, label, icon: Icon }) => (
                 <li key={label}>
                   <Link
@@ -201,11 +201,11 @@ export default function ClientLayout({
         <div className="max-w-6xl mx-auto border-t border-b border-foreground py-10 md:py-14">
           <div className="grid gap-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16">
             <div className="space-y-4">
-              <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Contact</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-foreground">Contact</p>
               <div className="scale-[0.5] origin-top-left -mb-20">
                 <ToptalBadge />
               </div>
-              <p className="max-w-[220px] text-[11px] leading-5 text-muted-foreground">
+              <p className="max-w-[220px] text-[11px] leading-5 text-foreground">
                 Selected as Toptal top 3% talent for the combination of strategic thinking, design rigor, and digital
                 execution.
               </p>
@@ -219,27 +219,27 @@ export default function ClientLayout({
                   <Link
                     key={label}
                     href={href}
-                    className={`text-sm uppercase tracking-[0.15em] text-muted-foreground ${textLinkStyles}`}
+                    className={`text-sm uppercase tracking-[0.15em] text-foreground ${textLinkStyles}`}
                   >
                     {label}
                   </Link>
                 ))}
               </div>
               <div className="grid gap-4 border-t border-border pt-5 md:grid-cols-4">
-                <a href="mailto:jide.pinheiro@gmail.com" className={`text-sm text-muted-foreground ${textLinkStyles}`}>
+                <a href="mailto:jide.pinheiro@gmail.com" className={`text-sm text-foreground ${textLinkStyles}`}>
                   jide.pinheiro@gmail.com
                 </a>
-                <Link href="https://www.linkedin.com/in/jidepinheiro/" className={`text-sm text-muted-foreground ${textLinkStyles}`}>
+                <Link href="https://www.linkedin.com/in/jidepinheiro/" className={`text-sm text-foreground ${textLinkStyles}`}>
                   LinkedIn
                 </Link>
-                <Link href="https://github.com/Cybvr" className={`text-sm text-muted-foreground ${textLinkStyles}`}>
+                <Link href="https://github.com/Cybvr" className={`text-sm text-foreground ${textLinkStyles}`}>
                   GitHub
                 </Link>
-                <Link href="https://www.toptal.com/designers/resume/jidepinheiro" className={`text-sm text-muted-foreground ${textLinkStyles}`}>
+                <Link href="https://www.toptal.com/designers/resume/jidepinheiro" className={`text-sm text-foreground ${textLinkStyles}`}>
                   Toptal
                 </Link>
               </div>
-              <div className="grid gap-3 border-t border-border pt-5 text-sm text-muted-foreground md:grid-cols-[minmax(0,1fr)_auto]">
+              <div className="grid gap-3 border-t border-border pt-5 text-sm text-foreground md:grid-cols-[minmax(0,1fr)_auto]">
                 <p>Jide Pinheiro</p>
                 <p>(c) {new Date().getFullYear()}</p>
               </div>

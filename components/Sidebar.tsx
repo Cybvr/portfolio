@@ -53,21 +53,23 @@ export function Sidebar({ showWork = true, className = '' }: SidebarProps) {
   return (
     <aside className={`space-y-10 ${className}`}>
       <div className="space-y-5">
-        <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">About</p>
-        <p className="text-base leading-8 text-muted-foreground">
-          I help businesses articulate their value with more precision, more confidence, and less noise. I started in
-          design. The work grew into positioning, messaging, and brand direction because that is usually where the real
-          problem sits. My practice centers on clarity, language, and market presence.
-        </p>
-        <div className="space-y-1 text-sm uppercase tracking-[0.2em] text-muted-foreground">
-          <p>Jide Pinheiro</p>
-          <p>Brand Consultant</p>
+        <p className="text-sm uppercase tracking-[0.2em] text-foreground">About</p>
+        <div className="space-y-2">
+          <p className="text-sm text-foreground">
+            I help businesses articulate their value with more precision, more confidence, and less noise. I started in
+            design. The work grew into positioning, messaging, and brand direction because that is usually where the real
+            problem sits. My practice centers on clarity, language, and market presence.
+          </p>
+          <div className="space-y-1 text-sm uppercase tracking-[0.2em] text-foreground">
+            <p>Jide Pinheiro</p>
+            <p>Brand Consultant</p>
+          </div>
         </div>
       </div>
 
       {showWork && (
         <div className="space-y-6">
-          <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Work</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-foreground">Work</p>
           <PostList items={workItems} loading={loading} loadingLabel="Loading work…" />
         </div>
       )}

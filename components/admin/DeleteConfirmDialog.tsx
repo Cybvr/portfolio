@@ -51,7 +51,7 @@ export default function DeleteConfirmDialog({
                     <AlertDialogTitle className="font-syne text-xl font-bold tracking-tight">
                         Delete “{itemName}”?
                     </AlertDialogTitle>
-                    <AlertDialogDescription className="leading-relaxed text-muted-foreground">
+                    <AlertDialogDescription className="leading-relaxed text-foreground">
                         This permanently removes the {itemType} from the site. This action cannot be undone.
                     </AlertDialogDescription>
                 </AlertDialogHeader>

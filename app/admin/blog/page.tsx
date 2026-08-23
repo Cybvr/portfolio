@@ -97,12 +97,12 @@ export default function BlogManagement() {
                             </div>
                             <div className="p-8 flex-1 flex flex-col gap-6">
                                 <div className="space-y-2">
-                                    <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-widest text-muted-foreground">
+                                    <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-widest text-foreground">
                                         <span>{post.category}</span>
                                         {post.status === 'draft' && <span className="text-destructive">• Draft</span>}
                                     </div>
                                     <h3 className="text-2xl font-bold font-syne tracking-tight group-hover:text-primary transition-colors">{post.title}</h3>
-                                    <p className="text-muted-foreground text-sm line-clamp-2 leading-relaxed">
+                                    <p className="text-foreground text-sm line-clamp-2 leading-relaxed">
                                         {post.excerpt}
                                     </p>
                                 </div>
@@ -128,7 +128,7 @@ export default function BlogManagement() {
                                         }
                                     />
                                     <div className="ml-auto flex items-center">
-                                        <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground opacity-50">
+                                        <span className="font-mono text-[9px] uppercase tracking-widest text-foreground opacity-50">
                                             {post.date}
                                         </span>
                                     </div>
@@ -140,7 +140,7 @@ export default function BlogManagement() {
 
                 {posts.length === 0 && !loading && (
                     <div className="text-center py-24 border border-dashed border-border rounded-[40px]">
-                        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground">
                             No posts yet. Click “Add Post” to create your first one.
                         </p>
                     </div>

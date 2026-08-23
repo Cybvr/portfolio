@@ -56,7 +56,7 @@ export default function LoginPage() {
                     </div>
                     <div className="space-y-2">
                         <h1 className="text-3xl font-bold font-syne tracking-tight">Admin Access</h1>
-                        <p className="text-muted-foreground font-mono text-[10px] uppercase tracking-widest">
+                        <p className="text-foreground font-mono text-[10px] uppercase tracking-widest">
                             Please sign in to continue
                         </p>
                     </div>
@@ -73,7 +73,7 @@ export default function LoginPage() {
                     </Button>
 
                     <div className="mt-8 pt-8 border-t border-border">
-                        <p className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest leading-loose">
+                        <p className="text-[10px] font-mono text-foreground uppercase tracking-widest leading-loose">
                             Security Notice:<br />
                             Access is restricted to authorized users.
                         </p>

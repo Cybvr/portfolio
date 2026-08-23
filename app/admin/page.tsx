@@ -61,7 +61,7 @@ export default function AdminDashboard() {
         <div
             role="status"
             aria-live="polite"
-            className="flex min-h-screen items-center justify-center font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
+            className="flex min-h-screen items-center justify-center font-mono text-[10px] uppercase tracking-[0.3em] text-foreground"
         >
             Verifying access&hellip;
         </div>
@@ -72,7 +72,7 @@ export default function AdminDashboard() {
             <div className="max-w-md space-y-5 text-center">
                 <HiOutlineExclamationTriangle className="mx-auto h-8 w-8 text-destructive" aria-hidden="true" />
                 <h1 className="text-2xl font-bold font-syne">Access check failed</h1>
-                <p className="text-sm leading-6 text-muted-foreground">
+                <p className="text-sm leading-6 text-foreground">
                     Your session could not be verified. Sign in again to continue.
                 </p>
                 <Button asChild variant="outline">
@@ -90,7 +90,7 @@ export default function AdminDashboard() {
                 <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 pb-12 border-b border-border">
                     <div className="space-y-1">
                         <h1 className="text-4xl md:text-5xl font-bold font-syne tracking-tight">Dashboard</h1>
-                        <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">
+                        <p className="font-mono text-[10px] text-foreground uppercase tracking-widest">
                             Welcome back, {user.displayName}
                         </p>
                     </div>
@@ -112,7 +112,7 @@ export default function AdminDashboard() {
                             </div>
                             <div className="space-y-2">
                                 <h3 className="text-xl font-bold font-syne">Portfolio Management</h3>
-                                <p className="text-muted-foreground text-sm leading-relaxed">
+                                <p className="text-foreground text-sm leading-relaxed">
                                     Add, edit, or remove projects from your portfolio collection.
                                 </p>
                             </div>
@@ -126,7 +126,7 @@ export default function AdminDashboard() {
                             </div>
                             <div className="space-y-2">
                                 <h3 className="text-xl font-bold font-syne">Blog Management</h3>
-                                <p className="text-muted-foreground text-sm leading-relaxed">
+                                <p className="text-foreground text-sm leading-relaxed">
                                     Write, edit, or remove posts from your blog.
                                 </p>
                             </div>
@@ -140,7 +140,7 @@ export default function AdminDashboard() {
                             </div>
                             <div className="space-y-2">
                                 <h3 className="text-xl font-bold font-syne">Settings</h3>
-                                <p className="text-muted-foreground text-sm leading-relaxed">
+                                <p className="text-foreground text-sm leading-relaxed">
                                     Configure your profile and global preferences.
                                 </p>
                             </div>
@@ -153,7 +153,7 @@ export default function AdminDashboard() {
                         <HiOutlineSparkles className="w-6 h-6" />
                         <h2 className="font-mono text-[10px] uppercase tracking-widest">Quick Tips</h2>
                     </div>
-                    <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
+                    <p className="text-lg md:text-xl text-foreground leading-relaxed max-w-3xl">
                         To update your portfolio, click on "Portfolio Management". All changes are live immediately across the site.
                     </p>
                 </section>

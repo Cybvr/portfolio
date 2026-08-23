@@ -12,13 +12,13 @@ import Link from 'next/link';
             className="w-full h-full object-cover"
           />
         ) : (
-          <span className="text-muted-foreground">{title} Preview</span>
+          <span className="text-foreground">{title} Preview</span>
         )}
       </div>
       <div className="p-6">
         <div className="flex justify-between items-start mb-2">
           <h3 className="text-xl font-semibold text-foreground">{title}</h3>
-          <span className="text-sm text-muted-foreground">{industry}</span>
+          <span className="text-sm text-foreground">{industry}</span>
         </div>
         <p className="text-card text-sm mb-4">{description}</p>
 
@@ -44,7 +44,7 @@ import Link from 'next/link';
           {technologies.map((tech) => (
             <span 
               key={tech}
-              className="px-2 py-1 bg-muted text-muted-foreground text-sm rounded"
+              className="px-2 py-1 bg-muted text-foreground text-sm rounded"
             >
               {tech}
             </span>

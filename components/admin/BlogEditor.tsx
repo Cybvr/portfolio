@@ -9,6 +9,7 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { DatePicker } from "@/components/ui/date-picker";
 import { useToast } from "@/hooks/use-toast";
 import RichTextEditor from "@/components/admin/RichTextEditor";
 import { blogContentToHtml } from "@/lib/blog-content";
@@ -169,11 +170,11 @@ export default function BlogEditor({ postId }: BlogEditorProps) {
     );
 
     const SectionTitle = ({ title }: { title: string }) => (
-        <h3 className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground border-b border-border pb-2 mb-6">{title}</h3>
+        <h3 className="font-mono text-[10px] uppercase tracking-widest text-foreground border-b border-border pb-2 mb-6">{title}</h3>
     );
 
-    const Label = ({ children }: { children: React.ReactNode }) => (
-        <label className="text-[10px] font-mono uppercase tracking-widest ml-1 mb-2 block">{children}</label>
+    const Label = ({ children, ...props }: React.LabelHTMLAttributes<HTMLLabelElement>) => (
+        <label className="text-[10px] font-mono uppercase tracking-widest ml-1 mb-2 block" {...props}>{children}</label>
     );
 
     const ImageUploader = ({ field, label }: { field: keyof BlogPost, label: string }) => {
@@ -202,8 +203,8 @@ export default function BlogEditor({ postId }: BlogEditorProps) {
                             disabled={uploading === field}
                             className="aspect-square rounded-2xl border-2 border-dashed border-border hover:border-secondary transition-colors flex flex-col items-center justify-center p-4 disabled:opacity-50"
                         >
-                            <HiOutlineCloudArrowUp className="w-6 h-6 mb-2 text-muted-foreground" />
-                            <span className="text-[10px] uppercase font-mono tracking-tighter text-muted-foreground">
+                            <HiOutlineCloudArrowUp className="w-6 h-6 mb-2 text-foreground" />
+                            <span className="text-[10px] uppercase font-mono tracking-tighter text-foreground">
                                 {uploading === field ? 'Uploading...' : 'Upload'}
                             </span>
                             <input
@@ -236,7 +237,7 @@ export default function BlogEditor({ postId }: BlogEditorProps) {
                             <h1 className="text-2xl font-bold font-syne tracking-tight">
                                 {originalId ? `Editing: ${post.title}` : 'New Post'}
                             </h1>
-                            <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">
+                            <p className="font-mono text-[9px] uppercase tracking-widest text-foreground">
                                 Blog Builder
                             </p>
                         </div>
@@ -294,7 +295,7 @@ export default function BlogEditor({ postId }: BlogEditorProps) {
                                 placeholder="positioning-before-pixels"
                                 className="h-12 rounded-xl font-mono text-sm"
                             />
-                            <p className="text-[10px] text-muted-foreground ml-1">Fills in from the title. Edit only if you want a custom URL.</p>
+                            <p className="text-[10px] text-foreground ml-1">Fills in from the title. Edit only if you want a custom URL.</p>
                         </div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -303,8 +304,12 @@ export default function BlogEditor({ postId }: BlogEditorProps) {
                             <Input value={post.category} onChange={e => setPost({ ...post, category: e.target.value })} placeholder="e.g. Strategy" className="h-12 rounded-xl" />
                         </div>
                         <div className="space-y-2">
-                            <Label>Date (YYYY-MM-DD)</Label>
-                            <Input value={post.date} onChange={e => setPost({ ...post, date: e.target.value })} placeholder="2026-08-15" className="h-12 rounded-xl" />
+                            <Label htmlFor="blog-publish-date">Publish Date</Label>
+                            <DatePicker
+                                id="blog-publish-date"
+                                value={post.date}
+                                onChange={date => setPost({ ...post, date })}
+                            />
                         </div>
                         <div className="space-y-2">
                             <Label>Read Time</Label>
