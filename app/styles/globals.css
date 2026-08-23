@@ -51,133 +51,16 @@
   label,
   legend,
   [class~="uppercase"] {
-    @apply font-sans;
+    font-family: "DM Sans", sans-serif;
   }
 
   h1,
+  h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply font-sans;
+    font-family: "DM Sans", sans-serif;
     font-weight: 700;
-  }
-
-  h2 {
-    @apply font-syne;
-    font-weight: 700;
-  }
-
-  /* Underline links only within long-form content (articles, case studies). */
-  .content-body a {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-thickness: 1px;
-    text-decoration-color: hsl(var(--muted-foreground) / 0.5);
-    transition: color 0.15s ease, text-decoration-color 0.15s ease;
-  }
-
-  .content-body a:hover {
-    color: hsl(var(--foreground));
-    text-decoration-color: hsl(var(--foreground));
-  }
-
-  .content-body p + p {
-    margin-top: 1.5rem;
-  }
-
-  .content-body h2,
-  .content-body h3 {
-    color: hsl(var(--foreground));
-    font-family: "Syne", sans-serif;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .content-body h2 {
-    font-size: 1.75rem;
-  }
-
-  .content-body h3 {
-    font-size: 1.35rem;
-  }
-
-  .content-body ul,
-  .content-body ol {
-    margin: 1.5rem 0;
-    padding-left: 1.5rem;
-  }
-
-  .content-body ul {
-    list-style: disc;
-  }
-
-  .content-body ol {
-    list-style: decimal;
-  }
-
-  .content-body blockquote {
-    border-left: 2px solid hsl(var(--border));
-    margin: 1.5rem 0;
-    padding-left: 1rem;
-    color: hsl(var(--foreground));
-    font-style: italic;
-  }
-
-  .content-body code {
-    border-radius: 0.25rem;
-    background: hsl(var(--muted));
-    padding: 0.15rem 0.35rem;
-    font-size: 0.9em;
-  }
-
-  .content-body pre {
-    overflow-x: auto;
-    border-radius: 0.5rem;
-    background: hsl(var(--foreground));
-    color: hsl(var(--background));
-    padding: 1rem;
-  }
-
-  .rich-text-editor__content {
-    min-height: 24rem;
-    padding: 1.25rem;
-    outline: none;
-    line-height: 1.8;
-  }
-
-  .rich-text-editor__content p + p {
-    margin-top: 1rem;
-  }
-
-  .rich-text-editor__content h2,
-  .rich-text-editor__content h3 {
-    font-family: "Syne", sans-serif;
-    font-weight: 700;
-    line-height: 1.2;
-    margin: 1.5rem 0 0.75rem;
-  }
-
-  .rich-text-editor__content ul,
-  .rich-text-editor__content ol {
-    margin: 1rem 0;
-    padding-left: 1.5rem;
-  }
-
-  .rich-text-editor__content ul {
-    list-style: disc;
-  }
-
-  .rich-text-editor__content ol {
-    list-style: decimal;
-  }
-
-  .rich-text-editor__content blockquote {
-    border-left: 2px solid hsl(var(--border));
-    margin: 1rem 0;
-    padding-left: 1rem;
-    font-style: italic;
   }
 }
