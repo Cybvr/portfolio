@@ -200,12 +200,12 @@ export default function ClientLayout({
       </header>
 
       {/* Content offset for the desktop sidebar */}
-      <div className="flex min-h-screen flex-col md:pl-56">
-        <main className="flex-1">{children}</main>
+      <div className="flex min-h-screen min-w-0 flex-col md:pl-56">
+        <main className="min-w-0 flex-1">{children}</main>
 
         <footer className="mt-20 px-4 pb-8 md:px-8">
-        <div className="max-w-6xl mx-auto border-t border-b border-foreground py-10 md:py-14">
-          <div className="grid gap-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16">
+        <div className="mx-auto max-w-6xl min-w-0 border-t border-b border-foreground py-10 md:py-14">
+          <div className="grid min-w-0 gap-10 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] md:gap-16">
             <div className="space-y-4">
               <p className="text-sm uppercase tracking-[0.2em] text-foreground">Contact</p>
               <div className="scale-[0.5] origin-top-left -mb-20">
@@ -216,23 +216,23 @@ export default function ClientLayout({
                 execution.
               </p>
             </div>
-            <div className="space-y-8">
+            <div className="min-w-0 space-y-8">
               <p className="max-w-3xl text-2xl leading-10">
                 Brand consulting across positioning, messaging, and digital expression.
               </p>
-              <div className="grid gap-4 border-t border-border pt-5 md:grid-cols-5">
-                {primaryLinks.map(({ href, label }) => (
+              <div className="grid min-w-0 gap-4 border-t border-border pt-5 md:grid-cols-5">
+                {primaryLinks.filter(({ href }) => !href.startsWith('mailto:')).map(({ href, label }) => (
                   <Link
                     key={label}
                     href={href}
-                    className={`text-sm uppercase tracking-[0.15em] text-foreground ${textLinkStyles}`}
+                    className={`min-w-0 text-sm uppercase tracking-[0.15em] text-foreground ${textLinkStyles}`}
                   >
                     {label}
                   </Link>
                 ))}
               </div>
-              <div className="grid gap-4 border-t border-border pt-5 md:grid-cols-4">
-                <a href="mailto:jide.pinheiro@gmail.com" className={`text-sm text-foreground ${textLinkStyles}`}>
+              <div className="grid min-w-0 gap-4 border-t border-border pt-5 md:grid-cols-4">
+                <a href="mailto:jide.pinheiro@gmail.com" className={`min-w-0 break-words text-sm text-foreground [overflow-wrap:anywhere] ${textLinkStyles}`}>
                   jide.pinheiro@gmail.com
                 </a>
                 <Link href="https://www.linkedin.com/in/jidepinheiro/" className={`text-sm text-foreground ${textLinkStyles}`}>
