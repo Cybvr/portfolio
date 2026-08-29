@@ -23,7 +23,8 @@ export default function Page() {
               id: post.id,
               href: `/blog/${post.id}`,
               title: post.title,
-              meta: `${post.category} · ${formatDate(post.date)}`,
+              meta: post.category,
+              date: formatDate(post.date),
               thumbnail: post.coverImage || post.thumbnail,
             }))
         );
@@ -37,7 +38,7 @@ export default function Page() {
         <div className="grid gap-8 border-t border-b border-foreground py-8 md:gap-10 md:py-10 lg:grid-cols-[minmax(0,1fr)_320px]">
           <div className="space-y-6">
             <p className="text-sm uppercase tracking-[0.2em] text-foreground">Blog</p>
-            <PostList items={blogItems} loading={loading} loadingLabel="Loading posts…" />
+            <PostList items={blogItems} loading={loading} loadingLabel="Loading posts…" variant="grid" />
           </div>
           <Sidebar className="lg:sticky lg:top-8 lg:self-start lg:border-l lg:border-border lg:pl-10" />
         </div>

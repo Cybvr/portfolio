@@ -179,7 +179,48 @@ export default function BlogEditor({ postId }: BlogEditorProps) {
 
     const ImageUploader = ({ field, label }: { field: keyof BlogPost, label: string }) => {
         const inputRef = useRef<HTMLInputElement>(null);
+        const dragDepth = useRef(0);
+        const [isDragging, setIsDragging] = useState(false);
         const value = post[field] as string | undefined;
+
+        const selectFile = (file?: File) => {
+            if (!file || uploading === field) return;
+
+            if (!file.type.startsWith('image/')) {
+                toast({
+                    title: "Unsupported file",
+                    description: "Please choose an image file.",
+                    variant: "destructive",
+                });
+                return;
+            }
+
+            handleFileUpload(file, field);
+        };
+
+        const handleDragEnter = (event: React.DragEvent<HTMLButtonElement>) => {
+            event.preventDefault();
+            event.stopPropagation();
+            if (uploading !== field) {
+                dragDepth.current += 1;
+                setIsDragging(true);
+            }
+        };
+
+        const handleDragLeave = (event: React.DragEvent<HTMLButtonElement>) => {
+            event.preventDefault();
+            event.stopPropagation();
+            dragDepth.current = Math.max(0, dragDepth.current - 1);
+            if (dragDepth.current === 0) setIsDragging(false);
+        };
+
+        const handleDrop = (event: React.DragEvent<HTMLButtonElement>) => {
+            event.preventDefault();
+            event.stopPropagation();
+            dragDepth.current = 0;
+            setIsDragging(false);
+            selectFile(event.dataTransfer.files?.[0]);
+        };
 
         return (
             <div className="space-y-4">
@@ -200,20 +241,34 @@ export default function BlogEditor({ postId }: BlogEditorProps) {
                         <button
                             type="button"
                             onClick={() => inputRef.current?.click()}
+                            onDragEnter={handleDragEnter}
+                            onDragLeave={handleDragLeave}
+                            onDragOver={(event) => {
+                                event.preventDefault();
+                                event.stopPropagation();
+                                event.dataTransfer.dropEffect = 'copy';
+                            }}
+                            onDrop={handleDrop}
                             disabled={uploading === field}
-                            className="aspect-square rounded-2xl border-2 border-dashed border-border hover:border-secondary transition-colors flex flex-col items-center justify-center p-4 disabled:opacity-50"
+                            aria-label={`${label}. Drop an image here or click to upload.`}
+                            className={`aspect-square rounded-2xl border-2 border-dashed transition-colors flex flex-col items-center justify-center p-4 disabled:opacity-50 ${
+                                isDragging
+                                    ? 'border-secondary bg-secondary/10'
+                                    : 'border-border hover:border-secondary'
+                            }`}
                         >
                             <HiOutlineCloudArrowUp className="w-6 h-6 mb-2 text-foreground" />
-                            <span className="text-[10px] uppercase font-mono tracking-tighter text-foreground">
-                                {uploading === field ? 'Uploading...' : 'Upload'}
+                            <span className="text-center text-[10px] uppercase font-mono tracking-tighter text-foreground">
+                                {uploading === field ? 'Uploading...' : isDragging ? 'Drop image here' : 'Drop or upload'}
                             </span>
                             <input
                                 type="file"
                                 ref={inputRef}
                                 className="hidden"
+                                accept="image/*"
                                 onChange={(e) => {
-                                    const file = e.target.files?.[0];
-                                    if (file) handleFileUpload(file, field);
+                                    selectFile(e.target.files?.[0]);
+                                    e.target.value = '';
                                 }}
                             />
                         </button>
