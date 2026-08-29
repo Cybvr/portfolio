@@ -8,7 +8,6 @@ import { fetchBlogPost, fetchBlogPosts, getAdjacentPosts } from '@/lib/blog'
 import { Sidebar } from '@/components/Sidebar'
 import type { BlogPost } from '@/types/blog'
 import { blogContentToHtml } from '@/lib/blog-content'
-import DOMPurify from 'isomorphic-dompurify'
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString('en-US', {
@@ -21,6 +20,7 @@ function formatDate(date: string) {
 export default function BlogPostPage({ params }: { params: { id: string } }) {
   const [post, setPost] = useState<BlogPost | null>(null)
   const [posts, setPosts] = useState<BlogPost[]>([])
+  const [sanitizedContent, setSanitizedContent] = useState('')
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -31,6 +31,22 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
       })
       .finally(() => setLoading(false))
   }, [params.id])
+
+  useEffect(() => {
+    if (!post) {
+      setSanitizedContent('')
+      return
+    }
+
+    let active = true
+    import('isomorphic-dompurify').then(({ default: DOMPurify }) => {
+      if (active) setSanitizedContent(DOMPurify.sanitize(blogContentToHtml(post.content)))
+    })
+
+    return () => {
+      active = false
+    }
+  }, [post])
 
   if (loading) return null
 
@@ -90,7 +106,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
             <div className="space-y-6">
               <div
                 className="content-body max-w-3xl text-base text-foreground sm:text-lg"
-                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blogContentToHtml(post.content)) }}
+                dangerouslySetInnerHTML={{ __html: sanitizedContent }}
               />
             </div>
 
