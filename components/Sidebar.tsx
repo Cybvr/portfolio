@@ -56,14 +56,11 @@ export function Sidebar({ showWork = true, className = '' }: SidebarProps) {
         <p className="text-sm uppercase tracking-[0.2em] text-foreground">About</p>
         <div className="space-y-2">
           <p className="text-sm text-foreground">
-            I help businesses articulate their value with more precision, more confidence, and less noise. I started in
-            design. The work grew into positioning, messaging, and brand direction because that is usually where the real
-            problem sits. My practice centers on clarity, language, and market presence.
+            I’m Jide Pinheiro, a brand consultant. I help businesses articulate their value with more precision, more
+            confidence, and less noise. I started in design. The work grew into positioning, messaging, and brand
+            direction because that is usually where the real problem sits. My practice centers on clarity, language, and
+            market presence.
           </p>
-          <div className="space-y-1 text-sm uppercase tracking-[0.2em] text-foreground">
-            <p>Jide Pinheiro</p>
-            <p>Brand Consultant</p>
-          </div>
         </div>
       </div>
 

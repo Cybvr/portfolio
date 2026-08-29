@@ -116,77 +116,79 @@ export default function BlogManagement() {
                             key={post.id}
                             role="link"
                             tabIndex={0}
-                            aria-label={`Open ${post.title}`}
-                            onClick={() => router.push(`/blog/${post.id}`)}
+                            aria-label={`Edit ${post.title}`}
+                            onClick={() => router.push(`/admin/blog/${post.id}`)}
                             onKeyDown={(event) => {
                                 if (event.key === "Enter" || event.key === " ") {
                                     event.preventDefault();
-                                    router.push(`/blog/${post.id}`);
+                                    router.push(`/admin/blog/${post.id}`);
                                 }
                             }}
                             className="flex cursor-pointer flex-col overflow-hidden rounded-sm border border-border bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                         >
-                            {post.coverImage || post.thumbnail ? (
-                                <div className="relative aspect-[16/10] overflow-hidden">
+                            <div className="relative aspect-[16/10] overflow-hidden bg-secondary/20">
+                                {post.coverImage || post.thumbnail ? (
                                     <Image src={(post.coverImage || post.thumbnail) as string} alt={post.title} fill className="object-cover" />
+                                ) : (
+                                    <div className="flex h-full items-center justify-center font-mono text-[9px] uppercase tracking-[0.2em] text-foreground/60">
+                                        No thumbnail
+                                    </div>
+                                )}
+                                <div
+                                    className="absolute right-4 top-4 z-10 shrink-0"
+                                    onClick={(event) => event.stopPropagation()}
+                                    onKeyDown={(event) => event.stopPropagation()}
+                                >
+                                    <DropdownMenu>
+                                        <DropdownMenuTrigger asChild>
+                                            <Button
+                                                variant="ghost"
+                                                size="icon"
+                                                className="h-10 w-10 rounded-sm bg-background/90"
+                                                aria-label={`More actions for ${post.title}`}
+                                            >
+                                                <HiOutlineEllipsisVertical className="h-5 w-5" />
+                                            </Button>
+                                        </DropdownMenuTrigger>
+                                        <DropdownMenuContent align="end" className="w-48">
+                                            <DropdownMenuLabel>Post actions</DropdownMenuLabel>
+                                            <DropdownMenuItem onSelect={() => router.push(`/blog/${post.id}`)}>
+                                                <HiOutlineEye />
+                                                View detail
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem onSelect={() => router.push(`/admin/blog/${post.id}`)}>
+                                                <HiOutlinePencilSquare />
+                                                Edit post
+                                            </DropdownMenuItem>
+                                            <DropdownMenuSeparator />
+                                            <DeleteConfirmDialog
+                                                itemType="post"
+                                                itemName={post.title}
+                                                onConfirm={() => handleDelete(post.id)}
+                                                trigger={
+                                                    <DropdownMenuItem
+                                                        onSelect={(event) => event.preventDefault()}
+                                                        className="text-destructive focus:text-destructive"
+                                                    >
+                                                        <HiOutlineTrash />
+                                                        Delete post
+                                                    </DropdownMenuItem>
+                                                }
+                                            />
+                                        </DropdownMenuContent>
+                                    </DropdownMenu>
                                 </div>
-                            ) : null}
+                            </div>
                             <div className="flex flex-1 flex-col gap-6 p-8">
-                                <div className="flex items-start justify-between gap-6">
-                                    <div className="space-y-3">
-                                        <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-widest text-foreground">
-                                            <span>{post.category}</span>
-                                            {post.status === 'draft' && <span className="text-destructive">• Draft</span>}
-                                        </div>
-                                        <h3 className="text-2xl font-bold font-syne tracking-tight">{post.title}</h3>
-                                        <p className="text-sm leading-relaxed text-foreground">
-                                            {formatPostDate(post.date)}
-                                        </p>
+                                <div className="space-y-3">
+                                    <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-widest text-foreground">
+                                        <span>{post.category}</span>
+                                        {post.status === 'draft' && <span className="text-destructive">• Draft</span>}
                                     </div>
-                                    <div
-                                        className="shrink-0"
-                                        onClick={(event) => event.stopPropagation()}
-                                        onKeyDown={(event) => event.stopPropagation()}
-                                    >
-                                        <DropdownMenu>
-                                            <DropdownMenuTrigger asChild>
-                                                <Button
-                                                    variant="ghost"
-                                                    size="icon"
-                                                    className="h-10 w-10 rounded-sm"
-                                                    aria-label={`More actions for ${post.title}`}
-                                                >
-                                                    <HiOutlineEllipsisVertical className="h-5 w-5" />
-                                                </Button>
-                                            </DropdownMenuTrigger>
-                                            <DropdownMenuContent align="end" className="w-48">
-                                                <DropdownMenuLabel>Post actions</DropdownMenuLabel>
-                                                <DropdownMenuItem onSelect={() => router.push(`/blog/${post.id}`)}>
-                                                    <HiOutlineEye />
-                                                    View detail
-                                                </DropdownMenuItem>
-                                                <DropdownMenuItem onSelect={() => router.push(`/admin/blog/${post.id}`)}>
-                                                    <HiOutlinePencilSquare />
-                                                    Edit post
-                                                </DropdownMenuItem>
-                                                <DropdownMenuSeparator />
-                                                <DeleteConfirmDialog
-                                                    itemType="post"
-                                                    itemName={post.title}
-                                                    onConfirm={() => handleDelete(post.id)}
-                                                    trigger={
-                                                        <DropdownMenuItem
-                                                            onSelect={(event) => event.preventDefault()}
-                                                            className="text-destructive focus:text-destructive"
-                                                        >
-                                                            <HiOutlineTrash />
-                                                            Delete post
-                                                        </DropdownMenuItem>
-                                                    }
-                                                />
-                                            </DropdownMenuContent>
-                                        </DropdownMenu>
-                                    </div>
+                                    <h3 className="w-full text-2xl font-bold font-syne tracking-tight">{post.title}</h3>
+                                    <p className="text-sm leading-relaxed text-foreground">
+                                        {formatPostDate(post.date)}
+                                    </p>
                                 </div>
                             </div>
                         </div>
