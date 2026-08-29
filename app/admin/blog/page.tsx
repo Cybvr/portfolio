@@ -11,12 +11,35 @@ import {
     HiOutlinePencilSquare,
     HiOutlineTrash,
     HiOutlineArrowLeft,
+    HiOutlineEye,
+    HiOutlineEllipsisVertical,
 } from "react-icons/hi2";
 import Image from "next/image";
 import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
 import type { BlogPost } from "@/types/blog";
 import DeleteConfirmDialog from "@/components/admin/DeleteConfirmDialog";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+function formatPostDate(value?: string) {
+    if (!value) return "No publish date";
+
+    const parsedDate = new Date(value.length === 10 ? `${value}T00:00:00` : value);
+    if (Number.isNaN(parsedDate.getTime())) return value;
+
+    return parsedDate.toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+    });
+}
 
 export default function BlogManagement() {
     const router = useRouter();
@@ -89,48 +112,80 @@ export default function BlogManagement() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {posts.map((post) => (
-                        <div key={post.id} className="bg-card border border-border rounded-[40px] overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                            <div className="relative aspect-[16/10] overflow-hidden">
-                                {post.coverImage || post.thumbnail ? (
+                        <div
+                            key={post.id}
+                            role="link"
+                            tabIndex={0}
+                            aria-label={`Open ${post.title}`}
+                            onClick={() => router.push(`/blog/${post.id}`)}
+                            onKeyDown={(event) => {
+                                if (event.key === "Enter" || event.key === " ") {
+                                    event.preventDefault();
+                                    router.push(`/blog/${post.id}`);
+                                }
+                            }}
+                            className="flex cursor-pointer flex-col overflow-hidden rounded-sm border border-border bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                        >
+                            {post.coverImage || post.thumbnail ? (
+                                <div className="relative aspect-[16/10] overflow-hidden">
                                     <Image src={(post.coverImage || post.thumbnail) as string} alt={post.title} fill className="object-cover" />
-                                ) : null}
-                            </div>
-                            <div className="p-8 flex-1 flex flex-col gap-6">
-                                <div className="space-y-2">
-                                    <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-widest text-foreground">
-                                        <span>{post.category}</span>
-                                        {post.status === 'draft' && <span className="text-destructive">• Draft</span>}
-                                    </div>
-                                    <h3 className="text-2xl font-bold font-syne tracking-tight group-hover:text-primary transition-colors">{post.title}</h3>
-                                    <p className="text-foreground text-sm line-clamp-2 leading-relaxed">
-                                        {post.excerpt}
-                                    </p>
                                 </div>
-                                <div className="flex gap-3 pt-4 border-t border-border mt-auto">
-                                    <Link href={`/admin/blog/${post.id}`}>
-                                        <Button variant="outline" size="icon" className="rounded-xl border-border hover:bg-secondary">
-                                            <HiOutlinePencilSquare className="w-5 h-5" />
-                                        </Button>
-                                    </Link>
-                                    <DeleteConfirmDialog
-                                        itemType="post"
-                                        itemName={post.title}
-                                        onConfirm={() => handleDelete(post.id)}
-                                        trigger={
-                                            <Button
-                                                variant="destructive"
-                                                size="icon"
-                                                className="rounded-xl"
-                                                aria-label={`Delete ${post.title}`}
-                                            >
-                                                <HiOutlineTrash className="w-5 h-5" />
-                                            </Button>
-                                        }
-                                    />
-                                    <div className="ml-auto flex items-center">
-                                        <span className="font-mono text-[9px] uppercase tracking-widest text-foreground opacity-50">
-                                            {post.date}
-                                        </span>
+                            ) : null}
+                            <div className="flex flex-1 flex-col gap-6 p-8">
+                                <div className="flex items-start justify-between gap-6">
+                                    <div className="space-y-3">
+                                        <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-widest text-foreground">
+                                            <span>{post.category}</span>
+                                            {post.status === 'draft' && <span className="text-destructive">• Draft</span>}
+                                        </div>
+                                        <h3 className="text-2xl font-bold font-syne tracking-tight">{post.title}</h3>
+                                        <p className="text-sm leading-relaxed text-foreground">
+                                            {formatPostDate(post.date)}
+                                        </p>
+                                    </div>
+                                    <div
+                                        className="shrink-0"
+                                        onClick={(event) => event.stopPropagation()}
+                                        onKeyDown={(event) => event.stopPropagation()}
+                                    >
+                                        <DropdownMenu>
+                                            <DropdownMenuTrigger asChild>
+                                                <Button
+                                                    variant="ghost"
+                                                    size="icon"
+                                                    className="h-10 w-10 rounded-sm"
+                                                    aria-label={`More actions for ${post.title}`}
+                                                >
+                                                    <HiOutlineEllipsisVertical className="h-5 w-5" />
+                                                </Button>
+                                            </DropdownMenuTrigger>
+                                            <DropdownMenuContent align="end" className="w-48">
+                                                <DropdownMenuLabel>Post actions</DropdownMenuLabel>
+                                                <DropdownMenuItem onSelect={() => router.push(`/blog/${post.id}`)}>
+                                                    <HiOutlineEye />
+                                                    View detail
+                                                </DropdownMenuItem>
+                                                <DropdownMenuItem onSelect={() => router.push(`/admin/blog/${post.id}`)}>
+                                                    <HiOutlinePencilSquare />
+                                                    Edit post
+                                                </DropdownMenuItem>
+                                                <DropdownMenuSeparator />
+                                                <DeleteConfirmDialog
+                                                    itemType="post"
+                                                    itemName={post.title}
+                                                    onConfirm={() => handleDelete(post.id)}
+                                                    trigger={
+                                                        <DropdownMenuItem
+                                                            onSelect={(event) => event.preventDefault()}
+                                                            className="text-destructive focus:text-destructive"
+                                                        >
+                                                            <HiOutlineTrash />
+                                                            Delete post
+                                                        </DropdownMenuItem>
+                                                    }
+                                                />
+                                            </DropdownMenuContent>
+                                        </DropdownMenu>
                                     </div>
                                 </div>
                             </div>
@@ -139,7 +194,7 @@ export default function BlogManagement() {
                 </div>
 
                 {posts.length === 0 && !loading && (
-                    <div className="text-center py-24 border border-dashed border-border rounded-[40px]">
+                    <div className="text-center py-24 border border-dashed border-border rounded-sm">
                         <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground">
                             No posts yet. Click “Add Post” to create your first one.
                         </p>
