@@ -4,7 +4,10 @@ import './styles/globals.css'
 import ClientLayout from './client-layout'
 
 export const metadata: Metadata = {
-  title: 'Jide Pinheiro - Brand Consultant',
+  title: {
+    default: 'Jide Pinheiro - Brand Consultant',
+    template: '%s | Jide Pinheiro',
+  },
   description: 'Brand consultant focused on positioning, messaging, and digital expression.',
   icons: {
     icon: [{ url: '/favicon.png', type: 'image/png', sizes: '256x256' }],

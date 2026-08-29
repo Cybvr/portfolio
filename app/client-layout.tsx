@@ -7,7 +7,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSepara
 import { Button } from "@/components/ui/button"
 import { Toaster } from "@/components/ui/toaster"
 import { Menu, LogOut, LayoutDashboard, Pencil } from 'lucide-react'
-import { HiOutlineBriefcase, HiOutlineEnvelope, HiOutlineNewspaper, HiOutlineSparkles, HiOutlineUser } from 'react-icons/hi2'
+import { HiOutlineBriefcase, HiOutlineChatBubbleLeftRight, HiOutlineEnvelope, HiOutlineNewspaper, HiOutlineSparkles, HiOutlineUser } from 'react-icons/hi2'
 import { useEffect, useState } from 'react'
 import { auth } from '@/lib/firebase'
 import { onAuthStateChanged, signOut, User } from 'firebase/auth'
@@ -18,7 +18,13 @@ const primaryLinks = [
   { href: '/portfolio', label: 'Portfolio', icon: HiOutlineBriefcase },
   { href: '/blog', label: 'Blog', icon: HiOutlineNewspaper },
   { href: 'https://visualcns.com', label: 'CNS', icon: HiOutlineSparkles },
-  { href: '/contact', label: 'Contact', icon: HiOutlineEnvelope },
+  {
+    href: 'mailto:jide.pinheiro@gmail.com',
+    label: 'jide.pinheiro@gmail.com',
+    icon: HiOutlineEnvelope,
+    labelClassName: 'normal-case tracking-normal break-all',
+  },
+  { href: 'https://wa.me/234907153197', label: 'WhatsApp', icon: HiOutlineChatBubbleLeftRight },
 ]
 
 const textLinkStyles = 'underline decoration-border underline-offset-4 transition-colors hover:text-blue-600 hover:decoration-blue-600'
@@ -116,11 +122,11 @@ export default function ClientLayout({
 
           <nav>
             <ul className="space-y-1 text-[11px] uppercase tracking-[0.2em] text-foreground">
-              {primaryLinks.map(({ href, label, icon: Icon }) => (
+              {primaryLinks.map(({ href, label, icon: Icon, labelClassName }) => (
                 <li key={label}>
                   <Link
                     href={href}
-                    className={`flex items-center gap-3 py-2 ${textLinkStyles} ${isActiveLink(href) ? 'text-foreground' : ''}`}
+                    className={`flex min-w-0 max-w-full items-center gap-3 py-2 ${labelClassName || ''} ${textLinkStyles} ${isActiveLink(href) ? 'text-foreground' : ''}`}
                   >
                     <Icon className="w-4 h-4" />
                     {label}
@@ -177,11 +183,11 @@ export default function ClientLayout({
               <Link href="/" className={`w-full border-b border-border py-4 ${textLinkStyles}`} onClick={() => setIsMobileMenuOpen(false)}>
                 Home
               </Link>
-              {primaryLinks.map(({ href, label, icon: Icon }) => (
+              {primaryLinks.map(({ href, label, icon: Icon, labelClassName }) => (
                 <Link
                   key={label}
                   href={href}
-                  className={`flex w-full items-center gap-3 border-b border-border py-4 ${textLinkStyles}`}
+                  className={`flex w-full min-w-0 items-center gap-3 border-b border-border py-4 ${labelClassName || ''} ${textLinkStyles}`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <Icon className="w-6 h-6" />
